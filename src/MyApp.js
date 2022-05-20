@@ -1,13 +1,9 @@
-import { Button } from "@mui/material";
 import React from "react";
 import { Redirect } from "react-router-dom";
 import { withRouter } from "react-router-dom";
 import { Route, Switch } from "react-router-dom";
-import App from "./App";
-
-const Test = () => {
-  return <Button>Test page</Button>;
-};
+import DrawerMenu from "./components/DrawerMenu";
+import Home from "./components/Home";
 
 const GoHome = () => {
   return <Redirect to="" />;
@@ -15,11 +11,17 @@ const GoHome = () => {
 
 function MyApp() {
   return (
-    <Switch>
-      <Route exact path="/" component={App} />
-      <Route exact path="/test" component={Test} />
-      <Route component={GoHome} />
-    </Switch>
+    <>
+      <DrawerMenu />
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/about" component={Home} />
+        <Route exact path="/portfolio" component={Home} />
+        <Route exact path="/skills" component={Home} />
+        <Route exact path="/contact" component={Home} />
+        <Route component={GoHome} />
+      </Switch>
+    </>
   );
 }
 
