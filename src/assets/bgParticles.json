@@ -24,15 +24,11 @@
   },
   "interactivity": {
     "events": {
-      "onClick": {
-        "enable": true,
-        "mode": "push"
-      },
       "onHover": {
         "enable": true,
         "mode": "bubble",
         "parallax": {
-          "force": 60
+          "force": 40
         }
       }
     },
@@ -67,11 +63,11 @@
   },
   "particles": {
     "color": {
-      "value": "#ffffff"
+      "value": "#0b0b21"
     },
     "links": {
       "color": {
-        "value": "#ffffff"
+        "value": "#0b0b21"
       },
       "distance": 150,
       "enable": true
@@ -91,7 +87,7 @@
         "right": "out",
         "top": "out"
       },
-      "speed": 0.75,
+      "speed": 0.5,
       "spin": {}
     },
     "number": {

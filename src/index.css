@@ -30,6 +30,23 @@
   }
 }
 
+@keyframes translateUp {
+  from {
+    transform: translateY(20%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
+@keyframes translateLeft {
+  from {
+    transform: translateX(20%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
+
 body {
   margin: 0;
   font-family: "Roboto", sans-serif;
@@ -73,7 +90,7 @@ body {
     rgba(11, 11, 139, 0.2) 50%,
     rgba(0, 255, 255, 0.2) 100%
   );
-  animation: width-left2right 0.5s ease-out forwards;
+  animation: width-left2right 1s ease-out forwards;
 }
 .home-intro .intro-text {
   display: flex;
@@ -82,7 +99,8 @@ body {
   align-items: center;
   flex-basis: 50%;
   height: 100%;
-  animation: fadeIn 1s forwards;
+  opacity: 0;
+  animation: fadeIn 1.5s ease-out forwards 1s, translateUp 1s forwards 1s;
 }
 .home-intro .intro-picture {
   flex-basis: 40%;
@@ -91,5 +109,14 @@ body {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: bottom;
-  animation: intro-picture-shadow 3s infinite;
+  opacity: 0;
+  animation: fadeIn 1.5s ease-out forwards 1s, translateLeft 1s forwards 1s,
+    intro-picture-shadow 3s infinite;
+}
+.home-intro .typewriter {
+  font-size: 2rem;
+}
+.home-intro .typewriter-cursor {
+  font-size: 2.3rem;
+  color: cyan;
 }
