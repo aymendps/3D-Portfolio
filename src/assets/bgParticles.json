@@ -20,7 +20,7 @@
     "enable": true
   },
   "fullScreen": {
-    "zIndex": -1
+    "zIndex": 1
   },
   "interactivity": {
     "events": {
