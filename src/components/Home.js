@@ -71,10 +71,17 @@ function Home() {
               >
                 <GitHubIcon fontSize="inherit" />
               </IconButton>
-              <IconButton className="social-icon">
+              <IconButton
+                href="https://www.linkedin.com/in/aymendps/"
+                target="_blank"
+                className="social-icon"
+              >
                 <LinkedInIcon fontSize="inherit" />
               </IconButton>
-              <IconButton className="social-icon">
+              <IconButton
+                href="mailto: hammami.aym@outlook.com"
+                className="social-icon"
+              >
                 <EmailIcon fontSize="inherit" />
               </IconButton>
             </div>
