@@ -38,12 +38,42 @@
     transform: translateY(0%);
   }
 }
+@keyframes translateFullUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
+@keyframes translateFullDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
 @keyframes translateLeft {
   from {
     transform: translateX(20%);
   }
   to {
     transform: translateY(0%);
+  }
+}
+@keyframes popup {
+  0% {
+    width: 0;
+    height: 0;
+  }
+  50% {
+    width: var(--maxWidth);
+    height: var(--maxHeight);
+  }
+  100% {
+    width: var(--width);
+    height: var(--height);
   }
 }
 
@@ -56,7 +86,7 @@ body {
 
 :root {
   --blue_bg: rgb(11, 11, 33);
-  --blue_50a: rgba(0, 0, 139, 0.5);
+  --cyan_20a: rgba(0, 255, 255, 0.2);
 }
 
 .bg-particles {
@@ -66,6 +96,58 @@ body {
 }
 .bg-particles canvas {
   background-image: url(./assets/bg.jpg);
+}
+
+.navbar-wrapper.bottom {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: transparent !important;
+  z-index: 10;
+}
+.navbar-wrapper.top {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: transparent !important;
+  z-index: 10;
+}
+.navbar-wrapper.bottom .navbar {
+  height: 15vh !important;
+  background-color: cadetblue !important;
+  animation: translateFullUp ease-out 0.5s;
+}
+.navbar-wrapper.top .navbar {
+  height: 10vh !important;
+  background-color: cadetblue !important;
+  animation: translateFullDown ease-out 0.5s;
+}
+.navbar button {
+  max-width: none !important;
+}
+.navbar button svg {
+  height: 1.5em;
+  width: 1.5em;
+  color: var(--blue_bg);
+}
+.navbar-wrapper.top .navbar button svg {
+  height: 1.25em;
+  width: 1.1em;
+}
+.navbar button.Mui-selected svg {
+  color: rgb(11, 11, 139);
+}
+.navbar button.Mui-selected .MuiBottomNavigationAction-label {
+  color: rgb(11, 11, 139);
+  font-size: 1rem;
+}
+.navbar-wrapper.top
+  .navbar
+  button.Mui-selected
+  .MuiBottomNavigationAction-label {
+  font-size: 0.9rem;
 }
 
 .home-intro {
@@ -119,4 +201,28 @@ body {
 .home-intro .typewriter-cursor {
   font-size: 2.3rem;
   color: cyan;
+}
+.home-intro .social-icon {
+  color: white;
+  width: 3em;
+  height: 3em;
+}
+.home-intro .social-icon svg {
+  width: 0;
+  height: 0;
+  --width: 1.5em;
+  --height: 1.5em;
+  --maxWidth: 1.75em;
+  --maxHeight: 1.75em;
+  animation: popup 1s ease-in-out forwards 2s;
+  transition: 0.5s;
+}
+.home-intro .social-icon:hover svg {
+  color: cyan;
+}
+.home-intro .social-icon:nth-child(2) svg {
+  animation-delay: 2.5s;
+}
+.home-intro .social-icon:nth-child(3) svg {
+  animation-delay: 3s;
 }

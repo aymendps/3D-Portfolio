@@ -1,9 +1,12 @@
-import { Typography } from "@mui/material";
+import { IconButton, Typography } from "@mui/material";
 import React from "react";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 import bgParticles from "../assets/bgParticles.json";
 import TypeWriter from "typewriter-effect";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import EmailIcon from "@mui/icons-material/Email";
 
 function Home() {
   const particlesInit = async (main) => {
@@ -13,7 +16,7 @@ function Home() {
   const messages = [
     "Passionate, Creative, Quick Learner, Problem Solver.",
     "I always seek to sharpen & improve my skills.",
-    "I want to excel in leadership, teamwork and development.",
+    "I want to excel in teamwork & development.",
     "I want to learn new technologies and apply them.",
     "I want to work as a game developer one day.",
   ];
@@ -60,6 +63,21 @@ function Home() {
                 deleteSpeed: 10,
               }}
             />
+            <div>
+              <IconButton
+                href="https://www.github.com/aymendps/"
+                target="_blank"
+                className="social-icon"
+              >
+                <GitHubIcon fontSize="inherit" />
+              </IconButton>
+              <IconButton className="social-icon">
+                <LinkedInIcon fontSize="inherit" />
+              </IconButton>
+              <IconButton className="social-icon">
+                <EmailIcon fontSize="inherit" />
+              </IconButton>
+            </div>
           </div>
           <div className="intro-picture"></div>
         </div>
