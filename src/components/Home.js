@@ -29,7 +29,6 @@ function Home() {
         options={bgParticles}
       />
       <div style={{ textAlign: "center" }} className="home-container">
-        <p>Website is under construction :D</p>
         <div className="home-intro">
           <div className="intro-bg"></div>
           <div className="intro-text">

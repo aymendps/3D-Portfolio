@@ -1,4 +1,4 @@
-import { BottomNavigation, BottomNavigationAction, Paper } from "@mui/material";
+import { BottomNavigation, BottomNavigationAction, Box } from "@mui/material";
 import React from "react";
 import SchoolIcon from "@mui/icons-material/School";
 import PortfolioIcon from "@mui/icons-material/PermMedia";
@@ -19,7 +19,7 @@ function Navbar(props) {
   }, [props.location.pathname]);
 
   return (
-    <Paper className="navbar-wrapper bottom" elevation={3}>
+    <Box className="navbar-wrapper top">
       <BottomNavigation
         className="navbar"
         value={value}
@@ -66,7 +66,7 @@ function Navbar(props) {
           }}
         />
       </BottomNavigation>
-    </Paper>
+    </Box>
   );
 }
 
