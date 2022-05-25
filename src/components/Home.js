@@ -92,13 +92,15 @@ function Home() {
           </div>
           <div className="intro-picture"></div>
           <div className="intro-finish">
-            <Typography color="cyan">Wanna see something cool?</Typography>
+            <Typography className="discover-label" color="cyan">
+              Wanna embark on a discovery quest?
+            </Typography>
             <Button
               className="discover-button"
               variant="contained"
               size="large"
             >
-              Start Discovering
+              Accept Quest
             </Button>
           </div>
         </div>

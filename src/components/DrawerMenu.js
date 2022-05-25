@@ -6,8 +6,10 @@ import {
   List,
   ListItem,
   ListItemText,
+  Zoom,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
+import CloseIcon from "@mui/icons-material/Close";
 import { withRouter } from "react-router-dom";
 
 function DrawerMenu(props) {
@@ -15,6 +17,7 @@ function DrawerMenu(props) {
 
   const menu = [
     { text: "Home" },
+    { text: "About" },
     { text: "Portfolio" },
     { text: "Education" },
     { text: "Skills" },
@@ -50,7 +53,12 @@ function DrawerMenu(props) {
           setIsOpen(!isOpen);
         }}
       >
-        <MenuIcon />
+        <Zoom in={isOpen === false}>
+          <MenuIcon />
+        </Zoom>
+        <Zoom in={isOpen === true}>
+          <CloseIcon sx={{ position: "absolute" }} />
+        </Zoom>
       </IconButton>
       <Drawer
         PaperProps={{
