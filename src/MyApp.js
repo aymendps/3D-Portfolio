@@ -2,13 +2,13 @@ import React from "react";
 import { Redirect } from "react-router-dom";
 import { withRouter } from "react-router-dom";
 import { Route, Switch } from "react-router-dom";
-import Home from "./components/Home";
-import Portfolio from "./components/Portfolio";
-import Education from "./components/Education";
-import Skills from "./components/Skills";
-import Contact from "./components/Contact";
-import DrawerMenu from "./components/DrawerMenu";
-import About from "./components/About";
+import Home from "./components/Pages/Home";
+import Portfolio from "./components/Pages/Portfolio";
+import Education from "./components/Pages/Education";
+import Skills from "./components/Pages/Skills";
+import Contact from "./components/Pages/Contact";
+import DrawerMenu from "./components/Navigation/DrawerMenu";
+import About from "./components/Pages/About";
 
 const GoHome = () => {
   return <Redirect to="" />;

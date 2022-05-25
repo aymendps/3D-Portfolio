@@ -2,7 +2,7 @@ import { Button, IconButton, Typography } from "@mui/material";
 import React from "react";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
-import bgParticles from "../assets/bgParticles.json";
+import bgParticles from "../../assets/bgParticles.json";
 import TypeWriter from "typewriter-effect";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
