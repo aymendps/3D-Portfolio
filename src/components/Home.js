@@ -1,4 +1,4 @@
-import { IconButton, Typography } from "@mui/material";
+import { Button, IconButton, Typography } from "@mui/material";
 import React from "react";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
@@ -38,9 +38,14 @@ function Home() {
               </Typography>
               <Typography variant="h4">Welcome to my Website!</Typography>
             </div>
-            <Typography variant="h2" fontWeight="bold">
-              I'm <span style={{ color: "aqua" }}>Aymen Hammami</span>
-            </Typography>
+            <div>
+              <Typography variant="h2" fontWeight="bold">
+                I'm <span style={{ color: "aqua" }}>Aymen Hammami</span>
+              </Typography>
+              <Typography variant="h5" fontStyle="italic">
+                Not your average software engineer
+              </Typography>
+            </div>
             <TypeWriter
               onInit={(typewriter) => {
                 typewriter.pauseFor(2000);
@@ -68,24 +73,34 @@ function Home() {
                 target="_blank"
                 className="social-icon"
               >
-                <GitHubIcon fontSize="inherit" />
+                <GitHubIcon />
               </IconButton>
               <IconButton
                 href="https://www.linkedin.com/in/aymendps/"
                 target="_blank"
                 className="social-icon"
               >
-                <LinkedInIcon fontSize="inherit" />
+                <LinkedInIcon />
               </IconButton>
               <IconButton
                 href="mailto: hammami.aym@outlook.com"
                 className="social-icon"
               >
-                <EmailIcon fontSize="inherit" />
+                <EmailIcon />
               </IconButton>
             </div>
           </div>
           <div className="intro-picture"></div>
+          <div className="intro-finish">
+            <Typography color="cyan">Wanna see something cool?</Typography>
+            <Button
+              className="discover-button"
+              variant="contained"
+              size="large"
+            >
+              Start Discovering
+            </Button>
+          </div>
         </div>
       </div>
     </>

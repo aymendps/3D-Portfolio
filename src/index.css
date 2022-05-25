@@ -86,6 +86,7 @@ body {
 
 :root {
   --blue_bg: rgb(11, 11, 33);
+  --blue_button: rgb(11, 11, 66);
   --cyan_20a: rgba(0, 255, 255, 0.2);
 }
 
@@ -137,10 +138,10 @@ body {
   width: 1.1em;
 }
 .navbar button.Mui-selected svg {
-  color: rgb(11, 11, 139);
+  color: white;
 }
 .navbar button.Mui-selected .MuiBottomNavigationAction-label {
-  color: rgb(11, 11, 139);
+  color: white;
   font-size: 1rem;
 }
 .navbar-wrapper.top
@@ -154,9 +155,9 @@ body {
   position: absolute;
   display: flex;
   width: 100%;
-  height: 70vh;
+  height: 66vh;
   top: 50%;
-  margin-top: -30vh;
+  margin-top: -36vh;
   justify-content: space-evenly;
   align-items: flex-end;
 }
@@ -225,4 +226,64 @@ body {
 }
 .home-intro .social-icon:nth-child(3) svg {
   animation-delay: 3s;
+}
+
+.drawer-menu-button {
+  position: fixed;
+  top: 1vw;
+  left: 1vw;
+  background-color: var(--darkbg) !important;
+  color: white !important;
+  z-index: 1201;
+}
+.drawer-menu-button svg {
+  width: 2em;
+  height: 2em;
+}
+.drawer-menu-list {
+  width: 100%;
+  color: white;
+}
+.drawer-menu-text {
+  text-align: center;
+  opacity: 0;
+  animation: fadeIn 1s ease-out forwards 0.25s,
+    translateFullUp 0.5s ease-out 0.25s;
+}
+.drawer-menu-item:nth-child(2) .drawer-menu-text {
+  animation: fadeIn 1s ease-out 0.5s forwards,
+    translateFullUp 0.5s ease-out 0.5s;
+}
+.drawer-menu-item:nth-child(3) .drawer-menu-text {
+  animation: fadeIn 1s ease-out 0.75s forwards,
+    translateFullUp 0.5s ease-out 0.75s;
+}
+.drawer-menu-item:nth-child(4) .drawer-menu-text {
+  animation: fadeIn 1s ease-out 1s forwards, translateFullUp 0.5s ease-out 1s;
+}
+.drawer-menu-item:nth-child(5) .drawer-menu-text {
+  animation: fadeIn 1s ease-out 1.25s forwards,
+    translateFullUp 0.5s ease-out 1.25s;
+}
+.drawer-menu-text span {
+  font-size: 2rem;
+}
+
+.home-intro .intro-finish {
+  position: absolute;
+  bottom: -24%;
+}
+.home-intro .discover-button {
+  width: 300px;
+  background-color: var(--blue_button);
+  transition: 0.5s;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  margin-top: 10px;
+}
+.home-intro .discover-button:hover {
+  border-radius: 40px;
+}
+.home-intro .discover-button:active {
+  scale: 0.9;
 }

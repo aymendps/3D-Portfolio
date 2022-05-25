@@ -3,11 +3,11 @@ import { Redirect } from "react-router-dom";
 import { withRouter } from "react-router-dom";
 import { Route, Switch } from "react-router-dom";
 import Home from "./components/Home";
-import Navbar from "./components/Navbar";
 import Portfolio from "./components/Portfolio";
 import Education from "./components/Education";
 import Skills from "./components/Skills";
 import Contact from "./components/Contact";
+import DrawerMenu from "./components/DrawerMenu";
 
 const GoHome = () => {
   return <Redirect to="" />;
@@ -16,7 +16,7 @@ const GoHome = () => {
 function MyApp() {
   return (
     <>
-      <Navbar />
+      <DrawerMenu />
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/portfolio" component={Portfolio} />
