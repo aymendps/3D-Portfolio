@@ -9,6 +9,7 @@ import Skills from "./components/Pages/Skills";
 import Contact from "./components/Pages/Contact";
 import DrawerMenu from "./components/Navigation/DrawerMenu";
 import About from "./components/Pages/About";
+import MainCanvas from "./components/Three Fiber/MainCanvas";
 
 const GoHome = () => {
   return <Redirect to="" />;
@@ -40,6 +41,7 @@ function MyApp() {
         <Route exact path="/education" component={Education} />
         <Route exact path="/skills" component={Skills} />
         <Route exact path="/contact" component={Contact} />
+        <Route exact path="/discover" component={MainCanvas} />
         <Route component={GoHome} />
       </Switch>
     </>

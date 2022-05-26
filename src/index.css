@@ -300,7 +300,7 @@ body {
   transform: scaleX(1);
 }
 .drawer-menu-button {
-  position: fixed;
+  position: fixed !important;
   top: 1vw;
   left: 1vw;
   color: white !important;

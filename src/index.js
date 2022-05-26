@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { HashRouter as Router } from "react-router-dom";
 import "./index.css";
+import "./threeD.css";
 import MyApp from "./MyApp";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
