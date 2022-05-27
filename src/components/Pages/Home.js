@@ -7,6 +7,7 @@ import TypeWriter from "typewriter-effect";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import EmailIcon from "@mui/icons-material/Email";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
 function Home(props) {
   const particlesInit = async (main) => {
@@ -22,7 +23,7 @@ function Home(props) {
   ];
 
   const startQuest = () => {
-    props.history.push("/discover");
+    props.history.push("/quest");
   };
 
   return (
@@ -96,16 +97,21 @@ function Home(props) {
           </div>
           <div className="intro-picture"></div>
           <div className="intro-finish">
-            <Typography className="discover-label" color="cyan">
-              Wanna embark on a discovery quest?
-            </Typography>
+            <div>
+              <Typography className="quest-label" id="top-label">
+                NEW QUEST
+              </Typography>
+              <Typography className="quest-label" id="bottom-label">
+                THE MAN FROM TUNISIA
+              </Typography>
+            </div>
             <Button
-              className="discover-button"
               variant="contained"
-              size="large"
+              className="quest-button"
               onClick={startQuest}
             >
-              Accept Quest
+              <CheckCircleIcon />
+              Take Quest
             </Button>
           </div>
         </div>

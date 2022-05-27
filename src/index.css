@@ -24,9 +24,11 @@
 @keyframes fadeIn {
   from {
     opacity: 0;
+    pointer-events: none;
   }
   to {
     opacity: 1;
+    pointer-events: all;
   }
 }
 
@@ -242,6 +244,7 @@ body {
 .drawer-menu-item {
   position: relative;
   opacity: 0;
+  pointer-events: none;
   animation: fadeIn 0.25s forwards 0.25s;
 }
 .drawer-menu-list .drawer-menu-item:nth-child(2) {
@@ -354,28 +357,45 @@ body {
 .home-intro .intro-finish {
   position: absolute;
   bottom: -24%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  background: rgb(51, 86, 87);
+  padding: 10px 20px;
   opacity: 0;
-  animation: fadeIn 0.5s ease-out 2s forwards,
-    translateFullUpRecoil 0.5s ease-out 2s;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  animation: fadeIn 0.5s ease-out 3.5s forwards,
+    translateFullUpRecoil 0.5s ease-out 3.5s;
 }
-.home-intro .discover-label {
+.home-intro .quest-label {
   opacity: 0;
-  animation: fadeIn 0.25s ease-out 3s forwards, translateUp 0.25s ease-out 3s;
-  margin-bottom: 7px;
+  animation: fadeIn 0.25s ease-out 4s forwards, translateUp 0.25s ease-out 4s;
   font-weight: bold;
+  text-align: left;
+  color: cyan;
 }
-.home-intro .discover-button {
-  width: 300px;
-  background-color: var(--blue_button);
-  transition: 0.5s;
-  padding-top: 16px;
-  padding-bottom: 16px;
+.home-intro .quest-label#top-label {
+  font-size: 0.7rem;
 }
-.home-intro .discover-button:hover {
-  border-radius: 40px;
-  color: var(--blue_button);
-  font-weight: bold;
+.home-intro .quest-label#bottom-label {
+  font-size: 2rem;
 }
-.home-intro .discover-button:active {
+.home-intro .quest-button {
+  transition: 0.2s;
+  opacity: 0;
+  flex-direction: column;
+  pointer-events: none;
+  background-color: darkcyan;
+  animation: fadeIn 0.25s ease-out 4s forwards, translateUp 0.25s ease-out 4s;
+  font-size: 0.8rem;
+}
+.home-intro .quest-button:hover {
+  border-radius: 25px;
+  background-color: darkcyan;
+}
+.home-intro .quest-button:active {
   scale: 0.9;
 }

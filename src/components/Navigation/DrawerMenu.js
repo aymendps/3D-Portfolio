@@ -14,25 +14,32 @@ import { withRouter } from "react-router-dom";
 
 function DrawerMenu(props) {
   const [isOpen, setIsOpen] = useState(false);
+  const takeQuestIndex = 1;
 
   const menu = [
     { text: "Home" },
+    { text: "Take The Quest" },
     { text: "About" },
     { text: "Portfolio" },
-    { text: "Education" },
     { text: "Skills" },
     { text: "Contact" },
   ];
 
-  const menuItems = menu.map((element) => {
+  const menuItems = menu.map((element, index) => {
     return (
       <ListItem
-        sx={{ padding: "24px 16px" }}
-        key={element.text}
+        sx={{
+          padding: "24px 16px",
+        }}
+        key={element.text + index}
         button
         onClick={() => {
           setIsOpen(false);
-          props.history.push(element.text.toLowerCase());
+          props.history.push(
+            index === takeQuestIndex
+              ? "/quest"
+              : "/" + element.text.toLowerCase()
+          );
         }}
         className="drawer-menu-item"
       >
@@ -40,6 +47,7 @@ function DrawerMenu(props) {
           className="drawer-menu-text"
           color="inherit"
           primary={element.text}
+          sx={{ color: index === takeQuestIndex && "cyan" }}
         />
       </ListItem>
     );

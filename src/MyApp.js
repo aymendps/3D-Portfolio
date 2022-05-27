@@ -4,7 +4,6 @@ import { withRouter } from "react-router-dom";
 import { Route, Switch } from "react-router-dom";
 import Home from "./components/Pages/Home";
 import Portfolio from "./components/Pages/Portfolio";
-import Education from "./components/Pages/Education";
 import Skills from "./components/Pages/Skills";
 import Contact from "./components/Pages/Contact";
 import DrawerMenu from "./components/Navigation/DrawerMenu";
@@ -38,10 +37,9 @@ function MyApp() {
         <Route exact path="/" component={Home} />
         <Route exact path="/about" component={About} />
         <Route exact path="/portfolio" component={Portfolio} />
-        <Route exact path="/education" component={Education} />
         <Route exact path="/skills" component={Skills} />
         <Route exact path="/contact" component={Contact} />
-        <Route exact path="/discover" component={MainCanvas} />
+        <Route exact path="/quest" component={MainCanvas} />
         <Route component={GoHome} />
       </Switch>
     </>
