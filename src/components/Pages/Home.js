@@ -8,7 +8,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import EmailIcon from "@mui/icons-material/Email";
 
-function Home() {
+function Home(props) {
   const particlesInit = async (main) => {
     await loadFull(main);
   };
@@ -20,6 +20,10 @@ function Home() {
     "I want to learn new technologies and apply them.",
     "I want to work as a game developer one day.",
   ];
+
+  const startQuest = () => {
+    props.history.push("/discover");
+  };
 
   return (
     <>
@@ -99,6 +103,7 @@ function Home() {
               className="discover-button"
               variant="contained"
               size="large"
+              onClick={startQuest}
             >
               Accept Quest
             </Button>
