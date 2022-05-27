@@ -1,5 +1,4 @@
 import React from "react";
-import { useState } from "react";
 import {
   Drawer,
   IconButton,
@@ -13,7 +12,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import { withRouter } from "react-router-dom";
 
 function DrawerMenu(props) {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = React.useState(false);
   const takeQuestIndex = 1;
 
   const menu = [
@@ -56,6 +55,10 @@ function DrawerMenu(props) {
   return (
     <>
       <IconButton
+        onFocus={() => {
+          document.getElementById("drawer-menu-button").blur();
+        }}
+        id="drawer-menu-button"
         className="drawer-menu-button"
         onClick={() => {
           setIsOpen(!isOpen);
