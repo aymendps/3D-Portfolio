@@ -1,4 +1,4 @@
-import { Button, IconButton, Typography } from "@mui/material";
+import { Button, IconButton, Paper, Typography } from "@mui/material";
 import React from "react";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
@@ -96,7 +96,7 @@ function Home(props) {
             </div>
           </div>
           <div className="intro-picture"></div>
-          <div className="intro-finish">
+          <Paper className="intro-finish" elevation={5}>
             <div>
               <Typography className="quest-label" id="top-label">
                 NEW QUEST
@@ -113,7 +113,7 @@ function Home(props) {
               <CheckCircleIcon />
               Take Quest
             </Button>
-          </div>
+          </Paper>
         </div>
       </div>
     </>

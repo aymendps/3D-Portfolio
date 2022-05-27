@@ -1,30 +1,19 @@
 import React, { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
-import { Html, Sky, Stars, useProgress } from "@react-three/drei";
+import { Sky, Stars } from "@react-three/drei";
 import Ground from "./Ground";
+import PlayerCamera from "./PlayerCamera";
+import CustomLoader from "./CustomLoader";
+import PlayerMoveControls from "./PlayerMoveControls";
 
 function MainCanvas() {
-  function CustomLoader() {
-    const { progress } = useProgress();
-    return (
-      <Html>
-        <div className="main-canvas-loading-screen">
-          <p>Loading.. {progress}%</p>
-        </div>
-      </Html>
-    );
-  }
   return (
     <>
       <div className="main-canvas-container">
-        <Canvas
-          camera={{
-            fov: 50,
-            rotation: [0, 0, 0],
-            position: [0, 7, 0],
-          }}
-        >
+        <Canvas>
           <Suspense fallback={<CustomLoader />}>
+            <PlayerCamera />
+            <PlayerMoveControls />
             <ambientLight intensity={3} />
             <Sky sunPosition={[0, 0, 0]} />
             <Stars />
