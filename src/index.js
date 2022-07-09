@@ -1,15 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { HashRouter as Router } from "react-router-dom";
 import "./index.css";
-import "./threeD.css";
-import MyApp from "./MyApp";
+import App from "./App";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <Router>
-      <MyApp />
-    </Router>
+    <App />
   </React.StrictMode>
 );
