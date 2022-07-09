@@ -1,5 +1,7 @@
+import MainCanvas from "./components/Three Fiber/MainCanvas";
+
 function App() {
-  return <div>Aymen Hammami</div>;
+  return <MainCanvas />;
 }
 
 export default App;
