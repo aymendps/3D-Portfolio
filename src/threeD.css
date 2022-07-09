@@ -4,6 +4,7 @@
   position: fixed;
   top: 0;
   left: 0;
+  background-color: black;
 }
 .main-canvas-loading-screen .loading-bar {
   margin-top: 10px;

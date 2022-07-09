@@ -26,8 +26,8 @@ function PlayerMoveControls() {
   const code = useCodes();
 
   const RUNNING_SPEED = 20;
-  const WALKING_SPEED = 10;
-  const ROTATION_SPEED = 30;
+  const WALKING_SPEED = 12;
+  const ROTATION_SPEED = 55;
 
   const moveForward = (distance) => {
     vec.setFromMatrixColumn(camera.matrix, 0);
