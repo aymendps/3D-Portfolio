@@ -15,7 +15,7 @@ function CustomLoader() {
             textAlign="center"
             variant="h2"
           >
-            {`Aymen Hammami ${progress}%`}
+            {`Aymen Hammami ${Math.floor(progress)}%`}
           </Typography>
           <CircularProgress className="text-white" />
         </div>
