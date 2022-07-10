@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { useFrame, useThree } from "@react-three/fiber";
-import { Vector3 } from "three";
+import { MathUtils, Vector3 } from "three";
 import { deg2rad } from "./utils";
 
 const useCodes = () => {
@@ -24,15 +24,28 @@ function PlayerMoveControls() {
   const vec = new Vector3();
   const { camera } = useThree();
   const code = useCodes();
+  const offsetHeightUp = useRef(true);
 
-  const RUNNING_SPEED = 20;
-  const WALKING_SPEED = 12;
+  // const RUNNING_SPEED = 20;
+  const WALKING_SPEED = 3;
   const ROTATION_SPEED = 55;
 
-  const moveForward = (distance) => {
+  const moveForward = (distance, heightOffset) => {
     vec.setFromMatrixColumn(camera.matrix, 0);
     vec.crossVectors(camera.up, vec);
+    // console.log(vec);
     camera.position.addScaledVector(vec, distance);
+    if (camera.position.y > 3.2) {
+      offsetHeightUp.current = false;
+    }
+    if (camera.position.y < 3) {
+      offsetHeightUp.current = true;
+    }
+    if (offsetHeightUp.current === true) {
+      camera.position.addScaledVector(camera.up, heightOffset);
+    } else {
+      camera.position.addScaledVector(camera.up, -heightOffset);
+    }
   };
 
   const moveRight = (distance) => {
@@ -49,10 +62,10 @@ function PlayerMoveControls() {
   };
 
   useFrame((_, delta) => {
-    const speed = code.current.has("ShiftLeft") ? RUNNING_SPEED : WALKING_SPEED;
-    if (code.current.has("KeyW")) moveForward(delta * speed);
+    const speed = WALKING_SPEED;
+    if (code.current.has("KeyW")) moveForward(delta * speed, delta);
     if (code.current.has("KeyA")) moveRight(-delta * speed);
-    if (code.current.has("KeyS")) moveForward(-delta * speed);
+    if (code.current.has("KeyS")) moveForward(-delta * speed, delta);
     if (code.current.has("KeyD")) moveRight(delta * speed);
     if (code.current.has("KeyE")) lookRight(delta * ROTATION_SPEED);
     if (code.current.has("KeyQ")) lookLeft(delta * ROTATION_SPEED);

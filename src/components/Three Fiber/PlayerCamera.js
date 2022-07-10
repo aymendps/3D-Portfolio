@@ -5,9 +5,12 @@ function PlayerCamera() {
   return (
     <PerspectiveCamera
       makeDefault
-      fov={50}
+      fov={60}
+      aspect={window.innerWidth / window.innerHeight}
+      near={1}
+      far={1000}
       rotation={[0, 0, 0]}
-      position={[0, 5, 0]}
+      position={[0, 3, 0]}
     />
   );
 }
