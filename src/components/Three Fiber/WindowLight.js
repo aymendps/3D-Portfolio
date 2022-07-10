@@ -27,7 +27,7 @@ function WindowLight() {
       }
       <pointLight
         position={[3, 4.2, 0.9]}
-        intensity={0.1}
+        intensity={0.2}
         ref={pointLightRef}
         color={"pink"}
       />

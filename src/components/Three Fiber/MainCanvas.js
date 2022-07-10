@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React, { Suspense, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 // import { OrbitControls } from "@react-three/drei/core";
 import PlayerCamera from "./PlayerCamera";
@@ -6,21 +6,25 @@ import CustomLoader from "./CustomLoader";
 import PlayerMoveControls from "./PlayerMoveControls";
 import WindowLight from "./WindowLight";
 import Office from "./Objects/Office";
+import GlobalSound from "./GlobalSound";
+import { OrbitControls } from "@react-three/drei";
 
 function MainCanvas() {
+  // eslint-disable-next-line no-unused-vars
+  const [isDev, setIsDev] = useState(true);
   return (
-    <>
-      <div className="w-full h-[100vh] fixed top-0 left-0 bg-gray-900">
-        <Canvas>
-          <Suspense fallback={<CustomLoader />}>
-            <Office />
-          </Suspense>
+    <div className="fixed w-full h-[100vh] top-0 left-0 bg-gray-900">
+      <Canvas>
+        <GlobalSound url="/assets/audio/rain_medium.ogg" volume={0.3} />
+        <Suspense fallback={null}>
           <WindowLight />
-          <PlayerMoveControls />
+          {isDev ? <OrbitControls /> : <PlayerMoveControls />}
           <PlayerCamera />
-        </Canvas>
-      </div>
-    </>
+          <Office />
+        </Suspense>
+      </Canvas>
+      <CustomLoader url />
+    </div>
   );
 }
 

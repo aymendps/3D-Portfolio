@@ -7,11 +7,15 @@ title: Detective's office in Noir style
 */
 
 import React, { useRef } from "react";
-import { useGLTF } from "@react-three/drei";
+import { Html, useGLTF } from "@react-three/drei";
+import { Typography } from "@mui/material";
+import HandymanIcon from "@mui/icons-material/Handyman";
+import PortfolioIcon from "@mui/icons-material/FolderSpecial";
+import ImportContactsIcon from "@mui/icons-material/ImportContacts";
 
 export default function Office({ ...props }) {
-  const group = useRef();
   const { nodes, materials } = useGLTF("/assets/models/office/scene.gltf");
+  const group = useRef(null);
   return (
     <group ref={group} {...props} dispose={null}>
       <group rotation={[-Math.PI / 2, 0, 0]}>
@@ -28,11 +32,168 @@ export default function Office({ ...props }) {
               material={materials.drawers}
             />
           </group>
-          <group position={[0.86, 1.76, -4.59]}>
-            <mesh
-              geometry={nodes.Object_8.geometry}
-              material={materials.paper}
-            />
+          {/* About me */}
+          <group position={[0, 0, 0.5]}>
+            <group position={[0.5, 1.76, -3.59]}>
+              <mesh
+                geometry={nodes.Object_8.geometry}
+                material={materials.paper}
+              >
+                <Html
+                  className="select-none"
+                  scale={0.2}
+                  position={[1.19, 0.21, 5.7]}
+                  rotation={[Math.PI / 2, Math.PI, 0]}
+                  transform
+                  occlude
+                >
+                  <div className="w-[132px] pt-[120px] rotate-[55deg] translate-x-5 relative">
+                    <div
+                      onClick={() => {
+                        console.log("down");
+                      }}
+                      className="w-full h-[205px] hover:bg-[rgb(252,255,154)] duration-300 cursor-pointer"
+                    >
+                      <img
+                        alt=""
+                        src="/assets/images/me.png"
+                        className="w-[80%] pl-6 pt-8"
+                      />
+                      <Typography
+                        className="pt-4"
+                        color="black"
+                        fontFamily="'Berkshire Swash', cursive;"
+                        textAlign="center"
+                      >
+                        About him
+                      </Typography>
+                    </div>
+                  </div>
+                </Html>
+              </mesh>
+            </group>
+            <group position={[0.5, 1.76, -4.59]}>
+              <mesh
+                geometry={nodes.Object_8.geometry}
+                material={materials.paper}
+              >
+                <Html
+                  className="select-none"
+                  scale={0.2}
+                  position={[1.22, 0.21, 5.7]}
+                  rotation={[Math.PI / 2, Math.PI, 0]}
+                  transform
+                  occlude
+                >
+                  <div className="w-[132px] pt-[105px] rotate-[55deg] translate-x-5 relative">
+                    <div
+                      onClick={() => {
+                        console.log("down");
+                      }}
+                      className="w-full flex flex-col items-center justify-center gap-4 h-[197px] hover:bg-[rgb(252,255,154)] duration-300 cursor-pointer"
+                    >
+                      <Typography
+                        color="black"
+                        fontFamily="'Berkshire Swash', cursive;"
+                        textAlign="center"
+                        fontSize={20}
+                      >
+                        His Skills
+                      </Typography>
+                      <HandymanIcon
+                        sx={{
+                          stroke: "black",
+                          strokeWidth: 1,
+                        }}
+                        className="text-[#f9e5ca] w-[60px] h-[60px]"
+                      />
+                    </div>
+                  </div>
+                </Html>
+              </mesh>
+            </group>
+            <group position={[0.5, 1.76, -5.59]}>
+              <mesh
+                geometry={nodes.Object_8.geometry}
+                material={materials.paper}
+              >
+                <Html
+                  className="select-none"
+                  scale={0.2}
+                  position={[1.2, 0.21, 5.75]}
+                  rotation={[Math.PI / 2, Math.PI, 0]}
+                  transform
+                  occlude
+                >
+                  <div className="w-[132px] pt-[115px] rotate-[55deg] translate-x-5 relative">
+                    <div
+                      onClick={() => {
+                        console.log("down");
+                      }}
+                      className="w-full flex flex-col justify-center items-center gap-2 h-[197px] hover:bg-[rgb(252,255,154)] duration-300 cursor-pointer"
+                    >
+                      <PortfolioIcon
+                        sx={{
+                          stroke: "black",
+                          strokeWidth: 1,
+                        }}
+                        className="text-[#f9e5ca] w-[60px] h-[60px]"
+                      />
+                      <Typography
+                        color="black"
+                        fontFamily="'Berkshire Swash', cursive;"
+                        textAlign="center"
+                        fontSize={20}
+                      >
+                        Portfolio
+                      </Typography>
+                    </div>
+                  </div>
+                </Html>
+              </mesh>
+            </group>
+            <group position={[0.5, 1.76, -6.59]}>
+              <mesh
+                geometry={nodes.Object_8.geometry}
+                material={materials.paper}
+              >
+                <Html
+                  className="select-none"
+                  scale={0.2}
+                  position={[1.23, 0.21, 5.77]}
+                  rotation={[Math.PI / 2, Math.PI, 0]}
+                  transform
+                  occlude
+                >
+                  <div className="w-[130px] pt-[105px] rotate-[55deg] translate-x-5 relative">
+                    <div
+                      onClick={() => {
+                        console.log("down");
+                      }}
+                      className="w-full h-[195px] flex flex-col items-center justify-center hover:bg-[rgb(252,255,154)] duration-300 cursor-pointer"
+                    >
+                      <Typography
+                        color="black"
+                        fontFamily="'Berkshire Swash', cursive;"
+                        textAlign="center"
+                        fontSize={20}
+                      >
+                        How to
+                        <br />
+                        reach him
+                      </Typography>
+                      <ImportContactsIcon
+                        sx={{
+                          stroke: "black",
+                          strokeWidth: 1,
+                        }}
+                        className="text-[#f9e5ca] w-[60px] h-[60px]"
+                      />
+                    </div>
+                  </div>
+                </Html>
+              </mesh>
+            </group>
           </group>
           <group scale={5.2}>
             <mesh
@@ -48,6 +209,31 @@ export default function Office({ ...props }) {
               material={materials.dark_wood}
             />
           </group>
+          <group rotation={[0, Math.PI, 0]} scale={5.2}>
+            <mesh
+              geometry={nodes.Object_10.geometry}
+              material={materials.wall_green}
+            />
+            <mesh
+              geometry={nodes.Object_11.geometry}
+              material={materials.wall_wood}
+            />
+            <mesh
+              geometry={nodes.Object_12.geometry}
+              material={materials.dark_wood}
+            />
+            <mesh
+              position={[0.99, 0.5, 0.19]}
+              rotation={[-Math.PI / 2, -Math.PI / 2, 0]}
+            >
+              <planeGeometry args={[1.4, 0.55]} />
+              <meshStandardMaterial color="#660000" />
+            </mesh>
+            <mesh position={[0.99, 0.5, 0]}>
+              <sphereGeometry args={[0.05, 16, 16]} />
+              <meshStandardMaterial color="darkred" />
+            </mesh>
+          </group>
           <group position={[5.03, 5.81, 0.91]} scale={[0.03, 0.11, 1]}>
             <mesh
               geometry={nodes.Object_14.geometry}
@@ -61,16 +247,10 @@ export default function Office({ ...props }) {
               material={materials.dark_wood}
             />
           </group>
-          <group scale={2.03}>
+          <group scale={1}>
             <mesh
               geometry={nodes.Object_18.geometry}
               material={materials.carpet}
-            />
-          </group>
-          <group position={[0.86, 1.76, -4.59]}>
-            <mesh
-              geometry={nodes.Object_20.geometry}
-              material={materials.glass_glass}
             />
           </group>
           <group scale={5.2}>
@@ -79,64 +259,16 @@ export default function Office({ ...props }) {
               material={materials.wood_floor}
             />
           </group>
-          <group position={[0.86, 1.76, -4.59]}>
+          <group position={[0, 7.5, 0]} scale={5.2}>
             <mesh
-              geometry={nodes.Object_25.geometry}
-              material={materials.green_metal}
-            />
-          </group>
-          <group position={[2.38, 1.93, 0.06]} rotation={[0, -0.39, 0]}>
-            <mesh
-              geometry={nodes.Object_27.geometry}
-              material={materials.cigar}
-            />
-            <mesh
-              geometry={nodes.Object_28.geometry}
-              material={materials.material}
-            />
-          </group>
-          <group position={[0.86, 1.76, -4.59]}>
-            <mesh
-              geometry={nodes.Object_30.geometry}
-              material={materials.grey_metal}
-            />
-          </group>
-          <group position={[0.86, 1.76, -4.59]}>
-            <mesh
-              geometry={nodes.Object_32.geometry}
-              material={materials.glass_glass}
+              geometry={nodes.Object_23.geometry}
+              material={materials.wood_floor}
             />
           </group>
           <group scale={5.2}>
             <mesh
               geometry={nodes.Object_34.geometry}
               material={materials.dark_wood}
-            />
-          </group>
-          <group
-            position={[2.05, 1.91, 0.49]}
-            rotation={[Math.PI / 2, 0, -0.94]}
-            scale={[0.01, 0.09, 0.01]}
-          >
-            <mesh
-              geometry={nodes.Object_36.geometry}
-              material={materials.dark_metal}
-            />
-            <mesh
-              geometry={nodes.Object_37.geometry}
-              material={materials.glass}
-            />
-          </group>
-          <group position={[1.86, 1.92, 1.87]} scale={[0.07, 0.02, 0.07]}>
-            <mesh
-              geometry={nodes.Object_39.geometry}
-              material={materials.liquor}
-            />
-          </group>
-          <group position={[2.34, 2.01, -0.48]} scale={0.1}>
-            <mesh
-              geometry={nodes.Object_41.geometry}
-              material={materials.liquor}
             />
           </group>
           <group
@@ -209,9 +341,15 @@ export default function Office({ ...props }) {
               material={materials.dark_wood}
             />
           </group>
+          <group position={[3.6, 0.56, 1]} scale={0.05}>
+            <mesh
+              geometry={nodes.Object_57.geometry}
+              material={materials.chair_wood}
+            />
+          </group>
           <group
-            position={[3.29, 0.56, 1.21]}
-            rotation={[0, 0.71, 0]}
+            position={[0, 0.56, 2]}
+            rotation={[0, -Math.PI / 1.2, 0]}
             scale={0.05}
           >
             <mesh
@@ -359,4 +497,4 @@ export default function Office({ ...props }) {
   );
 }
 
-useGLTF.preload("/scene.gltf");
+useGLTF.preload("/assets/models/office/scene.gltf");

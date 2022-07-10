@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { useFrame, useThree } from "@react-three/fiber";
-import { MathUtils, Vector3 } from "three";
+import { Vector3 } from "three";
 import { deg2rad } from "./utils";
 
 const useCodes = () => {
@@ -35,16 +35,16 @@ function PlayerMoveControls() {
     vec.crossVectors(camera.up, vec);
     // console.log(vec);
     camera.position.addScaledVector(vec, distance);
-    if (camera.position.y > 3.2) {
+    if (camera.position.y > 4.1) {
       offsetHeightUp.current = false;
     }
-    if (camera.position.y < 3) {
+    if (camera.position.y < 4) {
       offsetHeightUp.current = true;
     }
     if (offsetHeightUp.current === true) {
-      camera.position.addScaledVector(camera.up, heightOffset);
+      camera.position.addScaledVector(camera.up, heightOffset / 2);
     } else {
-      camera.position.addScaledVector(camera.up, -heightOffset);
+      camera.position.addScaledVector(camera.up, -heightOffset / 2);
     }
   };
 
