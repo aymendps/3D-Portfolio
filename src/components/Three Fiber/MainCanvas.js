@@ -1,30 +1,54 @@
-import React, { Suspense, useState } from "react";
+import { useCallback, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 // import { OrbitControls } from "@react-three/drei/core";
-import PlayerCamera from "./PlayerCamera";
+import PlayerCamera from "./Controllers/PlayerCamera";
 import CustomLoader from "./CustomLoader";
-import PlayerMoveControls from "./PlayerMoveControls";
-import WindowLight from "./WindowLight";
+import WindowLight from "./Objects/WindowLight";
 import Office from "./Objects/Office";
-import GlobalSound from "./GlobalSound";
 import { OrbitControls } from "@react-three/drei";
+import PlayerMoveControls from "./Controllers/PlayerMoveControls";
+import Rain from "./Objects/Rain";
 
-function MainCanvas() {
-  // eslint-disable-next-line no-unused-vars
-  const [isDev, setIsDev] = useState(true);
+function MainCanvas({ isClicked }) {
+  const [isDev] = useState(false);
+  const [isStarted, setIsStarted] = useState(false);
+  const rainAudioRef = useCallback(
+    (node) => {
+      if (node !== null && isClicked === true) {
+        node.volume = 0.3;
+        node.play();
+      }
+    },
+    [isClicked]
+  );
+
   return (
-    <div className="fixed w-full h-[100vh] top-0 left-0 bg-gray-900">
-      <Canvas>
-        <GlobalSound url="/assets/audio/rain_medium.ogg" volume={0.3} />
-        <Suspense fallback={null}>
-          <WindowLight />
-          {isDev ? <OrbitControls /> : <PlayerMoveControls />}
-          <PlayerCamera />
-          <Office />
-        </Suspense>
-      </Canvas>
-      <CustomLoader url />
-    </div>
+    <>
+      <audio
+        loop
+        type="audio"
+        src="/assets/audio/rain_medium.ogg"
+        ref={rainAudioRef}
+      />
+      <div className="fixed w-full h-[100vh] top-0 left-0 bg-gray-900">
+        <CustomLoader setIsStarted={setIsStarted} />
+        {isStarted && (
+          <Canvas>
+            <Office />
+            <WindowLight />
+            {isDev ? <OrbitControls /> : <PlayerMoveControls />}
+            <PlayerCamera />
+            <Rain />
+
+            {/* <GlobalSound
+          url="/assets/audio/rain_medium.ogg"
+          volume={0.3}
+          isStarted={isStarted}
+           /> */}
+          </Canvas>
+        )}
+      </div>
+    </>
   );
 }
 
