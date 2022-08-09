@@ -1,7 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
+import ParticlesPage from "./components/Pages/ParticlesPage";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<App />);
+
+function ToRender() {
+  const [stopParticles, setStopParticles] = useState(false);
+  return (
+    <>
+      <App setStopParticles={setStopParticles} />
+      <ParticlesPage stop={stopParticles} />
+    </>
+  );
+}
+
+root.render(<ToRender />);

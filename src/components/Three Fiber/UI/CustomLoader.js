@@ -11,6 +11,7 @@ function CustomLoader({
   setStartIntro,
   setFinishedIntro,
   setStartMusic,
+  setStopParticles,
 }) {
   const [progress, setProgress] = useState(0);
   const progressRef = useRef(0);
@@ -129,6 +130,7 @@ function CustomLoader({
                     sx={{ color: "cyan" }}
                     onClick={() => {
                       setStartMusic(true);
+                      setStopParticles(true);
                       setPrepareForIntro(true);
                       setTimeout(() => {
                         setStartIntro(true);

@@ -1,4 +1,4 @@
-import { Button } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 
@@ -18,7 +18,7 @@ function LandingPage({ setIsClicked }) {
         <motion.div
           exit={{ opacity: 0, scale: 0 }}
           transition={{ duration: 0.5 }}
-          className="fixed w-full h-[100vh] top-0 left-0 bg-gray-900"
+          className="fixed w-full h-[100vh] top-0 left-0 z-10"
         >
           <motion.h2
             initial={{
@@ -50,7 +50,7 @@ function LandingPage({ setIsClicked }) {
           >
             Welcome to my portfolio!
           </motion.h2>
-          <div className="flex flex-col items-center justify-center w-full h-full gap-6">
+          <div className="flex flex-col items-center justify-center w-full h-full gap-8">
             <motion.h2
               initial={{
                 textAlign: "center",
@@ -60,7 +60,7 @@ function LandingPage({ setIsClicked }) {
               transition={{
                 rotateX: { delay: 4.5, duration: 0.5 },
               }}
-              className="font-[Arizonia] bold text-[3.75rem] font-bold"
+              className="font-[Arizonia] text-[3.75rem] font-bold"
             >
               Are you ready?
             </motion.h2>
@@ -68,15 +68,19 @@ function LandingPage({ setIsClicked }) {
               initial={{ opacity: 0, pointerEvents: "none" }}
               animate={{ opacity: 1, pointerEvents: "all" }}
               transition={{ delay: 5, duration: 0.3 }}
+              className="flex flex-col items-center justify-center gap-4"
             >
               <Button
                 onClick={handleClick}
                 variant="outlined"
                 sx={{ transition: "250ms !important" }}
-                className="font-[Arizonia] bold text-[2.2rem] hover:text-[2.5rem] font-bold normal-case px-12 rounded-3xl text-cyan-300 border-cyan-300"
+                className="font-[Arizonia] text-[2.2rem] hover:text-[2.5rem] font-bold normal-case px-12 rounded-3xl text-cyan-300 border-cyan-300"
               >
                 {"> Start <"}
               </Button>
+              <Typography className="font-[Arizonia] text-[2rem] text-cyan-400">
+                For a better experience, please enable fullscreen mode 'f11'
+              </Typography>
             </motion.div>
           </div>
         </motion.div>

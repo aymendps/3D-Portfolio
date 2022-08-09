@@ -32,8 +32,10 @@ function PlayerMoveControls({ allowControls }) {
   const moveForward = (distance, heightOffset) => {
     vec.setFromMatrixColumn(camera.matrix, 0);
     vec.crossVectors(camera.up, vec);
-
     camera.position.addScaledVector(vec, distance);
+
+    if (distance < 0) return;
+
     if (camera.position.y > CAMERA_HEIGHT + 0.1) {
       offsetHeightUp.current = false;
     }
@@ -47,31 +49,23 @@ function PlayerMoveControls({ allowControls }) {
     }
   };
 
-  const moveRight = (distance, heightOffset) => {
+  const moveRight = (distance) => {
     vec.setFromMatrixColumn(camera.matrix, 0);
     camera.position.addScaledVector(vec, distance);
-
-    if (camera.position.y > CAMERA_HEIGHT + 0.1) {
-      offsetHeightUp.current = false;
-    }
-    if (camera.position.y < CAMERA_HEIGHT) {
-      offsetHeightUp.current = true;
-    }
-    if (offsetHeightUp.current === true) {
-      camera.position.addScaledVector(camera.up, heightOffset / 8);
-    } else {
-      camera.position.addScaledVector(camera.up, -heightOffset / 8);
-    }
   };
 
   useFrame((_, delta) => {
     if (allowControls.current === false) return;
 
     const speed = WALKING_SPEED;
-    if (code.current.has("KeyW")) moveForward(delta * speed, delta);
-    if (code.current.has("KeyA")) moveRight(-delta * speed, delta);
-    if (code.current.has("KeyS")) moveForward(-delta * speed, delta);
-    if (code.current.has("KeyD")) moveRight(delta * speed, delta);
+    if (!(code.current.has("KeyW") && code.current.has("KeyS"))) {
+      if (code.current.has("KeyW")) moveForward(delta * speed, delta);
+      if (code.current.has("KeyS")) moveForward((-delta * speed) / 1.5, delta);
+    }
+    if (!(code.current.has("KeyA") && code.current.has("KeyD"))) {
+      if (code.current.has("KeyA")) moveRight(-delta * speed);
+      if (code.current.has("KeyD")) moveRight(delta * speed);
+    }
   });
 
   return null;

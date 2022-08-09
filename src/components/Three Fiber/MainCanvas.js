@@ -13,7 +13,7 @@ import CustomLoader from "./UI/CustomLoader";
 import GlobalSound from "./Audio/GlobalSound";
 import MuteButton from "./UI/MuteButton";
 
-function MainCanvas({ isClicked }) {
+function MainCanvas({ isClicked, setStopParticles }) {
   const [isDev] = useState(false);
 
   const [isStarted, setIsStarted] = useState(false);
@@ -46,7 +46,7 @@ function MainCanvas({ isClicked }) {
         src="/assets/audio/rain_medium.ogg"
         ref={rainAudioRef}
       />
-      <div className="fixed w-full h-[100vh] top-0 left-0 bg-gray-900">
+      <div className="fixed w-full h-[100vh] top-0 left-0  z-10">
         {!finishedIntro ? (
           <CustomLoader
             isStarted={isStarted}
@@ -55,6 +55,7 @@ function MainCanvas({ isClicked }) {
             setStartIntro={setStartIntro}
             setFinishedIntro={setFinishedIntro}
             setStartMusic={setStartMusic}
+            setStopParticles={setStopParticles}
           />
         ) : (
           <>

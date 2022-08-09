@@ -2,13 +2,15 @@ import MainCanvas from "./components/Three Fiber/MainCanvas";
 import { useState } from "react";
 import LandingPage from "./components/Pages/LandingPage";
 
-function App() {
+function App({ setStopParticles }) {
   const [isClicked, setIsClicked] = useState(false);
 
   return !isClicked ? (
-    <LandingPage setIsClicked={setIsClicked} />
+    <>
+      <LandingPage setIsClicked={setIsClicked} />
+    </>
   ) : (
-    <MainCanvas isClicked={isClicked} />
+    <MainCanvas setStopParticles={setStopParticles} isClicked={isClicked} />
   );
 }
 
