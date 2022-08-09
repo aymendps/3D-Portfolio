@@ -15,6 +15,7 @@ function CustomLoader({ setIsStarted }) {
     setTimeout(() => {
       setIsStarted(true);
     }, 1000);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -23,7 +24,7 @@ function CustomLoader({ setIsStarted }) {
         initial={{ opacity: 0, scale: 0 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}
-        className="absolute left-0 top-0 w-full h-full flex flex-col justify-center items-center gap-4 z-[99999999]"
+        className="absolute left-0 top-0 w-full h-full flex flex-col justify-center items-center gap-4 z-[99999999] hidden"
       >
         <TypeWriter
           onInit={(typewriter) => {

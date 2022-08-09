@@ -1,7 +1,6 @@
 import { useEffect, useRef } from "react";
 import { useFrame, useThree } from "@react-three/fiber";
 import { Vector3 } from "three";
-import { deg2rad } from "../utils";
 
 const useCodes = () => {
   const codes = useRef(new Set());
@@ -20,25 +19,25 @@ const useCodes = () => {
   return codes;
 };
 
-function PlayerMoveControls() {
+function PlayerMoveControls({ allowControls }) {
   const vec = new Vector3();
   const { camera } = useThree();
   const code = useCodes();
   const offsetHeightUp = useRef(true);
 
   // const RUNNING_SPEED = 20;
+  const CAMERA_HEIGHT = 4;
   const WALKING_SPEED = 3;
-  const ROTATION_SPEED = 55;
 
   const moveForward = (distance, heightOffset) => {
     vec.setFromMatrixColumn(camera.matrix, 0);
     vec.crossVectors(camera.up, vec);
 
     camera.position.addScaledVector(vec, distance);
-    if (camera.position.y > 4.1) {
+    if (camera.position.y > CAMERA_HEIGHT + 0.1) {
       offsetHeightUp.current = false;
     }
-    if (camera.position.y < 4) {
+    if (camera.position.y < CAMERA_HEIGHT) {
       offsetHeightUp.current = true;
     }
     if (offsetHeightUp.current === true) {
@@ -52,10 +51,10 @@ function PlayerMoveControls() {
     vec.setFromMatrixColumn(camera.matrix, 0);
     camera.position.addScaledVector(vec, distance);
 
-    if (camera.position.y > 4.1) {
+    if (camera.position.y > CAMERA_HEIGHT + 0.1) {
       offsetHeightUp.current = false;
     }
-    if (camera.position.y < 4) {
+    if (camera.position.y < CAMERA_HEIGHT) {
       offsetHeightUp.current = true;
     }
     if (offsetHeightUp.current === true) {
@@ -65,22 +64,14 @@ function PlayerMoveControls() {
     }
   };
 
-  const lookRight = (speed) => {
-    camera.rotateY(deg2rad(-1 * speed));
-  };
-
-  const lookLeft = (speed) => {
-    camera.rotateY(deg2rad(1 * speed));
-  };
-
   useFrame((_, delta) => {
+    if (allowControls.current === false) return;
+
     const speed = WALKING_SPEED;
     if (code.current.has("KeyW")) moveForward(delta * speed, delta);
     if (code.current.has("KeyA")) moveRight(-delta * speed, delta);
     if (code.current.has("KeyS")) moveForward(-delta * speed, delta);
     if (code.current.has("KeyD")) moveRight(delta * speed, delta);
-    if (code.current.has("KeyE")) lookRight(delta * ROTATION_SPEED);
-    if (code.current.has("KeyQ")) lookLeft(delta * ROTATION_SPEED);
   });
 
   return null;

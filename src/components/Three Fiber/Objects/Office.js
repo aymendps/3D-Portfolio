@@ -7,11 +7,12 @@ title: Detective's office in Noir style
 */
 
 import React, { useRef } from "react";
-import { Html, useGLTF } from "@react-three/drei";
-import { Typography } from "@mui/material";
-import HandymanIcon from "@mui/icons-material/Handyman";
-import PortfolioIcon from "@mui/icons-material/FolderSpecial";
-import ImportContactsIcon from "@mui/icons-material/ImportContacts";
+import { useGLTF } from "@react-three/drei";
+// import { Html } from "@react-three/drei";
+// import { Typography } from "@mui/material";
+// import HandymanIcon from "@mui/icons-material/Handyman";
+// import PortfolioIcon from "@mui/icons-material/FolderSpecial";
+// import ImportContactsIcon from "@mui/icons-material/ImportContacts";
 
 export default function Office({ ...props }) {
   const { nodes, materials } = useGLTF("/assets/models/office/scene.gltf");
@@ -20,12 +21,6 @@ export default function Office({ ...props }) {
     <group ref={group} {...props} dispose={null}>
       <group rotation={[-Math.PI / 2, 0, 0]}>
         <group rotation={[Math.PI / 2, 0, 0]}>
-          <group position={[1.87, 2.59, -3.93]} scale={[2, 2.62, 1]}>
-            <mesh
-              geometry={nodes.Object_4.geometry}
-              material={materials.bookshelf}
-            />
-          </group>
           <group position={[-2.46, 2.01, -4.44]} scale={[1.13, 1.17, 0.68]}>
             <mesh
               geometry={nodes.Object_6.geometry}
@@ -39,7 +34,7 @@ export default function Office({ ...props }) {
                 geometry={nodes.Object_8.geometry}
                 material={materials.paper}
               >
-                <Html
+                {/* <Html
                   className="select-none"
                   scale={0.2}
                   position={[1.19, 0.21, 5.7]}
@@ -69,7 +64,7 @@ export default function Office({ ...props }) {
                       </Typography>
                     </div>
                   </div>
-                </Html>
+                </Html> */}
               </mesh>
             </group>
             <group position={[0.5, 1.76, -4.59]}>
@@ -77,7 +72,7 @@ export default function Office({ ...props }) {
                 geometry={nodes.Object_8.geometry}
                 material={materials.paper}
               >
-                <Html
+                {/* <Html
                   className="select-none"
                   scale={0.2}
                   position={[1.22, 0.21, 5.7]}
@@ -109,7 +104,7 @@ export default function Office({ ...props }) {
                       />
                     </div>
                   </div>
-                </Html>
+                </Html> */}
               </mesh>
             </group>
             <group position={[0.5, 1.76, -5.59]}>
@@ -117,7 +112,7 @@ export default function Office({ ...props }) {
                 geometry={nodes.Object_8.geometry}
                 material={materials.paper}
               >
-                <Html
+                {/* <Html
                   className="select-none"
                   scale={0.2}
                   position={[1.2, 0.21, 5.75]}
@@ -149,7 +144,7 @@ export default function Office({ ...props }) {
                       </Typography>
                     </div>
                   </div>
-                </Html>
+                </Html> */}
               </mesh>
             </group>
             <group position={[0.5, 1.76, -6.59]}>
@@ -157,7 +152,7 @@ export default function Office({ ...props }) {
                 geometry={nodes.Object_8.geometry}
                 material={materials.paper}
               >
-                <Html
+                {/* <Html
                   className="select-none"
                   scale={0.2}
                   position={[1.23, 0.21, 5.77]}
@@ -191,7 +186,7 @@ export default function Office({ ...props }) {
                       />
                     </div>
                   </div>
-                </Html>
+                </Html> */}
               </mesh>
             </group>
           </group>
@@ -225,13 +220,12 @@ export default function Office({ ...props }) {
             <mesh
               position={[0.99, 0.5, 0.19]}
               rotation={[-Math.PI / 2, -Math.PI / 2, 0]}
+              material={materials.wood_floor}
             >
               <planeGeometry args={[1.4, 0.55]} />
-              <meshStandardMaterial color="#660000" />
             </mesh>
-            <mesh position={[0.99, 0.5, 0]}>
+            <mesh position={[0.99, 0.5, 0]} material={materials.wall_wood}>
               <sphereGeometry args={[0.05, 16, 16]} />
-              <meshStandardMaterial color="darkred" />
             </mesh>
           </group>
           <group position={[5.03, 5.81, 0.91]} scale={[0.03, 0.11, 1]}>
@@ -244,7 +238,7 @@ export default function Office({ ...props }) {
             <mesh
               castShadow
               geometry={nodes.Object_16.geometry}
-              material={materials.dark_wood}
+              material={materials.bookshelf}
             />
           </group>
           <group scale={1}>
@@ -341,145 +335,153 @@ export default function Office({ ...props }) {
               material={materials.dark_wood}
             />
           </group>
-          <group position={[3.6, 0.56, 1]} scale={0.05}>
+          <group position={[3.6, 0.56, 0.9]} scale={0.05}>
             <mesh
               geometry={nodes.Object_57.geometry}
               material={materials.chair_wood}
             />
           </group>
-          <group position={[1.87, 2.59, -3.93]} scale={[2, 2.62, 1]}>
-            <mesh
-              geometry={nodes.Object_59.geometry}
-              material={materials.book}
-            />
-          </group>
-          <group position={[4.09, 2.59, -3.93]} scale={[2, 2.62, 1]}>
-            <mesh
-              geometry={nodes.Object_61.geometry}
-              material={materials.book}
-            />
-          </group>
-          <group
-            position={[3.37, 2.05, -3.34]}
-            rotation={[0, 0, -Math.PI / 2]}
-            scale={[1.34, 1.76, 0.67]}
-          >
-            <mesh
-              geometry={nodes.Object_63.geometry}
-              material={materials.book}
-            />
-          </group>
-          <group
-            position={[2.68, 2.05, -3.34]}
-            rotation={[0, 0, -Math.PI / 2]}
-            scale={[1.34, 1.76, 0.67]}
-          >
-            <mesh
-              geometry={nodes.Object_65.geometry}
-              material={materials.book}
-            />
-          </group>
-          <group position={[1.86, 5.77, -3.93]} scale={[2, 2.62, 1]}>
-            <mesh
-              geometry={nodes.Object_67.geometry}
-              material={materials.book}
-            />
-          </group>
-          <group position={[-0.09, 3.03, -3.34]} scale={[1.63, 2.14, 0.82]}>
-            <mesh
-              geometry={nodes.Object_69.geometry}
-              material={materials.book}
-            />
-          </group>
-          <group
-            position={[2.78, 4.15, -3.34]}
-            rotation={[0, 0, -0.22]}
-            scale={[1.91, 2.51, 0.96]}
-          >
-            <mesh
-              geometry={nodes.Object_71.geometry}
-              material={materials.book}
-            />
-          </group>
-          <group
-            position={[2.96, 4.15, -3.34]}
-            rotation={[0, 0, -0.22]}
-            scale={[1.91, 2.51, 0.96]}
-          >
-            <mesh
-              geometry={nodes.Object_73.geometry}
-              material={materials.book}
-            />
-          </group>
-          <group
-            position={[3.16, 4.15, -3.34]}
-            rotation={[0, 0, -0.22]}
-            scale={[1.91, 2.51, 0.96]}
-          >
-            <mesh
-              geometry={nodes.Object_75.geometry}
-              material={materials.book}
-            />
-          </group>
-          <group
-            position={[3.38, 4.15, -3.34]}
-            rotation={[0, 0, -0.22]}
-            scale={[1.91, 2.51, 0.96]}
-          >
-            <mesh
-              geometry={nodes.Object_77.geometry}
-              material={materials.book}
-            />
-          </group>
-          <group
-            position={[1.85, 0.99, -3.34]}
-            rotation={[0, 0, -0.22]}
-            scale={[1.91, 2.51, 0.96]}
-          >
-            <mesh
-              geometry={nodes.Object_79.geometry}
-              material={materials.book}
-            />
-          </group>
-          <group
-            position={[2.04, 0.99, -3.34]}
-            rotation={[0, 0, -0.22]}
-            scale={[1.91, 2.51, 0.96]}
-          >
-            <mesh
-              geometry={nodes.Object_81.geometry}
-              material={materials.book}
-            />
-          </group>
-          <group
-            position={[0.69, 3.06, -3.34]}
-            rotation={[0, 0, 0.53]}
-            scale={[1.91, 2.51, 0.96]}
-          >
-            <mesh
-              geometry={nodes.Object_83.geometry}
-              material={materials.book}
-            />
-          </group>
-          <group
-            position={[0.92, 3.07, -3.34]}
-            rotation={[0, 0, 0.53]}
-            scale={[1.91, 2.51, 0.96]}
-          >
-            <mesh
-              geometry={nodes.Object_85.geometry}
-              material={materials.book}
-            />
-          </group>
-          <group
-            position={[1.15, 3.07, -3.34]}
-            rotation={[0, 0, 0.53]}
-            scale={[1.91, 2.51, 0.96]}
-          >
-            <mesh
-              geometry={nodes.Object_87.geometry}
-              material={materials.book}
-            />
+          <group scale={[1, 0.8, 1]}>
+            <group position={[1.87, 2.59, -3.93]} scale={[2, 2.62, 1]}>
+              <mesh
+                geometry={nodes.Object_4.geometry}
+                material={materials.bookshelf}
+              />
+            </group>
+            <group position={[1.87, 2.59, -3.93]} scale={[2, 2.62, 1]}>
+              <mesh
+                geometry={nodes.Object_59.geometry}
+                material={materials.book}
+              />
+            </group>
+            <group position={[4.09, 2.59, -3.93]} scale={[2, 2.62, 1]}>
+              <mesh
+                geometry={nodes.Object_61.geometry}
+                material={materials.book}
+              />
+            </group>
+            <group
+              position={[3.37, 2.05, -3.34]}
+              rotation={[0, 0, -Math.PI / 2]}
+              scale={[1.34, 1.76, 0.67]}
+            >
+              <mesh
+                geometry={nodes.Object_63.geometry}
+                material={materials.book}
+              />
+            </group>
+            <group
+              position={[2.68, 2.05, -3.34]}
+              rotation={[0, 0, -Math.PI / 2]}
+              scale={[1.34, 1.76, 0.67]}
+            >
+              <mesh
+                geometry={nodes.Object_65.geometry}
+                material={materials.book}
+              />
+            </group>
+            <group position={[1.86, 5.77, -3.93]} scale={[2, 2.62, 1]}>
+              <mesh
+                geometry={nodes.Object_67.geometry}
+                material={materials.book}
+              />
+            </group>
+            <group position={[-0.09, 3.03, -3.34]} scale={[1.63, 2.14, 0.82]}>
+              <mesh
+                geometry={nodes.Object_69.geometry}
+                material={materials.book}
+              />
+            </group>
+            <group
+              position={[2.78, 4.15, -3.34]}
+              rotation={[0, 0, -0.22]}
+              scale={[1.91, 2.51, 0.96]}
+            >
+              <mesh
+                geometry={nodes.Object_71.geometry}
+                material={materials.book}
+              />
+            </group>
+            <group
+              position={[2.96, 4.15, -3.34]}
+              rotation={[0, 0, -0.22]}
+              scale={[1.91, 2.51, 0.96]}
+            >
+              <mesh
+                geometry={nodes.Object_73.geometry}
+                material={materials.book}
+              />
+            </group>
+            <group
+              position={[3.16, 4.15, -3.34]}
+              rotation={[0, 0, -0.22]}
+              scale={[1.91, 2.51, 0.96]}
+            >
+              <mesh
+                geometry={nodes.Object_75.geometry}
+                material={materials.book}
+              />
+            </group>
+            <group
+              position={[3.38, 4.15, -3.34]}
+              rotation={[0, 0, -0.22]}
+              scale={[1.91, 2.51, 0.96]}
+            >
+              <mesh
+                geometry={nodes.Object_77.geometry}
+                material={materials.book}
+              />
+            </group>
+            <group
+              position={[1.85, 0.99, -3.34]}
+              rotation={[0, 0, -0.22]}
+              scale={[1.91, 2.51, 0.96]}
+            >
+              <mesh
+                geometry={nodes.Object_79.geometry}
+                material={materials.book}
+              />
+            </group>
+            <group
+              position={[2.04, 0.99, -3.34]}
+              rotation={[0, 0, -0.22]}
+              scale={[1.91, 2.51, 0.96]}
+            >
+              <mesh
+                geometry={nodes.Object_81.geometry}
+                material={materials.book}
+              />
+            </group>
+            <group
+              position={[0.69, 3.06, -3.34]}
+              rotation={[0, 0, 0.53]}
+              scale={[1.91, 2.51, 0.96]}
+            >
+              <mesh
+                geometry={nodes.Object_83.geometry}
+                material={materials.book}
+              />
+            </group>
+            <group
+              position={[0.92, 3.07, -3.34]}
+              rotation={[0, 0, 0.53]}
+              scale={[1.91, 2.51, 0.96]}
+            >
+              <mesh
+                geometry={nodes.Object_85.geometry}
+                material={materials.book}
+              />
+            </group>
+            <group
+              position={[1.15, 3.07, -3.34]}
+              rotation={[0, 0, 0.53]}
+              scale={[1.91, 2.51, 0.96]}
+            >
+              <mesh
+                geometry={nodes.Object_87.geometry}
+                material={materials.book}
+              />
+            </group>
           </group>
         </group>
       </group>

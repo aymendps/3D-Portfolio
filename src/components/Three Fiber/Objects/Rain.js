@@ -19,9 +19,10 @@ function Rain() {
       {Array.from({ length: 50 }, (_, i) => {
         return (
           <Box
+            key={"rain-box" + i}
             position={[
               getRandomFloat(6, 8),
-              getRandomFloat(5, 10),
+              getRandomFloat(4, 9),
               getRandomFloat(0, 2),
             ]}
             args={[0.01, 0.5, 0.01]}
