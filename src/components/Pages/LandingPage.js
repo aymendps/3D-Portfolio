@@ -72,7 +72,6 @@ function LandingPage({ setIsClicked }) {
               <Button
                 onClick={handleClick}
                 variant="outlined"
-                disableRipple
                 sx={{ transition: "250ms !important" }}
                 className="font-[Arizonia] bold text-[2.2rem] hover:text-[2.5rem] font-bold normal-case px-12 rounded-3xl text-cyan-300 border-cyan-300"
               >

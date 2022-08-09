@@ -11,22 +11,30 @@ import IntroCameraFov from "./Controllers/IntroCameraFov";
 import PlayerLookControls from "./Controllers/PlayerLookControls";
 import CustomLoader from "./UI/CustomLoader";
 import GlobalSound from "./Audio/GlobalSound";
+import MuteButton from "./UI/MuteButton";
 
 function MainCanvas({ isClicked }) {
   const [isDev] = useState(false);
+
   const [isStarted, setIsStarted] = useState(false);
   const [startIntro, setStartIntro] = useState(false);
   const [finishedIntro, setFinishedIntro] = useState(false);
   const allowControls = useRef(false);
 
+  const [musicVolume, setMusicVolume] = useState(0.3);
+
   const rainAudioRef = useCallback(
     (node) => {
       if (node !== null && isClicked === true) {
-        node.volume = 0.3;
-        node.play();
+        node.volume = musicVolume;
+        if (musicVolume === 0) {
+          node.pause();
+        } else {
+          node.play();
+        }
       }
     },
-    [isClicked]
+    [isClicked, musicVolume]
   );
 
   return (
@@ -38,13 +46,20 @@ function MainCanvas({ isClicked }) {
         ref={rainAudioRef}
       />
       <div className="fixed w-full h-[100vh] top-0 left-0 bg-gray-900">
-        {!finishedIntro && (
+        {!finishedIntro ? (
           <CustomLoader
             setIsStarted={setIsStarted}
             startIntro={startIntro}
             setStartIntro={setStartIntro}
             setFinishedIntro={setFinishedIntro}
           />
+        ) : (
+          <>
+            <MuteButton
+              musicVolume={musicVolume}
+              setMusicVolume={setMusicVolume}
+            />
+          </>
         )}
         {isStarted && (
           <Canvas>
@@ -63,7 +78,7 @@ function MainCanvas({ isClicked }) {
 
             <GlobalSound
               url="/assets/audio/noire.mp3"
-              volume={0.3}
+              volume={musicVolume}
               isStarted={isStarted}
             />
             <IntroCameraFov

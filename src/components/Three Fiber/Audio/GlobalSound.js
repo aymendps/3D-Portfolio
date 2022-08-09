@@ -19,6 +19,15 @@ function GlobalSound({ url, volume, isStarted }) {
   }, []);
 
   useEffect(() => {
+    sound.current.setVolume(volume);
+    if (volume === 0) {
+      sound.current.pause();
+    } else {
+      sound.current.play();
+    }
+  }, [volume]);
+
+  useEffect(() => {
     if (isStarted === true) {
       sound.current.play();
     }
