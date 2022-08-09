@@ -2,19 +2,23 @@ import { Typography } from "@mui/material";
 import { useProgress } from "@react-three/drei";
 import { DefaultLoadingManager } from "three";
 import TypeWriter from "typewriter-effect";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-function CustomLoader({ setIsStarted, setFinishedIntro }) {
+function CustomLoader({
+  setIsStarted,
+  startIntro,
+  setStartIntro,
+  setFinishedIntro,
+}) {
   const { progress } = useProgress();
-  const [startIntro, setStartIntro] = useState(false);
 
   useEffect(() => {
     DefaultLoadingManager.onLoad = function () {
       console.log("COMPLETE");
       setTimeout(() => {
         setStartIntro(true);
-      }, 1000);
+      }, 3000);
     };
     setTimeout(() => {
       setIsStarted(true);

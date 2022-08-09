@@ -10,10 +10,12 @@ import Rain from "./Objects/Rain";
 import IntroCameraFov from "./Controllers/IntroCameraFov";
 import PlayerLookControls from "./Controllers/PlayerLookControls";
 import CustomLoader from "./UI/CustomLoader";
+import GlobalSound from "./Audio/GlobalSound";
 
 function MainCanvas({ isClicked }) {
   const [isDev] = useState(false);
   const [isStarted, setIsStarted] = useState(false);
+  const [startIntro, setStartIntro] = useState(false);
   const [finishedIntro, setFinishedIntro] = useState(false);
   const allowControls = useRef(false);
 
@@ -39,6 +41,8 @@ function MainCanvas({ isClicked }) {
         {!finishedIntro && (
           <CustomLoader
             setIsStarted={setIsStarted}
+            startIntro={startIntro}
+            setStartIntro={setStartIntro}
             setFinishedIntro={setFinishedIntro}
           />
         )}
@@ -57,13 +61,13 @@ function MainCanvas({ isClicked }) {
             <PlayerCamera />
             <Rain />
 
-            {/* <GlobalSound
-          url="/assets/audio/rain_medium.ogg"
-          volume={0.3}
-          isStarted={isStarted}
-           /> */}
-            <IntroCameraFov
+            <GlobalSound
+              url="/assets/audio/noire.mp3"
+              volume={0.3}
               isStarted={isStarted}
+            />
+            <IntroCameraFov
+              startIntro={startIntro}
               allowControls={allowControls}
             />
           </Canvas>

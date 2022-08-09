@@ -1,11 +1,11 @@
 import { useFrame, useThree } from "@react-three/fiber";
 
-function IntroCameraFov({ allowControls, isStarted }) {
+function IntroCameraFov({ allowControls, startIntro }) {
   const SPEED = 2;
   const { camera, gl } = useThree();
 
   useFrame((_, delta) => {
-    if (camera.fov <= 65 && isStarted === true) {
+    if (camera.fov <= 65 && startIntro === true) {
       camera.fov += SPEED * delta;
       if (camera.position.y < 4 && camera.fov > 35) {
         camera.position.addScaledVector(camera.up, (SPEED * delta) / 32);
