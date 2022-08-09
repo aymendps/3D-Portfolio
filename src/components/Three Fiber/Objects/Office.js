@@ -17,6 +17,7 @@ import { useGLTF } from "@react-three/drei";
 export default function Office({ ...props }) {
   const { nodes, materials } = useGLTF("/assets/models/office/scene.gltf");
   const group = useRef(null);
+
   return (
     <group ref={group} {...props} dispose={null}>
       <group rotation={[-Math.PI / 2, 0, 0]}>
@@ -28,7 +29,7 @@ export default function Office({ ...props }) {
             />
           </group>
           {/* About me */}
-          <group position={[0, 0, 0.5]}>
+          <group position={[-0.1, 0, 0.5]}>
             <group position={[0.5, 1.76, -3.59]}>
               <mesh
                 geometry={nodes.Object_8.geometry}

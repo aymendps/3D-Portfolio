@@ -1,41 +1,55 @@
-import { Typography } from "@mui/material";
-import { useProgress } from "@react-three/drei";
+import { Button, CircularProgress, Typography } from "@mui/material";
 import { DefaultLoadingManager } from "three";
 import TypeWriter from "typewriter-effect";
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 function CustomLoader({
+  isStarted,
   setIsStarted,
   startIntro,
   setStartIntro,
   setFinishedIntro,
+  setStartMusic,
 }) {
-  const { progress } = useProgress();
+  const [progress, setProgress] = useState(0);
+  const progressRef = useRef(0);
+  const clickRef = useRef();
+  const [showStartButton, setShowStartButton] = useState(false);
+  const [prepareForIntro, setPrepareForIntro] = useState(false);
 
   useEffect(() => {
-    DefaultLoadingManager.onLoad = function () {
-      console.log("COMPLETE");
-      setTimeout(() => {
-        setStartIntro(true);
-      }, 3000);
-    };
     setTimeout(() => {
       setIsStarted(true);
     }, 1000);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  useEffect(() => {
+    if (isStarted === true) {
+      DefaultLoadingManager.onProgress = function (item, loaded, total) {
+        progressRef.current = (loaded / total) * 100;
+        clickRef.current.click();
+      };
+      DefaultLoadingManager.onLoad = function () {
+        console.log("COMPLETE");
+        setTimeout(() => {
+          setShowStartButton(true);
+        }, 500);
+      };
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isStarted]);
+
   return (
     <>
       <AnimatePresence>
-        {!startIntro && (
+        {!prepareForIntro && (
           <motion.div
             initial={{ opacity: 0, scale: 0 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5 }}
-            exit={{ rotateX: 90 }}
-            className="absolute left-0 top-0 w-full h-full flex flex-col justify-center items-center gap-4 z-[99999999] select-none"
+            animate={{ opacity: 1, scale: 1, transition: { duration: 1 } }}
+            exit={{ opacity: 0, scale: 0, transition: { duration: 2.5 } }}
+            className="absolute left-0 top-0 w-full h-full flex flex-col justify-center items-center gap-12 z-[99999999] select-none"
           >
             <TypeWriter
               onInit={(typewriter) => {
@@ -56,15 +70,84 @@ function CustomLoader({
                 deleteSpeed: 10,
               }}
             />
-            <Typography
-              key="canvas-progress-number"
-              fontFamily="'Arizonia', cursive;"
-              fontWeight="bold"
-              textAlign="center"
-              variant="h2"
-            >
-              {Math.floor(progress) + "%"}
-            </Typography>
+
+            <div className="w-[150px] h-[150px] flex justify-center items-center">
+              <AnimatePresence>
+                {!showStartButton && (
+                  <motion.div
+                    exit={{ rotateY: 90, opacity: 0 }}
+                    transition={{ duration: 1 }}
+                    className="relative"
+                  >
+                    <CircularProgress
+                      variant="determinate"
+                      value={100}
+                      size={130}
+                      thickness={2}
+                      className="text-cyan-300"
+                    ></CircularProgress>
+                    <CircularProgress
+                      variant="indeterminate"
+                      size={130}
+                      thickness={2}
+                      className="text-gray-400 absolute top-0 left-0"
+                    />
+                    <Typography
+                      key="canvas-progress-number"
+                      fontFamily="'Arizonia', cursive;"
+                      textAlign="center"
+                      className="absolute text-[28px] top-0 left-0 w-full pt-[32%] text-cyan-300"
+                      variant="body1"
+                    >
+                      {Math.floor(progress) + "%"}
+                    </Typography>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+              {showStartButton && (
+                <motion.div
+                  initial={{ rotateY: -90, opacity: 0, display: "none" }}
+                  animate={prepareForIntro ? "clicked" : "notClicked"}
+                  variants={{
+                    notClicked: {
+                      rotateY: 0,
+                      opacity: 1,
+                      display: "block",
+                      transition: { delay: 1, duration: 1 },
+                    },
+                    clicked: {
+                      rotateY: [0, 180, 360],
+                      opacity: 1,
+                      display: "block",
+                      transition: { duration: 1, repeat: Infinity },
+                    },
+                  }}
+                >
+                  <Button
+                    className="w-[130px] h-[130px] rounded-[50%] border-4 border-cyan-300 font-[Arizonia]  normal-case text-[2.2rem]"
+                    variant="outlined"
+                    sx={{ color: "cyan" }}
+                    onClick={() => {
+                      setStartMusic(true);
+                      setPrepareForIntro(true);
+                      setTimeout(() => {
+                        setStartIntro(true);
+                      }, 3000);
+                    }}
+                  >
+                    Start
+                  </Button>
+                </motion.div>
+              )}
+            </div>
+
+            <button
+              className="hidden"
+              ref={clickRef}
+              onClick={() => {
+                setProgress(progressRef.current);
+              }}
+            ></button>
           </motion.div>
         )}
       </AnimatePresence>

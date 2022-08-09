@@ -11,7 +11,7 @@ function IntroCameraFov({ allowControls, startIntro }) {
         camera.position.addScaledVector(camera.up, (SPEED * delta) / 32);
       }
       camera.updateProjectionMatrix();
-    } else if (allowControls.current === false) {
+    } else if (allowControls.current === false && startIntro === true) {
       allowControls.current = true;
       gl.domElement.style.cursor = "grab";
     }

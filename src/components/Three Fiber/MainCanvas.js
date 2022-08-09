@@ -18,6 +18,7 @@ function MainCanvas({ isClicked }) {
 
   const [isStarted, setIsStarted] = useState(false);
   const [startIntro, setStartIntro] = useState(false);
+  const [startMusic, setStartMusic] = useState(false);
   const [finishedIntro, setFinishedIntro] = useState(false);
   const allowControls = useRef(false);
 
@@ -48,10 +49,12 @@ function MainCanvas({ isClicked }) {
       <div className="fixed w-full h-[100vh] top-0 left-0 bg-gray-900">
         {!finishedIntro ? (
           <CustomLoader
+            isStarted={isStarted}
             setIsStarted={setIsStarted}
             startIntro={startIntro}
             setStartIntro={setStartIntro}
             setFinishedIntro={setFinishedIntro}
+            setStartMusic={setStartMusic}
           />
         ) : (
           <>
@@ -79,8 +82,9 @@ function MainCanvas({ isClicked }) {
             <GlobalSound
               url="/assets/audio/noire.mp3"
               volume={musicVolume}
-              isStarted={isStarted}
+              startMusic={startMusic}
             />
+
             <IntroCameraFov
               startIntro={startIntro}
               allowControls={allowControls}

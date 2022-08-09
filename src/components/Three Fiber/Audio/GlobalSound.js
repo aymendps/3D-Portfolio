@@ -4,7 +4,7 @@ import { AudioListener, AudioLoader } from "three";
 
 /* eslint-disable */
 
-function GlobalSound({ url, volume, isStarted }) {
+function GlobalSound({ url, volume, startMusic }) {
   const sound = useRef();
   const { camera } = useThree();
   const [listener] = useState(() => new AudioListener());
@@ -19,19 +19,15 @@ function GlobalSound({ url, volume, isStarted }) {
   }, []);
 
   useEffect(() => {
+    if (!startMusic) return;
+
     sound.current.setVolume(volume);
     if (volume === 0) {
       sound.current.pause();
-    } else {
+    } else if (sound.current.isPlaying === false) {
       sound.current.play();
     }
-  }, [volume]);
-
-  useEffect(() => {
-    if (isStarted === true) {
-      sound.current.play();
-    }
-  }, [isStarted]);
+  }, [startMusic, volume]);
 
   return <audio vol ref={sound} args={[listener]} />;
 }
