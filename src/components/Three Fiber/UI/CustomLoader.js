@@ -108,20 +108,11 @@ function CustomLoader({
               {showStartButton && (
                 <motion.div
                   initial={{ rotateY: -90, opacity: 0, display: "none" }}
-                  animate={prepareForIntro ? "clicked" : "notClicked"}
-                  variants={{
-                    notClicked: {
-                      rotateY: 0,
-                      opacity: 1,
-                      display: "block",
-                      transition: { delay: 1, duration: 1 },
-                    },
-                    clicked: {
-                      rotateY: [0, 180, 360],
-                      opacity: 1,
-                      display: "block",
-                      transition: { duration: 1, repeat: Infinity },
-                    },
+                  animate={{
+                    rotateY: 0,
+                    opacity: 1,
+                    display: "block",
+                    transition: { delay: 1.5, duration: 1 },
                   }}
                 >
                   <Button
