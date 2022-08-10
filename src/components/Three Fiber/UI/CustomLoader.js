@@ -162,7 +162,7 @@ function CustomLoader({
               textAlign="center"
               variant="h1"
             >
-              Presents
+              Welcome to
             </Typography>
           </motion.div>
           <motion.div
@@ -256,7 +256,8 @@ function CustomLoader({
               fontFamily="'Arizonia', cursive;"
               fontWeight="bold"
               textAlign="center"
-              className="text-[140px]"
+              variant="h1"
+              className="text-[10rem]"
             >
               YOU
             </Typography>

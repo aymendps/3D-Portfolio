@@ -43,12 +43,12 @@ function LandingPage({ setIsClicked }) {
             }}
             animate={{ rotateX: [90, 0, 0, 90], display: "none" }}
             transition={{
-              rotateX: { delay: 2, times: [0, 0.3, 0.7, 1], duration: 2 },
-              display: { delay: 4 },
+              rotateX: { delay: 2, times: [0, 0.3, 0.7, 1], duration: 3 },
+              display: { delay: 5 },
             }}
             className="font-[Arizonia] bold text-[3.75rem] font-bold"
           >
-            Welcome to my portfolio!
+            Thanks for checking out my website!
           </motion.h2>
           <div className="flex flex-col items-center justify-center w-full h-full gap-8">
             <motion.h2
@@ -58,7 +58,7 @@ function LandingPage({ setIsClicked }) {
               }}
               animate={{ rotateX: [90, 0] }}
               transition={{
-                rotateX: { delay: 4.5, duration: 0.5 },
+                rotateX: { delay: 5.5, duration: 0.5 },
               }}
               className="font-[Arizonia] text-[3.75rem] font-bold"
             >
@@ -67,7 +67,7 @@ function LandingPage({ setIsClicked }) {
             <motion.div
               initial={{ opacity: 0, pointerEvents: "none" }}
               animate={{ opacity: 1, pointerEvents: "all" }}
-              transition={{ delay: 5, duration: 0.3 }}
+              transition={{ delay: 5.8, duration: 0.3 }}
               className="flex flex-col items-center justify-center gap-4"
             >
               <Button
@@ -76,7 +76,7 @@ function LandingPage({ setIsClicked }) {
                 sx={{ transition: "250ms !important" }}
                 className="font-[Arizonia] text-[2.2rem] hover:text-[2.5rem] font-bold normal-case px-12 rounded-3xl text-cyan-300 border-cyan-300"
               >
-                {"> Start <"}
+                {"> Let's go <"}
               </Button>
               <Typography className="font-[Arizonia] text-[2rem] text-cyan-400">
                 For a better experience, please enable fullscreen mode 'f11'
