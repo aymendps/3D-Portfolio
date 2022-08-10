@@ -342,7 +342,7 @@ export default function Office({ ...props }) {
               material={materials.chair_wood}
             />
           </group>
-          <group position={[0, 0, 0]} scale={[1, 0.85, 1]}>
+          <group position={[0, 0, -1.6]} scale={[1, 0.85, 0.7]}>
             <group position={[1.87, 2.59, -3.93]} scale={[2, 2.62, 1]}>
               <mesh
                 geometry={nodes.Object_4.geometry}

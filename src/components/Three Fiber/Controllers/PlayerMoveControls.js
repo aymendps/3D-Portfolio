@@ -28,6 +28,10 @@ function PlayerMoveControls({ allowControls }) {
   // const RUNNING_SPEED = 20;
   const CAMERA_HEIGHT = 4;
   const WALKING_SPEED = 3;
+  const FORWARD_BOUND = -0.05;
+  const BACKWARD_BOUND = -3.3;
+  const LEFT_BOUND = -1.85;
+  const RIGHT_BOUND = 3.4;
 
   const moveForward = (distance, heightOffset) => {
     vec.setFromMatrixColumn(camera.matrix, 0);
@@ -35,6 +39,15 @@ function PlayerMoveControls({ allowControls }) {
     camera.position.addScaledVector(vec, distance);
 
     if (distance < 0) return;
+
+    if (
+      camera.position.x > FORWARD_BOUND ||
+      camera.position.x < BACKWARD_BOUND ||
+      camera.position.z > RIGHT_BOUND ||
+      camera.position.z < LEFT_BOUND
+    ) {
+      return;
+    }
 
     if (camera.position.y > CAMERA_HEIGHT + 0.1) {
       offsetHeightUp.current = false;
@@ -54,6 +67,21 @@ function PlayerMoveControls({ allowControls }) {
     camera.position.addScaledVector(vec, distance);
   };
 
+  const movementBoundaries = () => {
+    if (camera.position.x > FORWARD_BOUND) {
+      camera.position.x = FORWARD_BOUND;
+    }
+    if (camera.position.x < BACKWARD_BOUND) {
+      camera.position.x = BACKWARD_BOUND;
+    }
+    if (camera.position.z > RIGHT_BOUND) {
+      camera.position.z = RIGHT_BOUND;
+    }
+    if (camera.position.z < LEFT_BOUND) {
+      camera.position.z = LEFT_BOUND;
+    }
+  };
+
   useFrame((_, delta) => {
     if (allowControls.current === false) return;
 
@@ -66,6 +94,9 @@ function PlayerMoveControls({ allowControls }) {
       if (code.current.has("KeyA")) moveRight(-delta * speed);
       if (code.current.has("KeyD")) moveRight(delta * speed);
     }
+
+    movementBoundaries();
+    console.log(camera.position.toArray());
   });
 
   return null;
