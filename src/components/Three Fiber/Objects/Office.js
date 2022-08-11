@@ -16,6 +16,10 @@ import { useGLTF } from "@react-three/drei";
 
 export default function Office({ ...props }) {
   const { nodes, materials } = useGLTF("/assets/models/office/scene.gltf");
+  const roof = materials.bookshelf.clone();
+  roof.color.set("grey");
+  roof.roughness = 1;
+  materials.wood_floor.roughness = 1;
   const group = useRef(null);
 
   return (
@@ -29,7 +33,14 @@ export default function Office({ ...props }) {
             />
           </group>
           {/* About me */}
-          <group position={[-0.1, 0, 0.5]}>
+          <group position={[0.2, 0, 0.4]}>
+            <group position={[2.03, 1.14, 0.5]}>
+              <mesh
+                castShadow
+                geometry={nodes.Object_16.geometry}
+                material={materials.bookshelf}
+              />
+            </group>
             <group position={[0.5, 1.76, -3.59]}>
               <mesh
                 geometry={nodes.Object_8.geometry}
@@ -235,13 +246,6 @@ export default function Office({ ...props }) {
               material={materials.grey_metal}
             />
           </group>
-          <group position={[1.93, 1.14, 1]}>
-            <mesh
-              castShadow
-              geometry={nodes.Object_16.geometry}
-              material={materials.bookshelf}
-            />
-          </group>
           <group scale={1}>
             <mesh
               geometry={nodes.Object_18.geometry}
@@ -255,10 +259,7 @@ export default function Office({ ...props }) {
             />
           </group>
           <group position={[0, 7.5, 0]} scale={5.2}>
-            <mesh
-              geometry={nodes.Object_23.geometry}
-              material={materials.wood_floor}
-            />
+            <mesh geometry={nodes.Object_23.geometry} material={roof} />
           </group>
           <group scale={5.2}>
             <mesh
@@ -336,7 +337,7 @@ export default function Office({ ...props }) {
               material={materials.dark_wood}
             />
           </group>
-          <group position={[3.6, 0.56, 0.9]} scale={0.05}>
+          <group position={[3.5, 0.56, 0.9]} scale={0.05}>
             <mesh
               geometry={nodes.Object_57.geometry}
               material={materials.chair_wood}

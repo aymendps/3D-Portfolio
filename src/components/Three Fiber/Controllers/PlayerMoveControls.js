@@ -28,7 +28,7 @@ function PlayerMoveControls({ allowControls }) {
   // const RUNNING_SPEED = 20;
   const CAMERA_HEIGHT = 4;
   const WALKING_SPEED = 3;
-  const FORWARD_BOUND = -0.05;
+  const FORWARD_BOUND = 0.25;
   const BACKWARD_BOUND = -3.3;
   const LEFT_BOUND = -1.85;
   const RIGHT_BOUND = 3.4;

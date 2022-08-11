@@ -20,13 +20,19 @@ function CustomLoader({
   const [prepareForIntro, setPrepareForIntro] = useState(false);
 
   useEffect(() => {
-    setTimeout(() => {
+    let timer = setTimeout(() => {
       setIsStarted(true);
     }, 1000);
+
+    return () => {
+      clearTimeout(timer);
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
+    let timer;
+
     if (isStarted === true) {
       DefaultLoadingManager.onProgress = function (item, loaded, total) {
         progressRef.current = (loaded / total) * 100;
@@ -34,11 +40,15 @@ function CustomLoader({
       };
       DefaultLoadingManager.onLoad = function () {
         console.log("COMPLETE");
-        setTimeout(() => {
+        timer = setTimeout(() => {
           setShowStartButton(true);
         }, 500);
       };
     }
+
+    return () => {
+      clearTimeout(timer);
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isStarted]);
 
@@ -247,7 +257,7 @@ function CustomLoader({
             <Typography
               fontFamily="Berkshire Swash"
               textAlign="center"
-              variant="h3"
+              variant="h4"
               className="underline"
             >
               Starring:
