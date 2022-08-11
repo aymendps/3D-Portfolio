@@ -96,7 +96,6 @@ function PlayerMoveControls({ allowControls }) {
     }
 
     movementBoundaries();
-    console.log(camera.position.toArray());
   });
 
   return null;

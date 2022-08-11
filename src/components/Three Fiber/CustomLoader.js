@@ -63,9 +63,9 @@ function CustomLoader({
               }}
               options={{
                 wrapperClassName:
-                  "font-[Arizonia] bold text-[3.75rem] font-bold pr-2",
+                  "font-berkshire bold text-[3.75rem] font-bold pr-2",
                 cursorClassName:
-                  "Typewriter__cursor font-[Arizonia] bold text-[3.75rem]",
+                  "Typewriter__cursor font-berkshire bold text-[3.75rem]",
                 loop: true,
                 delay: 75,
                 deleteSpeed: 10,
@@ -95,7 +95,7 @@ function CustomLoader({
                     />
                     <Typography
                       key="canvas-progress-number"
-                      fontFamily="'Arizonia', cursive;"
+                      fontFamily="Berkshire Swash"
                       textAlign="center"
                       className="absolute text-[28px] top-0 left-0 w-full pt-[32%] text-cyan-300"
                       variant="body1"
@@ -116,7 +116,7 @@ function CustomLoader({
                   }}
                 >
                   <Button
-                    className="w-[130px] h-[130px] rounded-[50%] border-4 border-cyan-300 font-[Arizonia]  normal-case text-[2.2rem]"
+                    className="w-[130px] h-[130px] rounded-[50%] border-4 border-cyan-300 font-berkshire normal-case text-[2.2rem]"
                     variant="outlined"
                     sx={{ color: "cyan" }}
                     onClick={() => {
@@ -157,7 +157,7 @@ function CustomLoader({
             className="absolute left-0 top-0 w-full h-full flex flex-col justify-center items-center gap-4 z-[99999999] select-none"
           >
             <Typography
-              fontFamily="'Arizonia', cursive;"
+              fontFamily="Berkshire Swash"
               fontWeight="bold"
               textAlign="center"
               variant="h1"
@@ -190,7 +190,7 @@ function CustomLoader({
             className="absolute left-0 top-0 w-full h-full flex flex-col justify-center items-center gap-4 z-[99999999] select-none"
           >
             <Typography
-              fontFamily="'Arizonia', cursive;"
+              fontFamily="Berkshire Swash"
               textAlign="center"
               variant="h4"
               className="underline"
@@ -198,7 +198,7 @@ function CustomLoader({
               Idea Of
             </Typography>
             <Typography
-              fontFamily="'Arizonia', cursive;"
+              fontFamily="Berkshire Swash"
               fontWeight="bold"
               textAlign="center"
               variant="h2"
@@ -216,7 +216,7 @@ function CustomLoader({
             className="absolute left-0 top-0 w-full h-full flex flex-col justify-center items-center gap-4 z-[99999999] select-none"
           >
             <Typography
-              fontFamily="'Arizonia', cursive;"
+              fontFamily="Berkshire Swash"
               textAlign="center"
               variant="h4"
               className="underline"
@@ -224,7 +224,7 @@ function CustomLoader({
               Implemented By:
             </Typography>
             <Typography
-              fontFamily="'Arizonia', cursive;"
+              fontFamily="Berkshire Swash"
               fontWeight="bold"
               textAlign="center"
               variant="h2"
@@ -245,7 +245,7 @@ function CustomLoader({
             className="absolute left-0 top-0 w-full h-full flex flex-col justify-center items-center gap-4 z-[99999999] select-none"
           >
             <Typography
-              fontFamily="'Arizonia', cursive;"
+              fontFamily="Berkshire Swash"
               textAlign="center"
               variant="h3"
               className="underline"
@@ -253,7 +253,7 @@ function CustomLoader({
               Starring:
             </Typography>
             <Typography
-              fontFamily="'Arizonia', cursive;"
+              fontFamily="Berkshire Swash"
               fontWeight="bold"
               textAlign="center"
               variant="h1"

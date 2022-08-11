@@ -31,7 +31,7 @@ function LandingPage({ setIsClicked }) {
               rotateX: { delay: 1, duration: 0.5 },
               display: { delay: 1.5 },
             }}
-            className="font-[Arizonia] bold text-[3.75rem] font-bold"
+            className="font-berkshire bold text-[3.75rem] font-bold"
           >
             Hey there!
           </motion.h2>
@@ -46,7 +46,7 @@ function LandingPage({ setIsClicked }) {
               rotateX: { delay: 2, times: [0, 0.3, 0.7, 1], duration: 3 },
               display: { delay: 5 },
             }}
-            className="font-[Arizonia] bold text-[3.75rem] font-bold"
+            className="font-berkshire bold text-[3.75rem] font-bold"
           >
             Thanks for checking out my website!
           </motion.h2>
@@ -60,7 +60,7 @@ function LandingPage({ setIsClicked }) {
               transition={{
                 rotateX: { delay: 5.5, duration: 0.5 },
               }}
-              className="font-[Arizonia] text-[3.75rem] font-bold"
+              className="font-berkshire text-[3.75rem] font-bold"
             >
               Are you ready?
             </motion.h2>
@@ -74,12 +74,12 @@ function LandingPage({ setIsClicked }) {
                 onClick={handleClick}
                 variant="outlined"
                 sx={{ transition: "250ms !important" }}
-                className="font-[Arizonia] text-[2.2rem] hover:text-[2.5rem] font-bold normal-case px-12 rounded-3xl text-cyan-300 border-cyan-300"
+                className="font-berkshire text-[2.2rem] hover:text-[2.5rem] font-bold normal-case px-12 rounded-3xl text-cyan-300 border-cyan-300"
               >
                 {"> Let's go <"}
               </Button>
-              <Typography className="font-[Arizonia] text-[2rem] text-cyan-400">
-                For a better experience, please enable fullscreen mode 'f11'
+              <Typography className="font-berkshire text-[1.5rem] text-cyan-400">
+                For a better experience, please enable fullscreen mode 'F11'
               </Typography>
             </motion.div>
           </div>
