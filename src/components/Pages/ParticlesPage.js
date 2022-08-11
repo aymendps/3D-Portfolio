@@ -10,7 +10,7 @@ const ParticlesPage = ({ stop }) => {
   const options = {
     background: {
       color: {
-        value: "rgb(17,24,39)",
+        value: "rgb(12, 17, 28)",
       },
       position: "50% 50%",
       repeat: "no-repeat",
