@@ -9,9 +9,9 @@ import PlayerMoveControls from "./Controllers/PlayerMoveControls";
 import Rain from "./Objects/Rain";
 import IntroCameraFov from "./Controllers/IntroCameraFov";
 import PlayerLookControls from "./Controllers/PlayerLookControls";
-import CustomLoader from "./UI/CustomLoader";
+import CustomLoader from "./CustomLoader";
 import GlobalSound from "./Audio/GlobalSound";
-import MuteButton from "./UI/MuteButton";
+import GameplayUI from "./UI/GameplayUI";
 
 function MainCanvas({ isClicked, setStopParticles }) {
   const [isDev] = useState(false);
@@ -23,6 +23,7 @@ function MainCanvas({ isClicked, setStopParticles }) {
   const allowControls = useRef(false);
 
   const [musicVolume, setMusicVolume] = useState(0.3);
+  const [message, setMessage] = useState({});
 
   const rainAudioRef = useCallback(
     (node) => {
@@ -58,12 +59,12 @@ function MainCanvas({ isClicked, setStopParticles }) {
             setStopParticles={setStopParticles}
           />
         ) : (
-          <>
-            <MuteButton
-              musicVolume={musicVolume}
-              setMusicVolume={setMusicVolume}
-            />
-          </>
+          <GameplayUI
+            musicVolume={musicVolume}
+            setMusicVolume={setMusicVolume}
+            message={message}
+            setMessage={setMessage}
+          />
         )}
         {isStarted && (
           <Canvas>
