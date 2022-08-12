@@ -1,6 +1,6 @@
 import { Typography } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 function Message({ message, setMessage }) {
   const previousContent = useRef("");
@@ -40,21 +40,25 @@ function Message({ message, setMessage }) {
   }, [message]);
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      transition={{ duration: 0.5 }}
-      animate={hidden ? "hidden" : "visible"}
-      variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
-      className="absolute px-1 py-2 z-10 bottom-12 w-[50%] ml-[25%] bg-[rgba(60,60,60,0.6)] rounded-2xl"
-    >
-      <Typography
-        textAlign="center"
-        fontFamily="Berkshire Swash"
-        className="text-[1.5rem]"
+    <AnimatePresence exitBeforeEnter>
+      <motion.div
+        key={message.content || previousContent.current}
+        initial={{ opacity: 0 }}
+        transition={{ duration: 0.5 }}
+        animate={hidden ? "hidden" : "visible"}
+        exit={{ opacity: 0 }}
+        variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
+        className="absolute px-1 py-2 z-10 bottom-12 w-[50%] ml-[25%] bg-[rgba(60,60,60,0.6)] rounded-2xl pointer-events-none select-none"
       >
-        {message.content || previousContent.current}
-      </Typography>
-    </motion.div>
+        <Typography
+          textAlign="center"
+          fontFamily="Berkshire Swash"
+          className="text-[1.5rem]"
+        >
+          {message.content || previousContent.current}
+        </Typography>
+      </motion.div>
+    </AnimatePresence>
   );
 }
 

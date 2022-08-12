@@ -53,7 +53,7 @@ function QuestList({ activeQuests, activeQuestsRef, setActiveQuests }) {
   });
 
   return (
-    <div className="absolute z-10 w-[25%] h-[90%] top-4 right-0 ">
+    <div className="absolute z-10 w-[25%] h-[90%] top-4 right-0 pointer-events-none select-none">
       <motion.div
         initial={{ rotateX: 90 }}
         animate={{ rotateX: 0 }}
