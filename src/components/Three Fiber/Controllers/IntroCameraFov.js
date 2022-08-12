@@ -1,6 +1,6 @@
 import { useFrame, useThree } from "@react-three/fiber";
 
-function IntroCameraFov({ allowControls, startIntro }) {
+function IntroCameraFov({ allowControls, startIntro, setFinishedIntro }) {
   const SPEED = 2;
   const { camera, gl } = useThree();
 
@@ -14,6 +14,7 @@ function IntroCameraFov({ allowControls, startIntro }) {
     } else if (allowControls.current === false && startIntro === true) {
       allowControls.current = true;
       gl.domElement.style.cursor = "grab";
+      setFinishedIntro(true);
     }
   });
 

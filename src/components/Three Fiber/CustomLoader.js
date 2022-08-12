@@ -9,7 +9,6 @@ function CustomLoader({
   setIsStarted,
   startIntro,
   setStartIntro,
-  setFinishedIntro,
   setStartMusic,
   setStopParticles,
 }) {
@@ -248,9 +247,6 @@ function CustomLoader({
             transition={{
               rotateX: { delay: 26, times: [0, 0.3, 0.7, 1], duration: 4 },
               display: { delay: 30 },
-            }}
-            onAnimationComplete={() => {
-              setFinishedIntro(true);
             }}
             className="absolute left-0 top-0 w-full h-full flex flex-col justify-center items-center gap-4 z-[99999999] select-none"
           >
