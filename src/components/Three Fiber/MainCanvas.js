@@ -12,6 +12,7 @@ import PlayerLookControls from "./Controllers/PlayerLookControls";
 import CustomLoader from "./CustomLoader";
 import GlobalSound from "./Audio/GlobalSound";
 import GameplayUI from "./UI/GameplayUI";
+import ActionsIndicator from "./Systems/ActionsIndicator";
 
 function MainCanvas({ isClicked, setStopParticles }) {
   const [isDev] = useState(false);
@@ -24,6 +25,24 @@ function MainCanvas({ isClicked, setStopParticles }) {
 
   const [musicVolume, setMusicVolume] = useState(0.3);
   const [message, setMessage] = useState({});
+
+  const [activeQuests, setActiveQuests] = useState([]);
+  const activeQuestsRef = useRef([]);
+
+  const addQuest = (quest) => {
+    if (!activeQuests.includes(quest)) {
+      setActiveQuests((current) => [...current, quest]);
+    }
+  };
+
+  const completeQuest = (quest) => {
+    setActiveQuests((current) =>
+      current.filter((_, index) => {
+        return index !== current.indexOf(quest);
+      })
+    );
+    activeQuestsRef.current.splice(activeQuestsRef.current.indexOf(quest), 1);
+  };
 
   const rainAudioRef = useCallback(
     (node) => {
@@ -54,7 +73,6 @@ function MainCanvas({ isClicked, setStopParticles }) {
             setIsStarted={setIsStarted}
             startIntro={startIntro}
             setStartIntro={setStartIntro}
-            setFinishedIntro={setFinishedIntro}
             setStartMusic={setStartMusic}
             setStopParticles={setStopParticles}
           />
@@ -64,6 +82,9 @@ function MainCanvas({ isClicked, setStopParticles }) {
             setMusicVolume={setMusicVolume}
             message={message}
             setMessage={setMessage}
+            activeQuests={activeQuests}
+            activeQuestsRef={activeQuestsRef}
+            setActiveQuests={setActiveQuests}
           />
         )}
         {isStarted && (
@@ -80,17 +101,24 @@ function MainCanvas({ isClicked, setStopParticles }) {
             )}
             <PlayerCamera />
             <Rain />
-
             <GlobalSound
               url="/assets/audio/noire.mp3"
               volume={musicVolume}
               startMusic={startMusic}
             />
-
             <IntroCameraFov
               startIntro={startIntro}
               allowControls={allowControls}
+              setFinishedIntro={setFinishedIntro}
             />
+            {finishedIntro && (
+              <ActionsIndicator
+                activeQuestsRef={activeQuestsRef}
+                addQuest={addQuest}
+                completeQuest={completeQuest}
+                setMessage={setMessage}
+              />
+            )}
           </Canvas>
         )}
       </div>

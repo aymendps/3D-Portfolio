@@ -13,7 +13,7 @@ function MuteButton({ musicVolume, setMusicVolume }) {
 
   return (
     <IconButton
-      className="absolute top-4 right-4 z-10 text-white"
+      className="absolute left-4 top-4 z-10 text-white"
       onClick={() => {
         setMusicVolume((current) => {
           const index = levels.indexOf(current);
