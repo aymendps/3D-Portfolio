@@ -59,7 +59,11 @@ function MainCanvas({ isClicked, setStopParticles }) {
   );
 
   return (
-    <>
+    <div
+      onContextMenu={(e) => {
+        e.preventDefault();
+      }}
+    >
       <audio
         loop
         type="audio"
@@ -122,7 +126,7 @@ function MainCanvas({ isClicked, setStopParticles }) {
           </Canvas>
         )}
       </div>
-    </>
+    </div>
   );
 }
 

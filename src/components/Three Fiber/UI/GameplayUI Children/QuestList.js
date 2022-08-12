@@ -53,14 +53,14 @@ function QuestList({ activeQuests, activeQuestsRef, setActiveQuests }) {
   });
 
   return (
-    <div className="absolute z-10 w-[25%] h-[90%] top-[5%] right-0 p-6 ">
+    <div className="absolute z-10 w-[25%] h-[90%] top-4 right-0 ">
       <motion.div
         initial={{ rotateX: 90 }}
         animate={{ rotateX: 0 }}
         transition={{ duration: 0.5 }}
       >
         <Typography className="font-berkshire" variant="h4">
-          Tasks to do:
+          Tasks to do
         </Typography>
         <Divider className="bg-white" />
       </motion.div>

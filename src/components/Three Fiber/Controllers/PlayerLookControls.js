@@ -15,7 +15,7 @@ function PlayerLookControls({ allowControls }) {
     };
     // gl.domElement.style.cursor = "grab";
     const onMouseDown = (e) => {
-      if (!allowControls.current) return;
+      if (!allowControls.current || e.buttons !== 1) return;
 
       state.drag = true;
       e.target.style.cursor = "grabbing";

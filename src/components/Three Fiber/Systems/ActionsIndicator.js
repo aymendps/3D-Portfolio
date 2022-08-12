@@ -37,7 +37,10 @@ function ActionsIndicator({
         z: camera.position.z,
       };
     }
-    if (initialRotation.current === null) {
+    if (
+      initialRotation.current === null ||
+      activeQuestsRef.current.includes("Walk around your office")
+    ) {
       initialRotation.current = {
         x: camera.rotation.x,
         y: camera.rotation.y,
@@ -52,7 +55,11 @@ function ActionsIndicator({
       completeQuest("Walk around your office");
       setMessage({ content: "" });
       addQuest("Look around your office");
-      setMessage("Hold the mouse's left button and drag to look around");
+      setTimeout(() => {
+        setMessage({
+          content: "Hold the mouse's left button and drag to look around",
+        });
+      }, 1000);
     }
 
     if (
