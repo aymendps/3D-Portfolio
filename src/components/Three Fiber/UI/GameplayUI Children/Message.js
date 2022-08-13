@@ -9,11 +9,7 @@ function Message({ message, setMessage }) {
   const countdownInterval = useRef();
 
   useEffect(() => {
-    if (
-      message.content !== undefined &&
-      message.content !== null &&
-      message.content !== ""
-    ) {
+    if (message.content) {
       previousContent.current = message.content;
       countdown.current = Math.ceil(message.duration) || Infinity;
       if (countdown.current === Infinity) {

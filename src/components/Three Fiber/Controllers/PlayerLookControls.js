@@ -24,8 +24,6 @@ function PlayerLookControls({ allowControls }) {
       state.prev.screenY = e.screenY;
     };
     const onMouseUp = () => {
-      if (!allowControls.current) return;
-
       state.drag = false;
       gl.domElement.style.cursor = "grab";
     };

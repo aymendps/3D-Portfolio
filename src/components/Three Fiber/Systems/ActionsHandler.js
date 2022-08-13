@@ -1,21 +1,41 @@
 import { useFrame, useThree } from "@react-three/fiber";
 import { useEffect, useRef } from "react";
+import { Euler } from "three";
+import { CAMERA_HEIGHT } from "../Controllers/PlayerMoveControls";
+import { QUESTS } from "../MainCanvas";
+import { deg2rad } from "../utils";
 
-function ActionsIndicator({
+function ActionsHandler({
+  allowControls,
   activeQuestsRef,
   addQuest,
   completeQuest,
   setMessage,
+  eKeyAction,
 }) {
   const { camera } = useThree();
   const initialPosition = useRef(null);
   const initialRotation = useRef(null);
-  const triggers = useRef({
+
+  const TRIGGERS_CONFIG = {
     desk: {
       value: false,
-      boundaries: { maxX: Infinity, minX: 0.15, maxZ: 2.5, minZ: -0.5 },
+      boundaries: { maxX: 0.3, minX: -0.05, maxZ: 2.5, minZ: -0.5 },
+      message: "Press E to sit",
+      action: () => {
+        setMessage({ content: "" });
+        allowControls.current = false;
+        camera.position.set(3.85, CAMERA_HEIGHT, 0.95);
+        const euler = new Euler(0, 0, 0, "YXZ").setFromQuaternion(
+          camera.quaternion
+        );
+        euler.x = deg2rad(-40);
+        euler.y = Math.PI / 2;
+        camera.quaternion.setFromEuler(euler);
+      },
     },
-  });
+  };
+  const triggers = useRef(TRIGGERS_CONFIG);
 
   const questStage = useRef(0);
 
@@ -45,8 +65,6 @@ function ActionsIndicator({
   };
 
   const handleTutorialQuests = () => {
-    if (questStage.current !== 0) return;
-
     if (initialPosition.current === null) {
       initialPosition.current = {
         x: camera.position.x,
@@ -56,7 +74,7 @@ function ActionsIndicator({
     }
     if (
       initialRotation.current === null ||
-      activeQuestsRef.current.includes("Walk around your office")
+      activeQuestsRef.current.includes(QUESTS.tutorialWalk)
     ) {
       initialRotation.current = {
         x: camera.rotation.x,
@@ -67,10 +85,10 @@ function ActionsIndicator({
 
     if (
       isDifferent(initialPosition.current, camera.position) &&
-      activeQuestsRef.current.includes("Walk around your office")
+      activeQuestsRef.current.includes(QUESTS.tutorialWalk)
     ) {
-      completeQuest("Walk around your office");
-      addQuest("Look around your office");
+      completeQuest(QUESTS.tutorialWalk);
+      addQuest(QUESTS.tutorialLook);
       setMessage({
         content: "Hold the mouse's left button and drag to look around",
       });
@@ -78,40 +96,48 @@ function ActionsIndicator({
 
     if (
       isDifferent(initialRotation.current, camera.rotation) &&
-      activeQuestsRef.current.includes("Look around your office")
+      activeQuestsRef.current.includes(QUESTS.tutorialLook)
     ) {
-      completeQuest("Look around your office");
+      completeQuest(QUESTS.tutorialLook);
       setMessage({ content: "" });
-      addQuest("Sit at your desk");
+      addQuest(QUESTS.desk);
       questStage.current++;
     }
   };
 
-  const handleTriggers = () => {
-    //console.log(camera.position.toArray());
-    if (isInTrigger(triggers.current.desk)) {
-      if (triggers.current.desk.value === false) {
-        triggers.current.desk.value = true;
-        console.log("enter desk trigger");
+  const checkTrigger = (trigger) => {
+    if (isInTrigger(trigger)) {
+      if (trigger.value === false) {
+        trigger.value = true;
+        setMessage({ content: trigger.message });
+        eKeyAction.current = trigger.action;
       }
-    } else if (triggers.current.desk.value === true) {
-      triggers.current.desk.value = false;
-      console.log("exit desk trigger");
+    } else if (trigger.value === true) {
+      trigger.value = false;
+      setMessage({ content: "" });
+      eKeyAction.current = null;
     }
   };
 
+  const handleTriggers = () => {
+    checkTrigger(triggers.current.desk);
+  };
+
   useEffect(() => {
-    addQuest("Walk around your office");
+    addQuest(QUESTS.tutorialWalk);
     setMessage({ content: "Use WASD keys to move" });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useFrame((_, delta) => {
-    handleTutorialQuests();
-    handleTriggers();
+    if (questStage.current === 0) {
+      handleTutorialQuests();
+    } else {
+      handleTriggers();
+    }
   });
 
   return null;
 }
 
-export default ActionsIndicator;
+export default ActionsHandler;

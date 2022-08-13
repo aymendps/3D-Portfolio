@@ -12,7 +12,14 @@ import PlayerLookControls from "./Controllers/PlayerLookControls";
 import CustomLoader from "./CustomLoader";
 import GlobalSound from "./Audio/GlobalSound";
 import GameplayUI from "./UI/GameplayUI";
-import ActionsIndicator from "./Systems/ActionsIndicator";
+import ActionsHandler from "./Systems/ActionsHandler";
+import PlayerActionControls from "./Controllers/PlayerActionControls";
+
+export const QUESTS = {
+  tutorialWalk: "Walk around your office",
+  tutorialLook: "Look around you",
+  desk: "Sit at your desk",
+};
 
 function MainCanvas({ isClicked, setStopParticles }) {
   const [isDev] = useState(false);
@@ -23,11 +30,12 @@ function MainCanvas({ isClicked, setStopParticles }) {
   const [finishedIntro, setFinishedIntro] = useState(false);
   const allowControls = useRef(false);
 
-  const [musicVolume, setMusicVolume] = useState(0.3);
+  const [musicVolume, setMusicVolume] = useState(0.2);
   const [message, setMessage] = useState({});
 
   const [activeQuests, setActiveQuests] = useState([]);
   const activeQuestsRef = useRef([]);
+  const eKeyAction = useRef(null);
 
   const addQuest = (quest) => {
     if (!activeQuests.includes(quest)) {
@@ -101,6 +109,10 @@ function MainCanvas({ isClicked, setStopParticles }) {
               <>
                 <PlayerMoveControls allowControls={allowControls} />
                 <PlayerLookControls allowControls={allowControls} />
+                <PlayerActionControls
+                  allowControls={allowControls}
+                  eKeyAction={eKeyAction}
+                />
               </>
             )}
             <PlayerCamera />
@@ -110,17 +122,21 @@ function MainCanvas({ isClicked, setStopParticles }) {
               volume={musicVolume}
               startMusic={startMusic}
             />
-            <IntroCameraFov
-              startIntro={startIntro}
-              allowControls={allowControls}
-              setFinishedIntro={setFinishedIntro}
-            />
+            {!finishedIntro && (
+              <IntroCameraFov
+                startIntro={startIntro}
+                allowControls={allowControls}
+                setFinishedIntro={setFinishedIntro}
+              />
+            )}
             {finishedIntro && (
-              <ActionsIndicator
+              <ActionsHandler
+                allowControls={allowControls}
                 activeQuestsRef={activeQuestsRef}
                 addQuest={addQuest}
                 completeQuest={completeQuest}
                 setMessage={setMessage}
+                eKeyAction={eKeyAction}
               />
             )}
           </Canvas>

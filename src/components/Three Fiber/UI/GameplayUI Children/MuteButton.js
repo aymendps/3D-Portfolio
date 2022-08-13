@@ -4,7 +4,7 @@ import VolumeOffIcon from "@mui/icons-material/VolumeMute";
 import VolumeDownIcon from "@mui/icons-material/VolumeDown";
 
 function MuteButton({ musicVolume, setMusicVolume }) {
-  const levels = [0.3, 0.1, 0];
+  const levels = [0.2, 0.1, 0];
   const icons = [
     <VolumeUpIcon fontSize="large" />,
     <VolumeDownIcon fontSize="large" />,

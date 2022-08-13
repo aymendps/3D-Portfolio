@@ -19,19 +19,18 @@ const useCodes = () => {
   return codes;
 };
 
+export const CAMERA_HEIGHT = 4;
+export const WALKING_SPEED = 3;
+export const FORWARD_BOUND = 0.25;
+export const BACKWARD_BOUND = -3.3;
+export const LEFT_BOUND = -1.85;
+export const RIGHT_BOUND = 3.4;
+
 function PlayerMoveControls({ allowControls }) {
   const vec = new Vector3();
   const { camera } = useThree();
   const code = useCodes();
   const offsetHeightUp = useRef(true);
-
-  // const RUNNING_SPEED = 20;
-  const CAMERA_HEIGHT = 4;
-  const WALKING_SPEED = 3;
-  const FORWARD_BOUND = 0.25;
-  const BACKWARD_BOUND = -3.3;
-  const LEFT_BOUND = -1.85;
-  const RIGHT_BOUND = 3.4;
 
   const moveForward = (distance, heightOffset) => {
     vec.setFromMatrixColumn(camera.matrix, 0);
@@ -55,6 +54,7 @@ function PlayerMoveControls({ allowControls }) {
     if (camera.position.y < CAMERA_HEIGHT) {
       offsetHeightUp.current = true;
     }
+
     if (offsetHeightUp.current === true) {
       camera.position.addScaledVector(camera.up, heightOffset / 2);
     } else {
@@ -88,7 +88,7 @@ function PlayerMoveControls({ allowControls }) {
     const speed = WALKING_SPEED;
     if (!(code.current.has("KeyW") && code.current.has("KeyS"))) {
       if (code.current.has("KeyW")) moveForward(delta * speed, delta);
-      if (code.current.has("KeyS")) moveForward((-delta * speed) / 1.5, delta);
+      if (code.current.has("KeyS")) moveForward((-delta * speed) / 2, delta);
     }
     if (!(code.current.has("KeyA") && code.current.has("KeyD"))) {
       if (code.current.has("KeyA")) moveRight(-delta * speed);
