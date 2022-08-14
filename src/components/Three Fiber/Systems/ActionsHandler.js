@@ -25,13 +25,16 @@ function ActionsHandler({
       action: () => {
         setMessage({ content: "" });
         allowControls.current = false;
-        camera.position.set(3.85, CAMERA_HEIGHT, 0.95);
+        camera.position.set(4, CAMERA_HEIGHT, 0.95);
         const euler = new Euler(0, 0, 0, "YXZ").setFromQuaternion(
           camera.quaternion
         );
         euler.x = deg2rad(-40);
         euler.y = Math.PI / 2;
         camera.quaternion.setFromEuler(euler);
+        setTimeout(() => {
+          completeQuest(QUESTS.desk);
+        }, 500);
       },
     },
   };

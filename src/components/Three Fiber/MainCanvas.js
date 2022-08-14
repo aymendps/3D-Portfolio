@@ -78,7 +78,7 @@ function MainCanvas({ isClicked, setStopParticles }) {
         src="/assets/audio/rain_medium.ogg"
         ref={rainAudioRef}
       />
-      <div className="fixed w-full h-[100vh] top-0 left-0  z-10">
+      <div className="fixed w-full h-[100vh] top-0 left-0 z-10">
         {!finishedIntro ? (
           <CustomLoader
             isStarted={isStarted}
