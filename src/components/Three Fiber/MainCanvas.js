@@ -19,6 +19,10 @@ export const QUESTS = {
   tutorialWalk: "Walk around your office",
   tutorialLook: "Look around you",
   desk: "Sit at your desk",
+  me_about: "Have a look at the 'About me' stack",
+  me_skills: "Have a look at the 'My skills' stack",
+  me_portfolio: "Have a look at the 'My portfolio' stack",
+  me_contact: "Have a look at the 'Contact me' stack",
 };
 
 function MainCanvas({ isClicked, setStopParticles }) {

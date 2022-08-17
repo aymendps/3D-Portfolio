@@ -8,6 +8,8 @@ const euler = new Euler(0, 0, 0, "YXZ");
 function PlayerLookControls({ allowControls }) {
   const { camera, gl } = useThree();
 
+  const MAX_X_ROTATION = 45;
+
   useEffect(() => {
     const state = {
       drag: false,
@@ -15,7 +17,7 @@ function PlayerLookControls({ allowControls }) {
     };
     // gl.domElement.style.cursor = "grab";
     const onMouseDown = (e) => {
-      if (!allowControls.current || e.buttons !== 1) return;
+      if (!allowControls.current) return;
 
       state.drag = true;
       e.target.style.cursor = "grabbing";
@@ -39,8 +41,8 @@ function PlayerLookControls({ allowControls }) {
         const degreeX = rad2deg(euler.x);
         euler.x =
           degreeX > 0
-            ? deg2rad(Math.min(degreeX, 40))
-            : deg2rad(Math.max(degreeX, -40));
+            ? deg2rad(Math.min(degreeX, MAX_X_ROTATION))
+            : deg2rad(Math.max(degreeX, -MAX_X_ROTATION));
         camera.quaternion.setFromEuler(euler);
       }
       state.prev.screenX = e.screenX;

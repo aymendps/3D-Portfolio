@@ -33,7 +33,7 @@ export default function Office({ ...props }) {
             />
           </group>
           {/* About me */}
-          <group position={[0.2, 0, 0.4]}>
+          <group position={[0, 0, 0.4]}>
             <group position={[2.03, 1.14, 0.5]}>
               <mesh
                 castShadow
@@ -337,7 +337,7 @@ export default function Office({ ...props }) {
               material={materials.dark_wood}
             />
           </group>
-          <group position={[3.55, 0.56, 0.9]} scale={0.05}>
+          <group position={[3.5, 0.56, 0.9]} scale={0.05}>
             <mesh
               geometry={nodes.Object_57.geometry}
               material={materials.chair_wood}

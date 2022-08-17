@@ -100,7 +100,7 @@ function CustomLoader({
                       variant="indeterminate"
                       size={130}
                       thickness={2}
-                      className="text-gray-400 absolute top-0 left-0"
+                      className="text-white absolute top-0 left-0"
                     />
                     <Typography
                       key="canvas-progress-number"
