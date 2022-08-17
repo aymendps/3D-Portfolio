@@ -21,21 +21,52 @@ const useCodes = () => {
 
 export const CAMERA_HEIGHT = 4;
 export const WALKING_SPEED = 3;
-export const FORWARD_BOUND = 0.25;
+export const FORWARD_BOUND = 3.35;
 export const BACKWARD_BOUND = -3.3;
 export const LEFT_BOUND = -1.85;
 export const RIGHT_BOUND = 3.4;
+export const DESK_COLLIDER = {
+  top: 3.15,
+  bottom: 0.3,
+  right: 3.25,
+  left: -1.7,
+};
+export const CHAIR_COLLIDER = {
+  top: 4,
+  bottom: 2.5,
+  right: 2.3,
+  left: -0.5,
+};
 
 function PlayerMoveControls({ allowControls }) {
   const vec = new Vector3();
   const { camera } = useThree();
   const code = useCodes();
-  const offsetHeightUp = useRef(true);
+  const variableHeightDirectionUp = useRef(true);
+
+  const isInCollider = (position, collider) => {
+    if (
+      position.x < collider.bottom ||
+      position.x > collider.top ||
+      position.z < collider.left ||
+      position.z > collider.right
+    ) {
+      return false;
+    }
+    return true;
+  };
 
   const moveForward = (distance, heightOffset) => {
     vec.setFromMatrixColumn(camera.matrix, 0);
     vec.crossVectors(camera.up, vec);
-    camera.position.addScaledVector(vec, distance);
+    const position = camera.position.clone();
+    position.addScaledVector(vec, distance);
+    const inCollider =
+      isInCollider(position, DESK_COLLIDER) ||
+      isInCollider(position, CHAIR_COLLIDER);
+    if (inCollider === false) {
+      camera.position.addScaledVector(vec, distance);
+    }
 
     if (distance < 0) return;
 
@@ -43,19 +74,20 @@ function PlayerMoveControls({ allowControls }) {
       camera.position.x > FORWARD_BOUND ||
       camera.position.x < BACKWARD_BOUND ||
       camera.position.z > RIGHT_BOUND ||
-      camera.position.z < LEFT_BOUND
+      camera.position.z < LEFT_BOUND ||
+      inCollider === true
     ) {
       return;
     }
 
     if (camera.position.y > CAMERA_HEIGHT + 0.1) {
-      offsetHeightUp.current = false;
+      variableHeightDirectionUp.current = false;
     }
     if (camera.position.y < CAMERA_HEIGHT) {
-      offsetHeightUp.current = true;
+      variableHeightDirectionUp.current = true;
     }
 
-    if (offsetHeightUp.current === true) {
+    if (variableHeightDirectionUp.current === true) {
       camera.position.addScaledVector(camera.up, heightOffset / 2);
     } else {
       camera.position.addScaledVector(camera.up, -heightOffset / 2);
@@ -64,7 +96,16 @@ function PlayerMoveControls({ allowControls }) {
 
   const moveRight = (distance) => {
     vec.setFromMatrixColumn(camera.matrix, 0);
-    camera.position.addScaledVector(vec, distance);
+    const position = camera.position.clone();
+    position.addScaledVector(vec, distance);
+    if (
+      !(
+        isInCollider(position, DESK_COLLIDER) ||
+        isInCollider(position, CHAIR_COLLIDER)
+      )
+    ) {
+      camera.position.addScaledVector(vec, distance);
+    }
   };
 
   const movementBoundaries = () => {

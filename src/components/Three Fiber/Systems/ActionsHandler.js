@@ -20,21 +20,25 @@ function ActionsHandler({
   const TRIGGERS_CONFIG = {
     desk: {
       value: false,
-      boundaries: { maxX: 0.3, minX: -0.05, maxZ: 2.5, minZ: -0.5 },
+      boundaries: { maxX: 3.35, minX: 3.15, maxZ: 3, minZ: -1.45 },
       message: "Press E to sit",
       action: () => {
         setMessage({ content: "" });
         allowControls.current = false;
-        camera.position.set(4, CAMERA_HEIGHT, 0.95);
+        camera.position.set(3.7, CAMERA_HEIGHT, 0.9);
         const euler = new Euler(0, 0, 0, "YXZ").setFromQuaternion(
           camera.quaternion
         );
-        euler.x = deg2rad(-40);
+        euler.x = deg2rad(-45);
         euler.y = Math.PI / 2;
         camera.quaternion.setFromEuler(euler);
         setTimeout(() => {
           completeQuest(QUESTS.desk);
-        }, 500);
+          addQuest(QUESTS.me_about);
+          addQuest(QUESTS.me_contact);
+          addQuest(QUESTS.me_portfolio);
+          addQuest(QUESTS.me_skills);
+        }, 200);
       },
     },
   };
@@ -93,7 +97,7 @@ function ActionsHandler({
       completeQuest(QUESTS.tutorialWalk);
       addQuest(QUESTS.tutorialLook);
       setMessage({
-        content: "Hold the mouse's left button and drag to look around",
+        content: "Hold the mouse's button down and drag to look around",
       });
     }
 
