@@ -33,12 +33,28 @@ function ActionsHandler({
         euler.y = Math.PI / 2;
         camera.quaternion.setFromEuler(euler);
         setTimeout(() => {
-          completeQuest(QUESTS.desk);
-          addQuest(QUESTS.me_about);
-          addQuest(QUESTS.me_contact);
-          addQuest(QUESTS.me_portfolio);
-          addQuest(QUESTS.me_skills);
+          if (completeQuest(QUESTS.desk) === true) {
+            addQuest(QUESTS.me_about);
+            addQuest(QUESTS.me_contact);
+            addQuest(QUESTS.me_portfolio);
+            addQuest(QUESTS.me_skills);
+          }
         }, 200);
+      },
+    },
+    deskSitting: {
+      value: false,
+      boundaries: { maxX: 3.75, minX: 3.65, maxZ: 0.95, minZ: 0.85 },
+      action: () => {
+        setMessage({ content: "" });
+        allowControls.current = true;
+        camera.position.set(3.2, CAMERA_HEIGHT, -0.6);
+        // const euler = new Euler(0, 0, 0, "YXZ").setFromQuaternion(
+        //   camera.quaternion
+        // );
+        // euler.x = deg2rad(-45);
+        // euler.y = Math.PI / 2;
+        // camera.quaternion.setFromEuler(euler);
       },
     },
   };
@@ -116,18 +132,25 @@ function ActionsHandler({
     if (isInTrigger(trigger)) {
       if (trigger.value === false) {
         trigger.value = true;
-        setMessage({ content: trigger.message });
+        if (trigger.message) {
+          setMessage({ content: trigger.message });
+        }
         eKeyAction.current = trigger.action;
       }
     } else if (trigger.value === true) {
       trigger.value = false;
-      setMessage({ content: "" });
-      eKeyAction.current = null;
+      if (eKeyAction.current === trigger.action) {
+        if (trigger.message) {
+          setMessage({ content: "" });
+        }
+        eKeyAction.current = null;
+      }
     }
   };
 
   const handleTriggers = () => {
     checkTrigger(triggers.current.desk);
+    checkTrigger(triggers.current.deskSitting);
   };
 
   useEffect(() => {

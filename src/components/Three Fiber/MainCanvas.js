@@ -32,7 +32,8 @@ function MainCanvas({ isClicked, setStopParticles }) {
   const [startIntro, setStartIntro] = useState(false);
   const [startMusic, setStartMusic] = useState(false);
   const [finishedIntro, setFinishedIntro] = useState(false);
-  const allowControls = useRef(false);
+  const allowMoveControls = useRef(false);
+  const allowActionControls = useRef(false);
 
   const [musicVolume, setMusicVolume] = useState(0.2);
   const [message, setMessage] = useState({});
@@ -53,7 +54,12 @@ function MainCanvas({ isClicked, setStopParticles }) {
         return index !== current.indexOf(quest);
       })
     );
-    activeQuestsRef.current.splice(activeQuestsRef.current.indexOf(quest), 1);
+    if (activeQuestsRef.current.indexOf(quest) !== -1) {
+      activeQuestsRef.current.splice(activeQuestsRef.current.indexOf(quest), 1);
+      return true;
+    } else {
+      return false;
+    }
   };
 
   const rainAudioRef = useCallback(
@@ -111,10 +117,10 @@ function MainCanvas({ isClicked, setStopParticles }) {
               <OrbitControls />
             ) : (
               <>
-                <PlayerMoveControls allowControls={allowControls} />
-                <PlayerLookControls allowControls={allowControls} />
+                <PlayerMoveControls allowControls={allowMoveControls} />
+                <PlayerLookControls allowControls={allowMoveControls} />
                 <PlayerActionControls
-                  allowControls={allowControls}
+                  allowControls={allowActionControls}
                   eKeyAction={eKeyAction}
                 />
               </>
@@ -129,13 +135,14 @@ function MainCanvas({ isClicked, setStopParticles }) {
             {!finishedIntro && (
               <IntroCameraFov
                 startIntro={startIntro}
-                allowControls={allowControls}
+                allowMoveControls={allowMoveControls}
+                allowActionControls={allowActionControls}
                 setFinishedIntro={setFinishedIntro}
               />
             )}
             {finishedIntro && (
               <ActionsHandler
-                allowControls={allowControls}
+                allowControls={allowMoveControls}
                 activeQuestsRef={activeQuestsRef}
                 addQuest={addQuest}
                 completeQuest={completeQuest}

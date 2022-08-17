@@ -1,6 +1,11 @@
 import { useFrame, useThree } from "@react-three/fiber";
 
-function IntroCameraFov({ allowControls, startIntro, setFinishedIntro }) {
+function IntroCameraFov({
+  allowMoveControls,
+  allowActionControls,
+  startIntro,
+  setFinishedIntro,
+}) {
   const SPEED = 2;
   const { camera, gl } = useThree();
 
@@ -11,10 +16,11 @@ function IntroCameraFov({ allowControls, startIntro, setFinishedIntro }) {
         camera.position.addScaledVector(camera.up, (SPEED * delta) / 32);
       }
       camera.updateProjectionMatrix();
-    } else if (allowControls.current === false && startIntro === true) {
+    } else if (allowMoveControls.current === false && startIntro === true) {
       camera.fov = 65;
       camera.updateProjectionMatrix();
-      allowControls.current = true;
+      allowMoveControls.current = true;
+      allowActionControls.current = true;
       gl.domElement.style.cursor = "grab";
       setFinishedIntro(true);
     }
