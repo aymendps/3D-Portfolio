@@ -1,4 +1,4 @@
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 // import { OrbitControls } from "@react-three/drei/core";
 import PlayerCamera from "./Controllers/PlayerCamera";
@@ -76,6 +76,17 @@ function MainCanvas({ isClicked, setStopParticles }) {
     [isClicked, musicVolume]
   );
 
+  const thunderAudioRef = useRef(null);
+
+  useEffect(() => {
+    if (musicVolume === 0) {
+      thunderAudioRef.current.pause();
+      thunderAudioRef.current.currentTime = 0;
+    } else {
+      thunderAudioRef.current.volume = musicVolume;
+    }
+  }, [musicVolume]);
+
   return (
     <div
       onContextMenu={(e) => {
@@ -87,6 +98,11 @@ function MainCanvas({ isClicked, setStopParticles }) {
         type="audio"
         src="/assets/audio/rain_medium.ogg"
         ref={rainAudioRef}
+      />
+      <audio
+        type="audio"
+        src="/assets/audio/thunder.mp3"
+        ref={thunderAudioRef}
       />
       <div className="fixed w-full h-[100vh] top-0 left-0 z-10">
         {!finishedIntro ? (
@@ -112,7 +128,11 @@ function MainCanvas({ isClicked, setStopParticles }) {
         {isStarted && (
           <Canvas>
             <Office />
-            <WindowLight />
+            <WindowLight
+              startIntro={startIntro}
+              thunderAudioRef={thunderAudioRef}
+              musicVolume={musicVolume}
+            />
             {isDev ? (
               <OrbitControls />
             ) : (

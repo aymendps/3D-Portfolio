@@ -35,9 +35,9 @@ function ActionsHandler({
         setTimeout(() => {
           if (completeQuest(QUESTS.desk) === true) {
             addQuest(QUESTS.me_about);
-            addQuest(QUESTS.me_contact);
-            addQuest(QUESTS.me_portfolio);
             addQuest(QUESTS.me_skills);
+            addQuest(QUESTS.me_portfolio);
+            addQuest(QUESTS.me_contact);
           }
         }, 200);
       },
