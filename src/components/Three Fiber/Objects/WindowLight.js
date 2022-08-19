@@ -42,7 +42,7 @@ function WindowLight({ startIntro, thunderAudioRef, musicVolume }) {
                     if (musicVolumeRef.current !== 0) {
                       thunderAudioRef.current.play();
                     }
-                    setThunderTimer(randFloat(6900, 20000));
+                    setThunderTimer(randFloat(10000, 25000));
                   }, 100);
                 }, 100);
               }, 100);
