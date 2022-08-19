@@ -36,11 +36,11 @@ function Message({ message, setMessage }) {
   }, [message]);
 
   return (
-    <AnimatePresence exitBeforeEnter>
+    <AnimatePresence mode={"wait"}>
       <motion.div
-        key={message.content || previousContent.current}
+        key={message.content || previousContent.current + Date.now()}
         initial={{ opacity: 0 }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.3 }}
         animate={hidden ? "hidden" : "visible"}
         exit={{ opacity: 0 }}
         variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}

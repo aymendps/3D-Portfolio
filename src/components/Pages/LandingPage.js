@@ -44,7 +44,7 @@ function LandingPage({ setIsClicked }) {
               }}
               animate={{ rotateX: [90, 0, 0, 90], display: "none" }}
               transition={{
-                rotateX: { delay: 2, times: [0, 0.3, 0.7, 1], duration: 3 },
+                rotateX: { delay: 2, times: [0, 0.3, 0.7, 1], duration: 2.9 },
                 display: { delay: 5 },
               }}
               className="font-berkshire bold text-[3.75rem] font-bold"

@@ -12,6 +12,7 @@ function ActionsHandler({
   completeQuest,
   setMessage,
   eKeyAction,
+  showDeskMenu,
 }) {
   const { camera } = useThree();
   const initialPosition = useRef(null);
@@ -23,7 +24,6 @@ function ActionsHandler({
       boundaries: { maxX: 3.35, minX: 3.15, maxZ: 3, minZ: -1.45 },
       message: "Press E to sit",
       action: () => {
-        setMessage({ content: "" });
         allowControls.current = false;
         camera.position.set(3.7, CAMERA_HEIGHT, 0.9);
         const euler = new Euler(0, 0, 0, "YXZ").setFromQuaternion(
@@ -32,6 +32,9 @@ function ActionsHandler({
         euler.x = deg2rad(-45);
         euler.y = Math.PI / 2;
         camera.quaternion.setFromEuler(euler);
+        showDeskMenu.current = true;
+        setMessage({ content: "Hover on a stack to view more about it" });
+        eKeyAction.current = TRIGGERS_CONFIG.deskSitting.action;
         setTimeout(() => {
           if (completeQuest(QUESTS.desk) === true) {
             addQuest(QUESTS.me_about);
@@ -39,15 +42,13 @@ function ActionsHandler({
             addQuest(QUESTS.me_portfolio);
             addQuest(QUESTS.me_contact);
           }
-        }, 200);
+        }, 300);
       },
     },
     deskSitting: {
-      value: false,
-      boundaries: { maxX: 3.75, minX: 3.65, maxZ: 0.95, minZ: 0.85 },
       action: () => {
-        setMessage({ content: "" });
         allowControls.current = true;
+        showDeskMenu.current = false;
         camera.position.set(3.2, CAMERA_HEIGHT, -0.6);
         // const euler = new Euler(0, 0, 0, "YXZ").setFromQuaternion(
         //   camera.quaternion
@@ -150,7 +151,6 @@ function ActionsHandler({
 
   const handleTriggers = () => {
     checkTrigger(triggers.current.desk);
-    checkTrigger(triggers.current.deskSitting);
   };
 
   useEffect(() => {

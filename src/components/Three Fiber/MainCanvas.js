@@ -42,6 +42,8 @@ function MainCanvas({ isClicked, setStopParticles }) {
   const activeQuestsRef = useRef([]);
   const eKeyAction = useRef(null);
 
+  const showDeskMenu = useRef(false);
+
   const addQuest = (quest) => {
     if (!activeQuests.includes(quest)) {
       setActiveQuests((current) => [...current, quest]);
@@ -127,7 +129,7 @@ function MainCanvas({ isClicked, setStopParticles }) {
         )}
         {isStarted && (
           <Canvas>
-            <Office />
+            <Office showDeskMenu={showDeskMenu} />
             <WindowLight
               startIntro={startIntro}
               thunderAudioRef={thunderAudioRef}
@@ -168,6 +170,7 @@ function MainCanvas({ isClicked, setStopParticles }) {
                 completeQuest={completeQuest}
                 setMessage={setMessage}
                 eKeyAction={eKeyAction}
+                showDeskMenu={showDeskMenu}
               />
             )}
           </Canvas>
