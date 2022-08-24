@@ -50,13 +50,10 @@ const ParticlesPage = ({ stop }) => {
         opacity: 0.4,
         width: 2,
       },
+      color: {
+        value: "rgb(255,255,255)",
+      },
       move: {
-        attract: {
-          rotate: {
-            x: 600,
-            y: 1200,
-          },
-        },
         direction: "bottom",
         enable: true,
         path: {},
@@ -66,14 +63,14 @@ const ParticlesPage = ({ stop }) => {
           right: "out",
           top: "out",
         },
-        speed: 20,
+        speed: 30,
         spin: {},
       },
       number: {
         density: {
           enable: true,
         },
-        value: 150,
+        value: 200,
       },
       opacity: {
         random: {
@@ -81,7 +78,7 @@ const ParticlesPage = ({ stop }) => {
         },
         value: {
           min: 0.1,
-          max: 0.5,
+          max: 0.8,
         },
         animation: {
           speed: 1,
@@ -93,13 +90,21 @@ const ParticlesPage = ({ stop }) => {
           enable: true,
         },
         value: {
-          min: 1,
-          max: 10,
+          min: 5,
+          max: 20,
         },
         animation: {
           speed: 40,
           minimumValue: 0.1,
         },
+      },
+      shape: {
+        options: {
+          character: {
+            value: "|",
+          },
+        },
+        type: "character",
       },
     },
   };
