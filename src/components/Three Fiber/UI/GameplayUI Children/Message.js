@@ -49,7 +49,7 @@ function Message({ message, setMessage }) {
         <Typography
           textAlign="center"
           fontFamily="Berkshire Swash"
-          className="text-[1.5rem]"
+          className="text-[1.5rem] whitespace-pre-line"
         >
           {message.content || previousContent.current}
         </Typography>

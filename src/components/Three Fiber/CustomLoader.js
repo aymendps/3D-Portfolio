@@ -35,7 +35,9 @@ function CustomLoader({
     if (isStarted === true) {
       DefaultLoadingManager.onProgress = function (item, loaded, total) {
         progressRef.current = (loaded / total) * 100;
-        clickRef.current.click();
+        if (clickRef.current) {
+          clickRef.current.click();
+        }
       };
       DefaultLoadingManager.onLoad = function () {
         console.log("COMPLETE");

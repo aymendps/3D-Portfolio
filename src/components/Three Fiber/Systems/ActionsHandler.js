@@ -33,7 +33,10 @@ function ActionsHandler({
         euler.y = Math.PI / 2;
         camera.quaternion.setFromEuler(euler);
         showDeskMenu.current = true;
-        setMessage({ content: "Hover on a stack to view more about it" });
+        setMessage({
+          content:
+            "Hover on a stack to view more about it\nPress E to stand up",
+        });
         eKeyAction.current = TRIGGERS_CONFIG.deskSitting.action;
         setTimeout(() => {
           if (completeQuest(QUESTS.desk) === true) {
