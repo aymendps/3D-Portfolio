@@ -6,8 +6,10 @@ source: https://sketchfab.com/3d-models/detectives-office-in-noir-style-929e20ad
 title: Detective's office in Noir style
 */
 
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
+import OfficePaper from "./OfficePaper";
+import { useThree } from "@react-three/fiber";
 
 export default function Office({ showDeskMenu }) {
   const { nodes, materials } = useGLTF("/assets/models/office/scene.gltf");
@@ -16,9 +18,10 @@ export default function Office({ showDeskMenu }) {
   roof.roughness = 1;
   materials.wood_floor.roughness = 1;
   const group = useRef(null);
+  const { gl } = useThree();
 
   return (
-    <group ref={group}>
+    <group ref={group} dispose={null}>
       <group rotation={[-Math.PI / 2, 0, 0]}>
         <group rotation={[Math.PI / 2, 0, 0]}>
           <group position={[-2.46, 2.01, -4.44]} scale={[1.13, 1.17, 0.68]}>
@@ -36,78 +39,42 @@ export default function Office({ showDeskMenu }) {
                 material={materials.bookshelf}
               />
             </group>
-            <group position={[0.5, 1.76, -3.59]}>
-              <mesh
-                geometry={nodes.Object_8.geometry}
-                material={materials.paper.clone()}
-                onPointerEnter={(e) => {
-                  if (showDeskMenu.current) {
-                    e.object.material.emissive.setStyle("rgb(120,120,120)");
-                    e.object.material.emissiveIntensity = 1.5;
-                  }
-                }}
-                onPointerLeave={(e) => {
-                  if (showDeskMenu.current) {
-                    e.object.material.emissive.set("black");
-                    e.object.material.emissiveIntensity = 1;
-                  }
-                }}
-              ></mesh>
-            </group>
-            <group position={[0.5, 1.76, -4.59]}>
-              <mesh
-                geometry={nodes.Object_8.geometry}
-                material={materials.paper.clone()}
-                onPointerEnter={(e) => {
-                  if (showDeskMenu.current) {
-                    e.object.material.emissive.setStyle("rgb(120,120,120)");
-                    e.object.material.emissiveIntensity = 1.5;
-                  }
-                }}
-                onPointerLeave={(e) => {
-                  if (showDeskMenu.current) {
-                    e.object.material.emissive.set("black");
-                    e.object.material.emissiveIntensity = 1;
-                  }
-                }}
-              ></mesh>
-            </group>
-            <group position={[0.5, 1.76, -5.59]}>
-              <mesh
-                geometry={nodes.Object_8.geometry}
-                material={materials.paper.clone()}
-                onPointerEnter={(e) => {
-                  if (showDeskMenu.current) {
-                    e.object.material.emissive.setStyle("rgb(120,120,120)");
-                    e.object.material.emissiveIntensity = 1.5;
-                  }
-                }}
-                onPointerLeave={(e) => {
-                  if (showDeskMenu.current) {
-                    e.object.material.emissive.set("black");
-                    e.object.material.emissiveIntensity = 1;
-                  }
-                }}
-              ></mesh>
-            </group>
-            <group position={[0.5, 1.76, -6.59]}>
-              <mesh
-                geometry={nodes.Object_8.geometry}
-                material={materials.paper.clone()}
-                onPointerEnter={(e) => {
-                  if (showDeskMenu.current) {
-                    e.object.material.emissive.setStyle("rgb(120,120,120)");
-                    e.object.material.emissiveIntensity = 1.5;
-                  }
-                }}
-                onPointerLeave={(e) => {
-                  if (showDeskMenu.current) {
-                    e.object.material.emissive.set("black");
-                    e.object.material.emissiveIntensity = 1;
-                  }
-                }}
-              ></mesh>
-            </group>
+            <OfficePaper
+              showDeskMenu={showDeskMenu}
+              node={nodes.Object_8.geometry}
+              material={materials.paper.clone()}
+              position={[0.55, 1.76, -3.59]}
+              spritePosition={[0.8, 0.7, 5.3]}
+              spriteURL="/assets/images/about.png"
+              gl={gl}
+            />
+            <OfficePaper
+              showDeskMenu={showDeskMenu}
+              node={nodes.Object_8.geometry}
+              material={materials.paper.clone()}
+              position={[0.55, 1.76, -4.59]}
+              spritePosition={[0.8, 0.7, 5.47]}
+              spriteURL="/assets/images/skills.png"
+              gl={gl}
+            />
+            <OfficePaper
+              showDeskMenu={showDeskMenu}
+              node={nodes.Object_8.geometry}
+              material={materials.paper.clone()}
+              position={[0.55, 1.76, -5.59]}
+              spritePosition={[0.8, 0.7, 5.6]}
+              spriteURL="/assets/images/portfolio.png"
+              gl={gl}
+            />
+            <OfficePaper
+              showDeskMenu={showDeskMenu}
+              node={nodes.Object_8.geometry}
+              material={materials.paper.clone()}
+              position={[0.55, 1.76, -6.59]}
+              spritePosition={[0.8, 0.7, 5.75]}
+              spriteURL="/assets/images/contact.png"
+              gl={gl}
+            />
           </group>
           <group scale={5.2}>
             <mesh
