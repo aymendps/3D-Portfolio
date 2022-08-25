@@ -10,8 +10,14 @@ import { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import OfficePaper from "./OfficePaper";
 import { useThree } from "@react-three/fiber";
+import { QUESTS } from "../MainCanvas";
 
-export default function Office({ showDeskMenu }) {
+export default function Office({
+  showDeskMenu,
+  completeQuest,
+  setShowThisPage,
+  allowActionControls,
+}) {
   const { nodes, materials } = useGLTF("/assets/models/office/scene.gltf");
   const roof = materials.bookshelf.clone();
   roof.color.set("grey");
@@ -41,39 +47,67 @@ export default function Office({ showDeskMenu }) {
             </group>
             <OfficePaper
               showDeskMenu={showDeskMenu}
+              allowActionControls={allowActionControls}
               node={nodes.Object_8.geometry}
               material={materials.paper.clone()}
               position={[0.55, 1.76, -3.59]}
-              spritePosition={[0.8, 0.7, 5.3]}
+              spritePosition={[0.8, 0.7, 5.32]}
               spriteURL="/assets/images/about.png"
               gl={gl}
+              completeQuest={() => {
+                completeQuest(QUESTS.me_about);
+              }}
+              setShowThisPage={() => {
+                setShowThisPage("about");
+              }}
             />
             <OfficePaper
               showDeskMenu={showDeskMenu}
+              allowActionControls={allowActionControls}
               node={nodes.Object_8.geometry}
               material={materials.paper.clone()}
               position={[0.55, 1.76, -4.59]}
               spritePosition={[0.8, 0.7, 5.47]}
               spriteURL="/assets/images/skills.png"
               gl={gl}
+              completeQuest={() => {
+                completeQuest(QUESTS.me_skills);
+              }}
+              setShowThisPage={() => {
+                setShowThisPage("skills");
+              }}
             />
             <OfficePaper
               showDeskMenu={showDeskMenu}
+              allowActionControls={allowActionControls}
               node={nodes.Object_8.geometry}
               material={materials.paper.clone()}
               position={[0.55, 1.76, -5.59]}
               spritePosition={[0.8, 0.7, 5.6]}
               spriteURL="/assets/images/portfolio.png"
               gl={gl}
+              completeQuest={() => {
+                completeQuest(QUESTS.me_portfolio);
+              }}
+              setShowThisPage={() => {
+                setShowThisPage("portfolio");
+              }}
             />
             <OfficePaper
               showDeskMenu={showDeskMenu}
+              allowActionControls={allowActionControls}
               node={nodes.Object_8.geometry}
               material={materials.paper.clone()}
               position={[0.55, 1.76, -6.59]}
               spritePosition={[0.8, 0.7, 5.75]}
               spriteURL="/assets/images/contact.png"
               gl={gl}
+              completeQuest={() => {
+                completeQuest(QUESTS.me_contact);
+              }}
+              setShowThisPage={() => {
+                setShowThisPage("contact");
+              }}
             />
           </group>
           <group scale={5.2}>

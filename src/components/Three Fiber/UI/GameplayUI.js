@@ -1,6 +1,10 @@
 import Message from "./GameplayUI Children/Message";
 import MuteButton from "./GameplayUI Children/MuteButton";
 import QuestList from "./GameplayUI Children/QuestList";
+import About from "../../Pages/About";
+import Skills from "../../Pages/Skills";
+import Portfolio from "../../Pages/Portfolio";
+import Contact from "../../Pages/Contact";
 
 function GameplayUI({
   musicVolume,
@@ -10,6 +14,8 @@ function GameplayUI({
   activeQuests,
   activeQuestsRef,
   setActiveQuests,
+  showThisPage,
+  setShowThisPage,
 }) {
   return (
     <>
@@ -20,6 +26,10 @@ function GameplayUI({
         setActiveQuests={setActiveQuests}
         activeQuestsRef={activeQuestsRef}
       />
+      {showThisPage === "about" && <About />}
+      {showThisPage === "skills" && <Skills />}
+      {showThisPage === "portfolio" && <Portfolio />}
+      {showThisPage === "contact" && <Contact />}
     </>
   );
 }

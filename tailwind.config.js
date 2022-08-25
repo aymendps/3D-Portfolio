@@ -6,6 +6,9 @@ module.exports = {
       fontFamily: {
         berkshire: ['"Berkshire Swash"'],
       },
+      backgroundColor: {
+        paper: "rgb(193,171,139)",
+      },
     },
   },
   plugins: [],

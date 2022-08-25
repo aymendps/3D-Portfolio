@@ -44,6 +44,8 @@ function MainCanvas({ isClicked, setStopParticles }) {
 
   const showDeskMenu = useRef(false);
 
+  const [showThisPage, setShowThisPage] = useState("");
+
   const addQuest = (quest) => {
     if (!activeQuests.includes(quest)) {
       setActiveQuests((current) => [...current, quest]);
@@ -125,11 +127,18 @@ function MainCanvas({ isClicked, setStopParticles }) {
             activeQuests={activeQuests}
             activeQuestsRef={activeQuestsRef}
             setActiveQuests={setActiveQuests}
+            showThisPage={showThisPage}
+            setShowThisPage={setShowThisPage}
           />
         )}
         {isStarted && (
           <Canvas>
-            <Office showDeskMenu={showDeskMenu} />
+            <Office
+              showDeskMenu={showDeskMenu}
+              setShowThisPage={setShowThisPage}
+              completeQuest={completeQuest}
+              allowActionControls={allowActionControls}
+            />
             <WindowLight
               startIntro={startIntro}
               thunderAudioRef={thunderAudioRef}

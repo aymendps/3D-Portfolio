@@ -4,12 +4,15 @@ import Sprite from "./Sprite";
 
 function OfficePaper({
   showDeskMenu,
+  setShowThisPage,
   node,
   position,
   material,
   spriteURL,
   spritePosition,
   gl,
+  completeQuest,
+  allowActionControls,
 }) {
   const spriteMaterialRef = useRef();
   const isHovered = useRef(false);
@@ -63,6 +66,15 @@ function OfficePaper({
             gl.domElement.style.cursor = "grab";
             isHovered.current = false;
           }
+        }}
+        onClick={() => {
+          allowActionControls.current = false;
+          isHovered.current = false;
+          gl.domElement.style.cursor = "default";
+          if (completeQuest) {
+            completeQuest();
+          }
+          setShowThisPage();
         }}
       ></mesh>
       <Sprite
