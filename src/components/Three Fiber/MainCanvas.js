@@ -4,7 +4,7 @@ import { Canvas } from "@react-three/fiber";
 import PlayerCamera from "./Controllers/PlayerCamera";
 import WindowLight from "./Objects/WindowLight";
 import Office from "./Objects/Office";
-import { OrbitControls } from "@react-three/drei";
+import { OrbitControls, Stats } from "@react-three/drei";
 import PlayerMoveControls from "./Controllers/PlayerMoveControls";
 import Rain from "./Objects/Rain";
 import IntroCameraFov from "./Controllers/IntroCameraFov";
@@ -129,6 +129,7 @@ function MainCanvas({ isClicked, setStopParticles }) {
             setActiveQuests={setActiveQuests}
             showThisPage={showThisPage}
             setShowThisPage={setShowThisPage}
+            allowActionControls={allowActionControls}
           />
         )}
         {isStarted && (
@@ -145,7 +146,10 @@ function MainCanvas({ isClicked, setStopParticles }) {
               musicVolume={musicVolume}
             />
             {isDev ? (
-              <OrbitControls />
+              <>
+                <Stats showPanel={0} />
+                <OrbitControls />
+              </>
             ) : (
               <>
                 <PlayerMoveControls allowControls={allowMoveControls} />

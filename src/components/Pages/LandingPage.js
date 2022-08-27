@@ -63,7 +63,7 @@ function LandingPage({ setIsClicked }) {
                 }}
                 className="font-berkshire text-[3.75rem] font-bold"
               >
-                Are you ready?
+                Are you ready to start exploring?
               </motion.h2>
               <motion.div
                 initial={{ opacity: 0, pointerEvents: "none" }}
