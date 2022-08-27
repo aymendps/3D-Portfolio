@@ -97,7 +97,7 @@ function LandingPage({ setIsClicked }) {
             className="absolute z-20"
           >
             <Typography className="font-berkshire">
-              Version: 0.6.0
+              Version: 0.6.1
               <br />
               August 2022
             </Typography>
