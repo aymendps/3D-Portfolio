@@ -9,6 +9,13 @@ module.exports = {
       backgroundColor: {
         paper: "rgb(193,171,139)",
       },
+      backgroundImage: {
+        "paper-image":
+          "url('../public/assets/models/office/textures/old_paper_baseColor.png')",
+      },
+      backgroundSize: {
+        "size-25%": "25%",
+      },
     },
   },
   plugins: [],
