@@ -18,11 +18,12 @@ function IntroCameraFov({
       camera.updateProjectionMatrix();
     } else if (allowMoveControls.current === false && startIntro === true) {
       camera.fov = 65;
-      camera.updateProjectionMatrix();
+      camera.position.y = 4;
       allowMoveControls.current = true;
       allowActionControls.current = true;
       gl.domElement.style.cursor = "grab";
       setFinishedIntro(true);
+      camera.updateProjectionMatrix();
     }
   });
 
