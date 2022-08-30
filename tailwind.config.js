@@ -3,6 +3,9 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
+      colors: {
+        "my-brown": "rgb(63,44,35)",
+      },
       fontFamily: {
         berkshire: ['"Berkshire Swash"'],
       },
@@ -15,6 +18,9 @@ module.exports = {
       },
       backgroundSize: {
         "size-25%": "25%",
+      },
+      borderColor: {
+        paper: "rgb(193,171,139)",
       },
     },
   },
