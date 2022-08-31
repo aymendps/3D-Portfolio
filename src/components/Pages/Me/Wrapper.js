@@ -17,19 +17,15 @@ function Wrapper({ pages }) {
     setBackgroundPage(selectedPage);
   };
 
-  const previousPage = (
+  const previousPageButton = (
     <motion.div
       className="absolute bottom-2 left-4"
       initial={{ scale: 0 }}
-      whileHover={{ scale: 1.2 }}
-      animate={{ scale: 1 }}
+      whileHover={{ scale: 1.7 }}
+      animate={{ scale: 1.5 }}
     >
       <IconButton disableRipple onClick={handlePreviousPage}>
-        <SvgIcon
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 512 512"
-          fontSize="large"
-        >
+        <SvgIcon viewBox="0 0 512 512" fontSize="large">
           <path
             d="M422.52 404.55c0-92.006-1.243-95.736-1.243-95.736 204.583-58.483-212.586-77.202-252.76-71.863l-.15 34.762-118.71-68.004 118.346-65.303 1.394 33.82c303.74-5.71 371.256 83.987 253.124 232.325z"
             className="fill-my-brown"
@@ -40,12 +36,12 @@ function Wrapper({ pages }) {
     </motion.div>
   );
 
-  const nextPage = (
+  const nextPageButton = (
     <motion.div
       className="absolute bottom-2 right-4"
       initial={{ scale: 0, rotateY: 180 }}
-      whileHover={{ scale: 1.2 }}
-      animate={{ scale: 1 }}
+      whileHover={{ scale: 1.7 }}
+      animate={{ scale: 1.5 }}
     >
       <IconButton disableRipple onClick={handleNextPage}>
         <SvgIcon
@@ -83,8 +79,8 @@ function Wrapper({ pages }) {
             }
           }}
         >
-          {index > 0 && previousPage}
-          {index !== pages.length - 1 && nextPage}
+          {index > 0 && previousPageButton}
+          {index !== pages.length - 1 && nextPageButton}
           {page}
         </motion.div>
       )
