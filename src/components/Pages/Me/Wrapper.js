@@ -97,13 +97,6 @@ function Wrapper({ pages }) {
     }
   }, [backgroundPage]);
 
-  useEffect(() => {
-    console.log(
-      "selectedPage: " + selectedPage,
-      "backgroundPage: " + backgroundPage
-    );
-  }, [selectedPage, backgroundPage]);
-
   return (
     <motion.div
       initial={{ y: "100%" }}

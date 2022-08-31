@@ -27,7 +27,6 @@ function ClosePaperButton({ closeFunction }) {
         },
       }}
       onAnimationComplete={(animation) => {
-        console.log(animation);
         if (animation === "start") {
           setIsShown(true);
         } else if (animation === "end") {
