@@ -22,6 +22,10 @@ function GameplayUI({
 }) {
   return (
     <>
+      <div
+        id="preload-paper-image"
+        className="w-0 h-0 overflow-hidden z-[-1] absolute bg-paper-image"
+      ></div>
       <MuteButton musicVolume={musicVolume} setMusicVolume={setMusicVolume} />
       <Message message={message} setMessage={setMessage} />
       <QuestList

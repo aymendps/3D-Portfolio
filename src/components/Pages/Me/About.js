@@ -78,8 +78,7 @@ function About() {
                 <Typography className="font-berkshire">
                   - Favourite games:{" "}
                   <span className="text-my-light-brown">
-                    DOS2 - Witcher 3 - Persona series - Legends of Runeterra -
-                    WOW
+                    DOS2 - Witcher 3 - Persona - Hades - Rocket League - WOW
                   </span>
                 </Typography>
               </div>
