@@ -6,14 +6,23 @@ function Wrapper({ pages }) {
   const [selectedPage, setSelectedPage] = useState(0);
   const [backgroundPage, setBackgroundPage] = useState(null);
   const pageDirection = useRef("next");
+  const canNavigate = useRef(true);
+  const previousButtonRef = useRef();
+  const nextButtonRef = useRef();
 
   const handleNextPage = () => {
+    if (canNavigate.current === false) return;
+
     pageDirection.current = "next";
+    canNavigate.current = false;
     setBackgroundPage(selectedPage + 1);
   };
 
   const handlePreviousPage = () => {
+    if (canNavigate.current === false) return;
+
     pageDirection.current = "prev";
+    canNavigate.current = false;
     setBackgroundPage(selectedPage);
   };
 
@@ -24,7 +33,11 @@ function Wrapper({ pages }) {
       whileHover={{ scale: 1.7 }}
       animate={{ scale: 1.5 }}
     >
-      <IconButton disableRipple onClick={handlePreviousPage}>
+      <IconButton
+        ref={previousButtonRef}
+        disableRipple
+        onClick={handlePreviousPage}
+      >
         <SvgIcon viewBox="0 0 512 512" fontSize="large">
           <path
             d="M422.52 404.55c0-92.006-1.243-95.736-1.243-95.736 204.583-58.483-212.586-77.202-252.76-71.863l-.15 34.762-118.71-68.004 118.346-65.303 1.394 33.82c303.74-5.71 371.256 83.987 253.124 232.325z"
@@ -43,7 +56,7 @@ function Wrapper({ pages }) {
       whileHover={{ scale: 1.7 }}
       animate={{ scale: 1.5 }}
     >
-      <IconButton disableRipple onClick={handleNextPage}>
+      <IconButton ref={nextButtonRef} disableRipple onClick={handleNextPage}>
         <SvgIcon
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 512 512"
@@ -75,6 +88,7 @@ function Wrapper({ pages }) {
           variants={{ exit: { rotateY: 90 }, animate: { rotateY: 0 } }}
           onAnimationComplete={(animation) => {
             if (animation === "exit" || animation === "animate") {
+              canNavigate.current = true;
               setBackgroundPage(null);
             }
           }}
@@ -87,6 +101,19 @@ function Wrapper({ pages }) {
     );
   });
 
+  const wheelHandler = (event) => {
+    const delta = Math.sign(event.deltaY);
+    if (delta > 0) {
+      if (nextButtonRef.current) {
+        nextButtonRef.current.click();
+      }
+    } else {
+      if (previousButtonRef.current) {
+        previousButtonRef.current.click();
+      }
+    }
+  };
+
   useEffect(() => {
     if (backgroundPage) {
       if (pageDirection.current === "next") {
@@ -96,6 +123,14 @@ function Wrapper({ pages }) {
       }
     }
   }, [backgroundPage]);
+
+  useEffect(() => {
+    window.addEventListener("wheel", wheelHandler);
+    return () => {
+      window.removeEventListener("wheel", wheelHandler);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <motion.div
