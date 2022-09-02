@@ -72,11 +72,23 @@ function Wrapper({ pages }) {
   const wheelHandler = (event) => {
     const delta = Math.sign(event.deltaY);
     if (delta > 0) {
-      if (nextButtonRef.current) {
+      if (nextButtonRef.current && canNavigate.current) {
         nextButtonRef.current.click();
       }
     } else {
-      if (previousButtonRef.current) {
+      if (previousButtonRef.current && canNavigate.current) {
+        previousButtonRef.current.click();
+      }
+    }
+  };
+
+  const keyDownHandler = (event) => {
+    if (event.code === "KeyS") {
+      if (nextButtonRef.current && canNavigate.current) {
+        nextButtonRef.current.click();
+      }
+    } else if (event.code === "KeyW") {
+      if (previousButtonRef.current && canNavigate.current) {
         previousButtonRef.current.click();
       }
     }
@@ -120,8 +132,10 @@ function Wrapper({ pages }) {
 
   useEffect(() => {
     window.addEventListener("wheel", wheelHandler);
+    window.addEventListener("keydown", keyDownHandler);
     return () => {
       window.removeEventListener("wheel", wheelHandler);
+      window.removeEventListener("keydown", keyDownHandler);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
