@@ -7,6 +7,7 @@ import Portfolio from "../../Pages/Me/Portfolio";
 import Contact from "../../Pages/Me/Contact";
 import ClosePaperButton from "./GameplayUI Children/ClosePaperButton";
 import { AnimatePresence } from "framer-motion";
+import PreloadImages from "./GameplayUI Children/PreloadImages";
 
 function GameplayUI({
   musicVolume,
@@ -22,10 +23,7 @@ function GameplayUI({
 }) {
   return (
     <>
-      <div
-        id="preload-paper-image"
-        className="w-0 h-0 overflow-hidden z-[-1] absolute bg-paper-image"
-      ></div>
+      <PreloadImages />
       <MuteButton musicVolume={musicVolume} setMusicVolume={setMusicVolume} />
       <Message message={message} setMessage={setMessage} />
       <QuestList
