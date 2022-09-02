@@ -4,6 +4,9 @@ import Wrapper from "./Wrapper";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import StickerWrapper from "./Shared/StickerWrapper";
+import DecoratedTitle from "./Shared/DecoratedTitle";
+import CoverPage from "./Shared/CoverPage";
+// import VolumeUpIcon from "@mui/icons-material/VolumeUp";
 
 function About() {
   const messages = [
@@ -14,7 +17,9 @@ function About() {
     "I know code never lies, but comments sometimes do.",
   ];
 
-  const homePage = (
+  const coverPage = <CoverPage title="About me" />;
+
+  const mePage = (
     <div className="w-full h-full flex justify-center items-center">
       <div className="flex w-[80%] justify-center items-center">
         <div className="basis-[65%] flex flex-col items-center justify-center gap-10">
@@ -68,8 +73,8 @@ function About() {
                   <span className="text-my-light-brown">23 years old</span>
                 </Typography>
                 <Typography className="font-berkshire">
-                  - University:{" "}
-                  <span className="text-my-light-brown">Senior year</span>
+                  - Uni year:{" "}
+                  <span className="text-my-light-brown">Senior year (4th)</span>
                 </Typography>
                 <Typography className="font-berkshire">
                   - Specialty:{" "}
@@ -140,32 +145,63 @@ function About() {
           </div>
         </div>
         <div className="basis-[35%] relative">
-          <img alt="Aymen Hammami" src="assets/images/me-with-shadow.png"></img>
+          <img alt="" src="assets/images/me-with-shadow.png"></img>
+          {/* <div className="absolute top-[60%] left-0 w-[90%] flex justify-center">
+            <Button
+              disableRipple
+              variant="contained"
+              className="font-berkshire normal-case text-my-brown bg-orange-400 text-[1rem]"
+              endIcon={<VolumeUpIcon />}
+            >
+              Pronounce your name
+            </Button>
+          </div> */}
         </div>
       </div>
     </div>
   );
 
+  const educationPage = (
+    <div className="w-full h-[95%] flex flex-col justify-between items-center">
+      <div className="basis-[15%]">
+        <DecoratedTitle
+          title="My Education"
+          variant="h2"
+          decorationSize={120}
+        />
+      </div>
+      <div className="basis-[85%] w-full flex items-center">
+        <div className="w-[45%] h-full bg-black">
+          <div></div>
+        </div>
+        <div className="w-[10%] h-[85%] flex flex-col justify-center items-center">
+          <div className="h-[5%] aspect-square rounded-[50%] bg-my-orange-brown"></div>
+          <div className="w-[5px] aspect-auto bg-my-orange-brown h-[25%]"></div>
+          <div className="h-[5%] aspect-square rounded-[50%] bg-my-orange-brown"></div>
+          <div className="w-[5px] aspect-auto bg-my-orange-brown h-[25%]"></div>
+          <div className="h-[5%] aspect-square rounded-[50%] bg-my-orange-brown"></div>
+          <div className="w-[5px] aspect-auto bg-my-orange-brown h-[25%]"></div>
+          <div className="h-[5%] aspect-square rounded-[50%] bg-my-orange-brown"></div>
+        </div>
+        <div className="w-[45%] h-full bg-black"></div>
+      </div>
+    </div>
+  );
+
+  const experiencePage = (
+    <DecoratedTitle title="My Experience" variant="h2" decorationSize={120} />
+  );
+
+  const certificatesPage = (
+    <DecoratedTitle title="My Certificates" variant="h2" decorationSize={120} />
+  );
+
   const pages = [
-    homePage,
-    <Typography
-      className="font-berkshire text-center text-my-brown"
-      variant="h2"
-    >
-      About me 2
-    </Typography>,
-    <Typography
-      className="font-berkshire text-center text-[rgb(63,44,35)]"
-      variant="h2"
-    >
-      About me 3
-    </Typography>,
-    <Typography
-      className="font-berkshire text-center text-[rgb(63,44,35)]"
-      variant="h2"
-    >
-      About me 4
-    </Typography>,
+    coverPage,
+    mePage,
+    educationPage,
+    experiencePage,
+    certificatesPage,
   ];
   return <Wrapper pages={pages}></Wrapper>;
 }

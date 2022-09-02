@@ -1,21 +1,10 @@
-import { Typography } from "@mui/material";
+import CoverPage from "./Shared/CoverPage";
 import Wrapper from "./Wrapper";
 
 function Contact() {
-  const pages = [
-    <Typography
-      className="font-berkshire text-center text-[rgb(63,44,35)]"
-      variant="h2"
-    >
-      Contact me
-    </Typography>,
-    <Typography
-      className="font-berkshire text-center text-[rgb(63,44,35)]"
-      variant="h2"
-    >
-      About me 2
-    </Typography>,
-  ];
+  const coverPage = <CoverPage title="Contact me" />;
+
+  const pages = [coverPage];
   return <Wrapper pages={pages}></Wrapper>;
 }
 
