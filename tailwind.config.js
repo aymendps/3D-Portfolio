@@ -17,6 +17,7 @@ module.exports = {
       backgroundImage: {
         "paper-image":
           "url('../public/assets/models/office/textures/old_paper_baseColor.png')",
+        "me-drawn-image": "url('../public/assets/images/me-with-shadow.png')",
         "orange-sticker": "url('../public/assets/images/orange-sticker.png')",
         "yellow-sticker": "url('../public/assets/images/yellow-sticker.png')",
       },
