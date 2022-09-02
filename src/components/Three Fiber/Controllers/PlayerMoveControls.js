@@ -8,11 +8,11 @@ const useCodes = () => {
   useEffect(() => {
     const onKeyDown = (e) => codes.current.add(e.code);
     const onKeyUp = (e) => codes.current.delete(e.code);
-    document.addEventListener("keydown", onKeyDown);
-    document.addEventListener("keyup", onKeyUp);
+    window.addEventListener("keydown", onKeyDown);
+    window.addEventListener("keyup", onKeyUp);
     return () => {
-      document.removeEventListener("keydown", onKeyDown);
-      document.removeEventListener("keyup", onKeyUp);
+      window.removeEventListener("keydown", onKeyDown);
+      window.removeEventListener("keyup", onKeyUp);
     };
   }, []);
 

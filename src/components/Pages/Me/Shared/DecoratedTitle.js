@@ -4,8 +4,7 @@ function DecoratedTitle({ title, variant, decorationSize }) {
   return (
     <div className="w-full flex items-center justify-center gap-4">
       <img
-        className={`w-[${decorationSize}px]`}
-        style={{ transform: "rotateY(180deg)" }}
+        style={{ transform: "rotateY(180deg)", width: decorationSize + "px" }}
         src="/assets/images/title-decoration.png"
         alt=""
       ></img>
@@ -16,7 +15,7 @@ function DecoratedTitle({ title, variant, decorationSize }) {
         {title}
       </Typography>
       <img
-        className={`w-[${decorationSize}px]`}
+        style={{ width: decorationSize + "px" }}
         src="/assets/images/title-decoration.png"
         alt=""
       ></img>

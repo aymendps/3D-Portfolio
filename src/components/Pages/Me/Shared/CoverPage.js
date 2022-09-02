@@ -4,7 +4,7 @@ import DecoratedTitle from "./DecoratedTitle";
 function CoverPage({ title }) {
   return (
     <div className="w-full h-full flex flex-col justify-evenly items-center">
-      <DecoratedTitle title={title} variant="h1" decorationSize={150} />
+      <DecoratedTitle title={title} variant="h1" decorationSize={250} />
       <div className="w-full h-[40%]">
         <Typography
           variant="h4"
