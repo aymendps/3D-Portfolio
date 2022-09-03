@@ -35,7 +35,7 @@ function ClosePaperButton({ closeFunction }) {
       }}
       className="absolute left-2 top-16 z-10"
     >
-      <IconButton className="text-white" onClick={closeFunction}>
+      <IconButton disableRipple className="text-white" onClick={closeFunction}>
         <CloseIcon fontSize="large" />
       </IconButton>
     </motion.div>

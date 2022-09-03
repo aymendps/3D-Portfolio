@@ -98,19 +98,19 @@ function Wrapper({ pages }) {
     const papers = [
       <div
         key="fake-background-paper-0"
-        className="w-[20px] h-full bg-[rgba(63,44,35,0.4)]"
+        className="w-[15px] h-full bg-[rgba(63,44,35,0.4)]"
       ></div>,
       <div
         key="fake-background-paper-1"
-        className="w-[20px] h-full bg-[rgba(63,44,35,0.5)]"
+        className="w-[15px] h-full bg-[rgba(63,44,35,0.5)]"
       ></div>,
       <div
         key="fake-background-paper-2"
-        className="w-[20px] h-full bg-[rgba(63,44,35,0.6)]"
+        className="w-[15px] h-full bg-[rgba(63,44,35,0.6)]"
       ></div>,
       <div
         key="fake-background-paper-3"
-        className="w-[20px] h-full bg-[rgba(63,44,35,0.7)]"
+        className="w-[15px] h-full bg-[rgba(63,44,35,0.7)]"
       ></div>,
     ];
     if (pages.length - selectedPage - 1 < 5) {
@@ -152,7 +152,7 @@ function Wrapper({ pages }) {
       <div className="absolute z-[10] top-0 left-0 w-[96%] h-full p-4 border-r-2 border-b-2 border-my-brown bg-paper-image bg-repeat">
         {pages[backgroundPage]}
       </div>
-      <div className="max-w-[4%] flex bg-paper-image bg-repeat">
+      <div className="max-w-[4%] flex bg-paper-image bg-repeat border-b-2 border-my-brown">
         {getBackgroundPapers()}
       </div>
     </motion.div>

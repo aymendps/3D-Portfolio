@@ -13,6 +13,7 @@ function MuteButton({ musicVolume, setMusicVolume }) {
 
   return (
     <IconButton
+      disableRipple
       className="absolute left-2 top-4 z-10 text-white"
       onClick={() => {
         setMusicVolume((current) => {
