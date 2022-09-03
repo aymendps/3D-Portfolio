@@ -10,7 +10,7 @@ function CustomLoader({
   startIntro,
   setStartIntro,
   setStartMusic,
-  setStopParticles,
+  // setStopParticles,
 }) {
   const [progress, setProgress] = useState(0);
   const progressRef = useRef(0);
@@ -63,25 +63,30 @@ function CustomLoader({
             exit={{ opacity: 0, scale: 0, transition: { duration: 2.5 } }}
             className="absolute left-0 top-0 w-full h-full flex flex-col justify-center items-center gap-12 z-[99999999] select-none"
           >
-            <TypeWriter
-              onInit={(typewriter) => {
-                typewriter
-                  .typeString("Aymen Hammami")
-                  .pauseFor(750)
-                  .deleteAll()
-                  .pauseFor(250);
-                typewriter.start();
-              }}
-              options={{
-                wrapperClassName:
-                  "font-berkshire bold text-[3.75rem] font-bold pr-2",
-                cursorClassName:
-                  "Typewriter__cursor font-berkshire bold text-[3.75rem]",
-                loop: true,
-                delay: 75,
-                deleteSpeed: 10,
-              }}
-            />
+            <div className="flex flex-col items-center justify-center">
+              <TypeWriter
+                onInit={(typewriter) => {
+                  typewriter
+                    .typeString("Aymen Hammami")
+                    .pauseFor(750)
+                    .deleteAll()
+                    .pauseFor(250);
+                  typewriter.start();
+                }}
+                options={{
+                  wrapperClassName:
+                    "font-berkshire bold text-[3.75rem] font-bold pr-2",
+                  cursorClassName:
+                    "Typewriter__cursor font-berkshire bold text-[3.75rem]",
+                  loop: true,
+                  delay: 75,
+                  deleteSpeed: 10,
+                }}
+              />
+              <Typography className="font-berkshire text-[1.1rem] text-cyan-400">
+                For a better experience, you can enable fullscreen mode 'F11'
+              </Typography>
+            </div>
 
             <div className="w-[150px] h-[150px] flex justify-center items-center">
               <AnimatePresence>
@@ -132,7 +137,7 @@ function CustomLoader({
                     sx={{ color: "cyan" }}
                     onClick={() => {
                       setStartMusic(true);
-                      setStopParticles(true);
+                      // setStopParticles(true);
                       setPrepareForIntro(true);
                       setTimeout(() => {
                         setStartIntro(true);
@@ -152,6 +157,24 @@ function CustomLoader({
                 setProgress(progressRef.current);
               }}
             ></button>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {!prepareForIntro && (
+          <motion.div
+            initial={{ x: "-100%", y: "10%" }}
+            animate={{ x: "5%", y: "10%" }}
+            exit={{ x: "-100%", y: "10%" }}
+            transition={{ duration: 0.5 }}
+            className="absolute z-20"
+          >
+            <Typography className="font-berkshire">
+              Version: 0.6.7
+              <br />
+              September 2022
+            </Typography>
           </motion.div>
         )}
       </AnimatePresence>

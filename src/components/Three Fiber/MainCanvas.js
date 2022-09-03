@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Canvas } from "@react-three/fiber";
-// import { OrbitControls } from "@react-three/drei/core";
 import PlayerCamera from "./Controllers/PlayerCamera";
 import WindowLight from "./Objects/WindowLight";
 import Office from "./Objects/Office";
@@ -10,10 +9,11 @@ import Rain from "./Objects/Rain";
 import IntroCameraFov from "./Controllers/IntroCameraFov";
 import PlayerLookControls from "./Controllers/PlayerLookControls";
 import CustomLoader from "./CustomLoader";
-import GlobalSound from "./Audio/GlobalSound";
+// import GlobalSound from "./Audio/GlobalSound";
 import GameplayUI from "./UI/GameplayUI";
 import ActionsHandler from "./Systems/ActionsHandler";
 import PlayerActionControls from "./Controllers/PlayerActionControls";
+// import OldTV from "./Objects/OldTV";
 
 export const QUESTS = {
   tutorialWalk: "Walk around your office",
@@ -24,7 +24,7 @@ export const QUESTS = {
   me_portfolio: "Have a look at the 'My portfolio' stack",
 };
 
-function MainCanvas({ isClicked, setStopParticles }) {
+function MainCanvas(/*{ setStopParticles }*/) {
   const [isDev] = useState(false);
 
   const [isStarted, setIsStarted] = useState(false);
@@ -67,7 +67,7 @@ function MainCanvas({ isClicked, setStopParticles }) {
 
   const rainAudioRef = useCallback(
     (node) => {
-      if (node !== null && isClicked === true) {
+      if (node !== null && startMusic === true) {
         node.volume = musicVolume;
         if (musicVolume === 0) {
           node.pause();
@@ -76,7 +76,21 @@ function MainCanvas({ isClicked, setStopParticles }) {
         }
       }
     },
-    [isClicked, musicVolume]
+    [startMusic, musicVolume]
+  );
+
+  const noireAudioRef = useCallback(
+    (node) => {
+      if (node !== null && startMusic === true) {
+        node.volume = musicVolume;
+        if (musicVolume === 0) {
+          node.pause();
+        } else {
+          node.play();
+        }
+      }
+    },
+    [startMusic, musicVolume]
   );
 
   const thunderAudioRef = useRef(null);
@@ -103,6 +117,12 @@ function MainCanvas({ isClicked, setStopParticles }) {
         ref={rainAudioRef}
       />
       <audio
+        loop
+        type="audio"
+        src="/assets/audio/noire.mp3"
+        ref={noireAudioRef}
+      />
+      <audio
         type="audio"
         src="/assets/audio/thunder.mp3"
         ref={thunderAudioRef}
@@ -115,7 +135,7 @@ function MainCanvas({ isClicked, setStopParticles }) {
             startIntro={startIntro}
             setStartIntro={setStartIntro}
             setStartMusic={setStartMusic}
-            setStopParticles={setStopParticles}
+            // setStopParticles={setStopParticles}
           />
         ) : (
           <GameplayUI
@@ -133,12 +153,20 @@ function MainCanvas({ isClicked, setStopParticles }) {
         )}
         {isStarted && (
           <Canvas>
+            <PlayerCamera />
             <Office
               showDeskMenu={showDeskMenu}
               setShowThisPage={setShowThisPage}
               completeQuest={completeQuest}
               allowActionControls={allowActionControls}
             />
+            {/* <OldTV position={[0, 2, 0]} scale={0.37} /> */}
+            <Rain />
+            {/* <GlobalSound
+              url="/assets/audio/noire.mp3"
+              volume={musicVolume}
+              startMusic={startMusic}
+            /> */}
             <WindowLight
               startIntro={startIntro}
               thunderAudioRef={thunderAudioRef}
@@ -159,13 +187,6 @@ function MainCanvas({ isClicked, setStopParticles }) {
                 />
               </>
             )}
-            <PlayerCamera />
-            <Rain />
-            <GlobalSound
-              url="/assets/audio/noire.mp3"
-              volume={musicVolume}
-              startMusic={startMusic}
-            />
             {!finishedIntro && (
               <IntroCameraFov
                 startIntro={startIntro}
