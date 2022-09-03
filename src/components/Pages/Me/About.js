@@ -6,7 +6,8 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import StickerWrapper from "./Shared/StickerWrapper";
 import DecoratedTitle from "./Shared/DecoratedTitle";
 import CoverPage from "./Shared/CoverPage";
-import PinnedPaper from "./Shared/PinnedImage";
+import PinnedDiv from "./Shared/PinnedDiv";
+import Zoom from "react-medium-image-zoom";
 // import VolumeUpIcon from "@mui/icons-material/VolumeUp";
 
 function About() {
@@ -184,6 +185,7 @@ function About() {
               variant="h6"
               component="a"
               href="https://www.facebook.com/espritpoleeducation/"
+              target="_blank"
               className="font-berkshire block text-black text-[1.1rem] text-center hover:underline"
             >
               High School Esprit Al Fikr ↗
@@ -204,6 +206,7 @@ function About() {
               variant="h6"
               component="a"
               href="https://www.smu.tn/medtech"
+              target="_blank"
               className="font-berkshire block text-black text-[1.1rem] text-center hover:underline"
             >
               South Mediterranean University, MedTech ↗
@@ -236,6 +239,7 @@ function About() {
               variant="h6"
               component="a"
               href="https://www.did.de/en/frankfurt"
+              target="_blank"
               className="font-berkshire block text-black text-[1.1rem] text-center hover:underline"
             >
               did deutsch-institut Frankfurt, Germany ↗
@@ -256,6 +260,7 @@ function About() {
               variant="h6"
               component="a"
               href="https://www.smu.tn/medtech"
+              target="_blank"
               className="font-berkshire block text-black text-[1.1rem] text-center hover:underline"
             >
               South Mediterranean University, MedTech ↗
@@ -330,18 +335,28 @@ function About() {
 
   const certificatesPage = (
     <div className="w-full h-[95%] flex flex-col justify-between items-center">
-      <div className="basis-[20%]">
+      <div className="basis-[10%]">
         <DecoratedTitle
           title="My Certificates"
           variant="h2"
           decorationSize={120}
         />
       </div>
-      <div className="basis-[80%] w-[60%] flex flex-wrap justify-evenly items-center gap-10">
-        <PinnedPaper className="bg-white w-[300px] h-[200px]"></PinnedPaper>
-        <PinnedPaper className="bg-white w-[300px] h-[200px]"></PinnedPaper>
-        <PinnedPaper className="bg-white w-[300px] h-[200px]"></PinnedPaper>
-        <PinnedPaper className="bg-white w-[300px] h-[200px]"></PinnedPaper>
+      <div className="basis-[90%] w-[80%] flex flex-wrap justify-evenly items-center">
+        <PinnedDiv className="w-[40%] bg-transparent shadow-xl">
+          <Zoom>
+            <img
+              className="w-full"
+              src="/assets/images/coursera-scrum.png"
+              alt=""
+            />
+          </Zoom>
+        </PinnedDiv>
+        <PinnedDiv className="w-[40%] bg-transparent shadow-xl">
+          <Zoom>
+            <img className="w-full" src="/assets/images/RH124.jpg" alt="" />
+          </Zoom>
+        </PinnedDiv>
       </div>
     </div>
   );

@@ -13,7 +13,7 @@ function IntroCameraFov({
     if (camera.fov < 65 && startIntro === true) {
       camera.fov += SPEED * delta;
       if (camera.position.y < 4 && camera.fov > 35) {
-        camera.position.addScaledVector(camera.up, (SPEED * delta) / 32);
+        camera.position.addScaledVector(camera.up, (SPEED * delta) / 30);
       }
       camera.updateProjectionMatrix();
     } else if (allowMoveControls.current === false && startIntro === true) {

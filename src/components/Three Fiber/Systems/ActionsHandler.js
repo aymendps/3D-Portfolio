@@ -34,7 +34,7 @@ function ActionsHandler({
         camera.quaternion.setFromEuler(euler);
         showDeskMenu.current = true;
         setMessage({
-          content: "Hover on a stack to view more\nPress E to stand up",
+          content: "Hover & click on a stack to view more\nPress E to stand up",
         });
         eKeyAction.current = TRIGGERS_CONFIG.deskSitting.action;
         setTimeout(() => {
@@ -124,7 +124,7 @@ function ActionsHandler({
       activeQuestsRef.current.includes(QUESTS.tutorialLook)
     ) {
       completeQuest(QUESTS.tutorialLook);
-      setMessage({ content: "" });
+      setMessage({ content: "Sit at your desk to browse the portfolio" });
       addQuest(QUESTS.desk);
       questStage.current++;
     }
