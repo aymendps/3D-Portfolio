@@ -22,7 +22,6 @@ export const QUESTS = {
   me_about: "Have a look at the 'About me' stack",
   me_skills: "Have a look at the 'My skills' stack",
   me_portfolio: "Have a look at the 'My portfolio' stack",
-  me_contact: "Have a look at the 'Contact me' stack",
 };
 
 function MainCanvas({ isClicked, setStopParticles }) {

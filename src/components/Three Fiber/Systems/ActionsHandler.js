@@ -39,10 +39,9 @@ function ActionsHandler({
         eKeyAction.current = TRIGGERS_CONFIG.deskSitting.action;
         setTimeout(() => {
           if (completeQuest(QUESTS.desk) === true) {
+            addQuest(QUESTS.me_portfolio);
             addQuest(QUESTS.me_about);
             addQuest(QUESTS.me_skills);
-            addQuest(QUESTS.me_portfolio);
-            addQuest(QUESTS.me_contact);
           }
         }, 300);
       },

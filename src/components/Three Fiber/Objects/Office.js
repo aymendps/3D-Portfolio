@@ -50,40 +50,8 @@ export default function Office({
               allowActionControls={allowActionControls}
               node={nodes.Object_8.geometry}
               material={materials.paper.clone()}
-              position={[0.55, 1.76, -3.59]}
-              spritePosition={[0.8, 0.7, 5.32]}
-              spriteURL="/assets/images/about.png"
-              gl={gl}
-              completeQuest={() => {
-                completeQuest(QUESTS.me_about);
-              }}
-              setShowThisPage={() => {
-                setShowThisPage("about");
-              }}
-            />
-            <OfficePaper
-              showDeskMenu={showDeskMenu}
-              allowActionControls={allowActionControls}
-              node={nodes.Object_8.geometry}
-              material={materials.paper.clone()}
-              position={[0.55, 1.76, -4.59]}
-              spritePosition={[0.8, 0.7, 5.47]}
-              spriteURL="/assets/images/skills.png"
-              gl={gl}
-              completeQuest={() => {
-                completeQuest(QUESTS.me_skills);
-              }}
-              setShowThisPage={() => {
-                setShowThisPage("skills");
-              }}
-            />
-            <OfficePaper
-              showDeskMenu={showDeskMenu}
-              allowActionControls={allowActionControls}
-              node={nodes.Object_8.geometry}
-              material={materials.paper.clone()}
-              position={[0.55, 1.76, -5.59]}
-              spritePosition={[0.8, 0.7, 5.6]}
+              position={[0.55, 1.76, -3.9]}
+              spritePosition={[0.8, 0.7, 5.35]}
               spriteURL="/assets/images/portfolio.png"
               gl={gl}
               completeQuest={() => {
@@ -98,6 +66,38 @@ export default function Office({
               allowActionControls={allowActionControls}
               node={nodes.Object_8.geometry}
               material={materials.paper.clone()}
+              position={[0.55, 1.76, -5.05]}
+              spritePosition={[0.8, 0.7, 5.53]}
+              spriteURL="/assets/images/about.png"
+              gl={gl}
+              completeQuest={() => {
+                completeQuest(QUESTS.me_about);
+              }}
+              setShowThisPage={() => {
+                setShowThisPage("about");
+              }}
+            />
+            <OfficePaper
+              showDeskMenu={showDeskMenu}
+              allowActionControls={allowActionControls}
+              node={nodes.Object_8.geometry}
+              material={materials.paper.clone()}
+              position={[0.55, 1.76, -6.2]}
+              spritePosition={[0.8, 0.7, 5.69]}
+              spriteURL="/assets/images/skills.png"
+              gl={gl}
+              completeQuest={() => {
+                completeQuest(QUESTS.me_skills);
+              }}
+              setShowThisPage={() => {
+                setShowThisPage("skills");
+              }}
+            />
+            {/* <OfficePaper
+              showDeskMenu={showDeskMenu}
+              allowActionControls={allowActionControls}
+              node={nodes.Object_8.geometry}
+              material={materials.paper.clone()}
               position={[0.55, 1.76, -6.59]}
               spritePosition={[0.8, 0.7, 5.75]}
               spriteURL="/assets/images/contact.png"
@@ -108,7 +108,7 @@ export default function Office({
               setShowThisPage={() => {
                 setShowThisPage("contact");
               }}
-            />
+            /> */}
           </group>
           <group scale={5.2}>
             <mesh

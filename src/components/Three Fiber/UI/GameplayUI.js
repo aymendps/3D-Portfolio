@@ -4,7 +4,6 @@ import QuestList from "./GameplayUI Children/QuestList";
 import About from "../../Pages/Me/About";
 import Skills from "../../Pages/Me/Skills";
 import Portfolio from "../../Pages/Me/Portfolio";
-import Contact from "../../Pages/Me/Contact";
 import ClosePaperButton from "./GameplayUI Children/ClosePaperButton";
 import { AnimatePresence } from "framer-motion";
 import PreloadImages from "./GameplayUI Children/PreloadImages";
@@ -45,7 +44,6 @@ function GameplayUI({
         {showThisPage === "about" && <About />}
         {showThisPage === "skills" && <Skills />}
         {showThisPage === "portfolio" && <Portfolio />}
-        {showThisPage === "contact" && <Contact />}
       </AnimatePresence>
     </>
   );
