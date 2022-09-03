@@ -6,6 +6,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import StickerWrapper from "./Shared/StickerWrapper";
 import DecoratedTitle from "./Shared/DecoratedTitle";
 import CoverPage from "./Shared/CoverPage";
+import PinnedPaper from "./Shared/PinnedImage";
 // import VolumeUpIcon from "@mui/icons-material/VolumeUp";
 
 function About() {
@@ -163,37 +164,186 @@ function About() {
 
   const educationPage = (
     <div className="w-full h-[95%] flex flex-col justify-between items-center">
-      <div className="basis-[15%]">
+      <div className="basis-[20%]">
         <DecoratedTitle
           title="My Education"
           variant="h2"
           decorationSize={120}
         />
       </div>
-      <div className="basis-[85%] w-full flex items-center">
-        <div className="w-[45%] h-full bg-black">
-          <div></div>
+      <div className="basis-[80%] w-full flex items-center">
+        <div className="w-[45%] h-full flex flex-col items-end justify-evenly">
+          <div className="h-[20%] border-4 border-my-orange-brown rounded-3xl w-[70%] bg-[rgba(166,110,27,0.3)]">
+            <Typography
+              variant="h6"
+              className="font-berkshire text-black text-center"
+            >
+              2017-2018
+            </Typography>
+            <Typography
+              variant="h6"
+              component="a"
+              href="https://www.facebook.com/espritpoleeducation/"
+              className="font-berkshire block text-black text-[1.1rem] text-center hover:underline"
+            >
+              High School Esprit Al Fikr ↗
+            </Typography>
+            <Typography className="font-berkshire text-my-brown text-center">
+              Tunisian Baccalaureate in Mathematics
+            </Typography>
+          </div>
+          <div className="h-[20%] w-full"></div>
+          <div className="h-[20%] border-4 border-my-orange-brown rounded-3xl w-[70%] bg-[rgba(166,110,27,0.3)]">
+            <Typography
+              variant="h6"
+              className="font-berkshire text-black text-center"
+            >
+              2019-2021
+            </Typography>
+            <Typography
+              variant="h6"
+              component="a"
+              href="https://www.smu.tn/medtech"
+              className="font-berkshire block text-black text-[1.1rem] text-center hover:underline"
+            >
+              South Mediterranean University, MedTech ↗
+            </Typography>
+            <Typography className="font-berkshire text-my-brown text-center">
+              Pre-Engineering program
+            </Typography>
+          </div>
+          <div className="h-[20%] w-full"></div>
         </div>
-        <div className="w-[10%] h-[85%] flex flex-col justify-center items-center">
-          <div className="h-[5%] aspect-square rounded-[50%] bg-my-orange-brown"></div>
-          <div className="w-[5px] aspect-auto bg-my-orange-brown h-[25%]"></div>
-          <div className="h-[5%] aspect-square rounded-[50%] bg-my-orange-brown"></div>
-          <div className="w-[5px] aspect-auto bg-my-orange-brown h-[25%]"></div>
-          <div className="h-[5%] aspect-square rounded-[50%] bg-my-orange-brown"></div>
-          <div className="w-[5px] aspect-auto bg-my-orange-brown h-[25%]"></div>
-          <div className="h-[5%] aspect-square rounded-[50%] bg-my-orange-brown"></div>
+        <div className="w-[10%] h-[82%] flex flex-col justify-center items-center">
+          <div className="h-[5%] aspect-square rounded-[50%] bg-my-light-brown"></div>
+          <div className="w-[5px] aspect-auto bg-my-light-brown h-[25%]"></div>
+          <div className="h-[5%] aspect-square rounded-[50%] bg-my-light-brown"></div>
+          <div className="w-[5px] aspect-auto bg-my-light-brown h-[25%]"></div>
+          <div className="h-[5%] aspect-square rounded-[50%] bg-my-light-brown"></div>
+          <div className="w-[5px] aspect-auto bg-my-light-brown h-[25%]"></div>
+          <div className="h-[6%] aspect-square rounded-[50%] bg-red-600 border-2 border-my-light-brown"></div>
         </div>
-        <div className="w-[45%] h-full bg-black"></div>
+        <div className="w-[45%] h-full flex flex-col items-start justify-evenly">
+          <div className="h-[20%] w-full"></div>
+          <div className="h-[20%] border-4 border-my-orange-brown rounded-3xl w-[70%] bg-[rgba(166,110,27,0.3)]">
+            <Typography
+              variant="h6"
+              className="font-berkshire text-black text-center"
+            >
+              2018-2019
+            </Typography>
+            <Typography
+              variant="h6"
+              component="a"
+              href="https://www.did.de/en/frankfurt"
+              className="font-berkshire block text-black text-[1.1rem] text-center hover:underline"
+            >
+              did deutsch-institut Frankfurt, Germany ↗
+            </Typography>
+            <Typography className="font-berkshire text-my-brown text-center">
+              Certificate in German: B 2 - C 1
+            </Typography>
+          </div>
+          <div className="h-[20%] w-full"></div>
+          <div className="h-[20%] border-4 border-my-orange-brown rounded-3xl w-[70%] bg-[rgba(166,110,27,0.3)]">
+            <Typography
+              variant="h6"
+              className="font-berkshire text-black text-center"
+            >
+              <span className="text-red-700">Current:</span> 2021-2024
+            </Typography>
+            <Typography
+              variant="h6"
+              component="a"
+              href="https://www.smu.tn/medtech"
+              className="font-berkshire block text-black text-[1.1rem] text-center hover:underline"
+            >
+              South Mediterranean University, MedTech ↗
+            </Typography>
+            <Typography className="font-berkshire text-my-brown text-center">
+              Software Engineering: Senior / Second year
+            </Typography>
+          </div>
+        </div>
       </div>
     </div>
   );
 
   const experiencePage = (
-    <DecoratedTitle title="My Experience" variant="h2" decorationSize={120} />
+    <div className="w-full h-[95%] flex flex-col justify-between items-center">
+      <div className="basis-[15%]">
+        <DecoratedTitle
+          title="My Experience"
+          variant="h2"
+          decorationSize={120}
+        />
+      </div>
+      <div className="basis-[85%] w-full flex items-center">
+        <div className="w-[45%] h-full flex flex-col items-end justify-evenly">
+          <div className="h-[20%] border-4 border-my-orange-brown rounded-3xl w-[70%] bg-[rgba(166,110,27,0.3)]">
+            <Typography
+              variant="h5"
+              className="font-berkshire text-black text-center"
+            >
+              Cynoia
+            </Typography>
+            <Typography
+              variant="h6"
+              className="font-berkshire text-black text-center"
+            >
+              Jun 2022 - Aug 2022
+            </Typography>
+            <Typography className="font-berkshire text-my-brown text-center">
+              Summer Internship - Full Stack Dev
+            </Typography>
+          </div>
+          <div className="h-[20%] w-full"></div>
+        </div>
+        <div className="w-[10%] h-[82%] flex flex-col justify-center items-center">
+          <div className="h-[5%] aspect-square rounded-[50%] bg-my-light-brown"></div>
+          <div className="w-[5px] aspect-auto bg-my-light-brown h-[42%]"></div>
+          <div className="h-[6%] aspect-square rounded-[50%] bg-red-600 border-2 border-my-light-brown"></div>
+        </div>
+        <div className="w-[45%] h-full flex flex-col items-start justify-evenly">
+          <div className="h-[20%] w-full"></div>
+          <div className="h-[20%] border-4 border-my-orange-brown rounded-3xl w-[70%] bg-[rgba(166,110,27,0.3)]">
+            <Typography
+              variant="h5"
+              className="font-berkshire text-black text-center"
+            >
+              Cynoia
+            </Typography>
+            <Typography
+              variant="h6"
+              className="font-berkshire text-black text-center"
+            >
+              Sep 2022 - <span className="text-red-700">Current</span>
+            </Typography>
+            <Typography className="font-berkshire text-my-brown text-center">
+              Part-time - Full Stack Dev
+            </Typography>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 
   const certificatesPage = (
-    <DecoratedTitle title="My Certificates" variant="h2" decorationSize={120} />
+    <div className="w-full h-[95%] flex flex-col justify-between items-center">
+      <div className="basis-[20%]">
+        <DecoratedTitle
+          title="My Certificates"
+          variant="h2"
+          decorationSize={120}
+        />
+      </div>
+      <div className="basis-[80%] w-[60%] flex flex-wrap justify-evenly items-center gap-10">
+        <PinnedPaper className="bg-white w-[300px] h-[200px]"></PinnedPaper>
+        <PinnedPaper className="bg-white w-[300px] h-[200px]"></PinnedPaper>
+        <PinnedPaper className="bg-white w-[300px] h-[200px]"></PinnedPaper>
+        <PinnedPaper className="bg-white w-[300px] h-[200px]"></PinnedPaper>
+      </div>
+    </div>
   );
 
   const pages = [

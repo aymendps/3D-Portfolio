@@ -1,7 +1,7 @@
 {
   "name": "aymen-hammami-personal-website",
   "homepage": "https://aymendps.github.io/",
-  "version": "0.6.3",
+  "version": "0.6.7",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.9.0",
