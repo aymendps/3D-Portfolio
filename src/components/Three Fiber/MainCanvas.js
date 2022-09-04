@@ -162,7 +162,7 @@ function MainCanvas(/*{ setStopParticles }*/) {
               allowActionControls={allowActionControls}
             />
             <Door
-              position={[-5, 0, -0.3]}
+              position={[-5.2, 0, -0.35]}
               scale={[1.2, 1, 1]}
               rotation={[0, Math.PI / 2, 0]}
             />
