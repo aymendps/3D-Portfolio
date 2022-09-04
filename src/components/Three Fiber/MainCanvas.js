@@ -14,6 +14,7 @@ import GameplayUI from "./UI/GameplayUI";
 import ActionsHandler from "./Systems/ActionsHandler";
 import PlayerActionControls from "./Controllers/PlayerActionControls";
 // import OldTV from "./Objects/OldTV";
+import Door from "./Objects/Door";
 
 export const QUESTS = {
   tutorialWalk: "Walk around your office",
@@ -159,6 +160,11 @@ function MainCanvas(/*{ setStopParticles }*/) {
               setShowThisPage={setShowThisPage}
               completeQuest={completeQuest}
               allowActionControls={allowActionControls}
+            />
+            <Door
+              position={[-5, 0, -0.3]}
+              scale={[1.2, 1, 1]}
+              rotation={[0, Math.PI / 2, 0]}
             />
             {/* <OldTV position={[0, 2, 0]} scale={0.37} /> */}
             <Rain />
