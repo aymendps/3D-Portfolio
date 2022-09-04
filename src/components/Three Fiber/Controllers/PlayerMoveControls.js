@@ -23,7 +23,7 @@ export const CAMERA_HEIGHT = 4;
 export const WALKING_SPEED = 3;
 export const FORWARD_BOUND = 3.35;
 export const BACKWARD_BOUND = -3.3;
-export const LEFT_BOUND = -1.85;
+export const LEFT_BOUND = -2.2;
 export const RIGHT_BOUND = 3.4;
 export const DESK_COLLIDER = {
   top: 3.15,

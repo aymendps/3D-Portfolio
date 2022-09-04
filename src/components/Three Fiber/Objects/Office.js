@@ -137,16 +137,6 @@ export default function Office({
               geometry={nodes.Object_12.geometry}
               material={materials.dark_wood}
             />
-            <mesh
-              position={[0.99, 0.5, 0.19]}
-              rotation={[-Math.PI / 2, -Math.PI / 2, 0]}
-              material={materials.wood_floor}
-            >
-              <planeGeometry args={[1.4, 0.55]} />
-            </mesh>
-            <mesh position={[0.99, 0.5, 0]} material={materials.wall_wood}>
-              <sphereGeometry args={[0.05, 16, 16]} />
-            </mesh>
           </group>
           <group position={[5.03, 5.81, 0.91]} scale={[0.03, 0.11, 1]}>
             <mesh
@@ -251,7 +241,7 @@ export default function Office({
               material={materials.chair_wood}
             />
           </group>
-          <group position={[0, 0, -1.6]} scale={[1, 0.85, 0.7]}>
+          <group position={[0, 0, -2.5]} scale={[1, 1.1, 0.5]}>
             <group position={[1.87, 2.59, -3.93]} scale={[2, 2.62, 1]}>
               <mesh
                 geometry={nodes.Object_4.geometry}
@@ -398,5 +388,3 @@ export default function Office({
     </group>
   );
 }
-
-// useGLTF.preload("/assets/models/office/scene.gltf");

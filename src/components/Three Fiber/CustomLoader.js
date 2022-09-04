@@ -105,6 +105,7 @@ function CustomLoader({
                     ></CircularProgress>
                     <CircularProgress
                       variant="indeterminate"
+                      disableShrink
                       size={130}
                       thickness={2}
                       className="text-white absolute top-0 left-0"
