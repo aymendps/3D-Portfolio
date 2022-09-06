@@ -13,6 +13,7 @@ module.exports = {
       },
       backgroundColor: {
         paper: "rgb(193,171,139)",
+        "my-orange-brown-30": "rgba(166,110,27,0.3)",
       },
       backgroundImage: {
         "paper-image":
@@ -20,6 +21,8 @@ module.exports = {
         "me-drawn-image": "url('../public/assets/images/me-with-shadow.png')",
         "orange-sticker": "url('../public/assets/images/orange-sticker.png')",
         "yellow-sticker": "url('../public/assets/images/yellow-sticker.png')",
+        "certificate-1": "url('../public/assets/images/coursera-scrum.png')",
+        "certificate-2": "url('../public/assets/images/RH124.jpg')",
       },
       backgroundSize: {
         "size-25%": "25%",

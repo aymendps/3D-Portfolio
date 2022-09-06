@@ -14,7 +14,7 @@ function Portfolio() {
           decorationSize={120}
         />
       </div>
-      <div className="basis-[85%] w-full flex flex-wrap justify-evenly items-center"></div>
+      <div className="basis-[85%] w-full flex justify-evenly items-center"></div>
     </div>
   );
 
@@ -23,7 +23,7 @@ function Portfolio() {
       <div className="basis-[15%]">
         <DecoratedTitle title="My Projects" variant="h2" decorationSize={120} />
       </div>
-      <div className="basis-[85%] w-full flex flex-wrap justify-evenly items-center"></div>
+      <div className="basis-[85%] w-full flex justify-evenly items-center"></div>
     </div>
   );
 
@@ -32,7 +32,7 @@ function Portfolio() {
       <div className="basis-[15%]">
         <DecoratedTitle title="My Projects" variant="h2" decorationSize={120} />
       </div>
-      <div className="basis-[85%] w-full flex flex-wrap justify-evenly items-center"></div>
+      <div className="basis-[85%] w-full flex justify-evenly items-center"></div>
     </div>
   );
 

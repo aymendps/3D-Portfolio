@@ -174,7 +174,7 @@ function About() {
       </div>
       <div className="basis-[80%] w-full flex items-center">
         <div className="w-[45%] h-full flex flex-col items-end justify-evenly">
-          <div className="h-[20%] border-4 border-my-orange-brown rounded-3xl w-[70%] bg-[rgba(166,110,27,0.3)]">
+          <div className="h-[20%] border-4 border-my-orange-brown rounded-3xl w-[70%] bg-my-orange-brown-30">
             <Typography
               variant="h6"
               className="font-berkshire text-black text-center"
@@ -195,7 +195,7 @@ function About() {
             </Typography>
           </div>
           <div className="h-[20%] w-full"></div>
-          <div className="h-[20%] border-4 border-my-orange-brown rounded-3xl w-[70%] bg-[rgba(166,110,27,0.3)]">
+          <div className="h-[20%] border-4 border-my-orange-brown rounded-3xl w-[70%] bg-my-orange-brown-30">
             <Typography
               variant="h6"
               className="font-berkshire text-black text-center"
@@ -228,7 +228,7 @@ function About() {
         </div>
         <div className="w-[45%] h-full flex flex-col items-start justify-evenly">
           <div className="h-[20%] w-full"></div>
-          <div className="h-[20%] border-4 border-my-orange-brown rounded-3xl w-[70%] bg-[rgba(166,110,27,0.3)]">
+          <div className="h-[20%] border-4 border-my-orange-brown rounded-3xl w-[70%] bg-my-orange-brown-30">
             <Typography
               variant="h6"
               className="font-berkshire text-black text-center"
@@ -249,7 +249,7 @@ function About() {
             </Typography>
           </div>
           <div className="h-[20%] w-full"></div>
-          <div className="h-[20%] border-4 border-my-orange-brown rounded-3xl w-[70%] bg-[rgba(166,110,27,0.3)]">
+          <div className="h-[20%] border-4 border-my-orange-brown rounded-3xl w-[70%] bg-my-orange-brown-30">
             <Typography
               variant="h6"
               className="font-berkshire text-black text-center"
@@ -285,7 +285,7 @@ function About() {
       </div>
       <div className="basis-[85%] w-full flex items-center">
         <div className="w-[45%] h-full flex flex-col items-end justify-evenly">
-          <div className="h-[20%] border-4 border-my-orange-brown rounded-3xl w-[70%] bg-[rgba(166,110,27,0.3)]">
+          <div className="h-[20%] border-4 border-my-orange-brown rounded-3xl w-[70%] bg-my-orange-brown-30">
             <Typography
               variant="h5"
               className="font-berkshire text-black text-center"
@@ -311,7 +311,7 @@ function About() {
         </div>
         <div className="w-[45%] h-full flex flex-col items-start justify-evenly">
           <div className="h-[20%] w-full"></div>
-          <div className="h-[20%] border-4 border-my-orange-brown rounded-3xl w-[70%] bg-[rgba(166,110,27,0.3)]">
+          <div className="h-[20%] border-4 border-my-orange-brown rounded-3xl w-[70%] bg-my-orange-brown-30">
             <Typography
               variant="h5"
               className="font-berkshire text-black text-center"
