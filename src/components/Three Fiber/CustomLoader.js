@@ -172,7 +172,7 @@ function CustomLoader({
             className="absolute z-20"
           >
             <Typography className="font-berkshire">
-              Version: 0.7.0
+              Version: 0.8.0
               <br />
               September 2022
             </Typography>

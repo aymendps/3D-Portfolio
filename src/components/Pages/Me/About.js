@@ -287,10 +287,13 @@ function About() {
         <div className="w-[45%] h-full flex flex-col items-end justify-evenly">
           <div className="h-[20%] border-4 border-my-orange-brown rounded-3xl w-[70%] bg-my-orange-brown-30">
             <Typography
+              component="a"
+              href="https://cynoia.com/"
+              target="_blank"
               variant="h5"
-              className="font-berkshire text-black text-center"
+              className="font-berkshire text-black text-center block hover:underline"
             >
-              Cynoia
+              Cynoia ↗
             </Typography>
             <Typography
               variant="h6"
@@ -313,10 +316,13 @@ function About() {
           <div className="h-[20%] w-full"></div>
           <div className="h-[20%] border-4 border-my-orange-brown rounded-3xl w-[70%] bg-my-orange-brown-30">
             <Typography
+              component="a"
+              href="https://cynoia.com/"
+              target="_blank"
               variant="h5"
-              className="font-berkshire text-black text-center"
+              className="font-berkshire text-black text-center block hover:underline"
             >
-              Cynoia
+              Cynoia ↗
             </Typography>
             <Typography
               variant="h6"
