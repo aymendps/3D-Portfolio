@@ -16,3 +16,8 @@ body {
 [data-rmiz-btn-unzoom] {
   display: none !important;
 }
+
+.react-player__play-icon {
+  border-width: 32px 0px 32px 52px !important;
+  border-color: transparent transparent transparent #a66e1b !important;
+}

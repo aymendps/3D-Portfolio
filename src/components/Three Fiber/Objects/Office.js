@@ -51,7 +51,7 @@ export default function Office({
               node={nodes.Object_8.geometry}
               material={materials.paper.clone()}
               position={[0.55, 1.76, -3.9]}
-              spritePosition={[0.8, 0.7, 5.35]}
+              spritePosition={[0.8, 0.7, 5.42]}
               spriteURL="/assets/images/portfolio.png"
               gl={gl}
               completeQuest={() => {
@@ -67,7 +67,7 @@ export default function Office({
               node={nodes.Object_8.geometry}
               material={materials.paper.clone()}
               position={[0.55, 1.76, -5.05]}
-              spritePosition={[0.8, 0.7, 5.53]}
+              spritePosition={[0.8, 0.7, 5.58]}
               spriteURL="/assets/images/about.png"
               gl={gl}
               completeQuest={() => {
@@ -83,7 +83,7 @@ export default function Office({
               node={nodes.Object_8.geometry}
               material={materials.paper.clone()}
               position={[0.55, 1.76, -6.2]}
-              spritePosition={[0.8, 0.7, 5.69]}
+              spritePosition={[0.8, 0.7, 5.75]}
               spriteURL="/assets/images/skills.png"
               gl={gl}
               completeQuest={() => {

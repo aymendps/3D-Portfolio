@@ -3,7 +3,7 @@ import VolumeUpIcon from "@mui/icons-material/VolumeUp";
 import VolumeOffIcon from "@mui/icons-material/VolumeMute";
 import VolumeDownIcon from "@mui/icons-material/VolumeDown";
 
-function MuteButton({ musicVolume, setMusicVolume }) {
+function MuteButton({ musicVolume, setMusicVolume, disableMuteButton }) {
   const levels = [0.2, 0.1, 0];
   const icons = [
     <VolumeUpIcon fontSize="large" />,
@@ -13,6 +13,7 @@ function MuteButton({ musicVolume, setMusicVolume }) {
 
   return (
     <IconButton
+      disabled={disableMuteButton}
       disableRipple
       className="absolute left-2 top-4 z-10 text-white"
       onClick={() => {

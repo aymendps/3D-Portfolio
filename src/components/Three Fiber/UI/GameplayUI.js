@@ -1,12 +1,13 @@
-import Message from "./GameplayUI Children/Message";
-import MuteButton from "./GameplayUI Children/MuteButton";
-import QuestList from "./GameplayUI Children/QuestList";
+import Message from "./children/Message";
+import MuteButton from "./children/MuteButton";
+import QuestList from "./children/QuestList";
 import About from "../../Pages/Me/About";
 import Skills from "../../Pages/Me/Skills";
 import Portfolio from "../../Pages/Me/Portfolio";
-import ClosePaperButton from "./GameplayUI Children/ClosePaperButton";
+import ClosePaperButton from "./children/ClosePaperButton";
 import { AnimatePresence } from "framer-motion";
-import PreloadImages from "./GameplayUI Children/PreloadImages";
+import PreloadImages from "./children/PreloadImages";
+import { useState } from "react";
 
 function GameplayUI({
   musicVolume,
@@ -20,10 +21,16 @@ function GameplayUI({
   setShowThisPage,
   allowActionControls,
 }) {
+  const [disableMuteButton, setDisableMuteButton] = useState(false);
+
   return (
     <>
       <PreloadImages />
-      <MuteButton musicVolume={musicVolume} setMusicVolume={setMusicVolume} />
+      <MuteButton
+        musicVolume={musicVolume}
+        setMusicVolume={setMusicVolume}
+        disableMuteButton={disableMuteButton}
+      />
       <Message message={message} setMessage={setMessage} />
       <QuestList
         activeQuests={activeQuests}
@@ -43,7 +50,13 @@ function GameplayUI({
       <AnimatePresence>
         {showThisPage === "about" && <About />}
         {showThisPage === "skills" && <Skills />}
-        {showThisPage === "portfolio" && <Portfolio />}
+        {showThisPage === "portfolio" && (
+          <Portfolio
+            musicVolume={musicVolume}
+            setMusicVolume={setMusicVolume}
+            setDisableMuteButton={setDisableMuteButton}
+          />
+        )}
       </AnimatePresence>
     </>
   );
