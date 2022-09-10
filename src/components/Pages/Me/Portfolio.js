@@ -2,6 +2,8 @@ import VideoPlayer from "../../Three Fiber/UI/children/VideoPlayer";
 import CoverPage from "./Shared/CoverPage";
 import DecoratedTitle from "./Shared/DecoratedTitle";
 import Wrapper from "./Wrapper";
+import portfolioConfig from "./Portfolio.config";
+import Project from "./Project";
 
 function Portfolio({ musicVolume, setMusicVolume, setDisableMuteButton }) {
   const coverPage = <CoverPage title="My Portfolio" />;
@@ -21,31 +23,40 @@ function Portfolio({ musicVolume, setMusicVolume, setDisableMuteButton }) {
           setMusicVolume={setMusicVolume}
           setDisableMuteButton={setDisableMuteButton}
           width="65%"
-          url="https://www.youtube.com/watch?v=Svc3JQEW03E"
+          url="https://www.youtube.com/"
         />
       </div>
     </div>
   );
 
-  const projectsPage1 = (
-    <div className="w-full h-[95%] flex flex-col justify-between items-center">
-      <div className="basis-[15%]">
-        <DecoratedTitle title="My Projects" variant="h2" decorationSize={120} />
-      </div>
-      <div className="basis-[85%] w-full flex justify-evenly items-center"></div>
-    </div>
-  );
+  const getProjectPages = () => {
+    let pages = [];
+    const pagesNumber = Math.ceil(portfolioConfig.length / 6);
+    for (let index = 0; index < pagesNumber; index++) {
+      const page = (
+        <div className="w-full h-[95%] flex flex-col  items-center">
+          <div className="basis-[25%]">
+            <DecoratedTitle
+              title={`My Projects  ${index + 1} / ${pagesNumber}`}
+              variant="h2"
+              decorationSize={120}
+            />
+          </div>
+          <div className="basis-[75%] w-[85%] flex flex-wrap gap-[5%] items-start">
+            {portfolioConfig.slice(index * 6, index * 6 + 6).map((project) => {
+              console.log(project.mainTech);
+              return <Project key={project.title} {...project} />;
+            })}
+          </div>
+        </div>
+      );
+      pages.push(page);
+    }
 
-  const projectsPage2 = (
-    <div className="w-full h-[95%] flex flex-col justify-between items-center">
-      <div className="basis-[15%]">
-        <DecoratedTitle title="My Projects" variant="h2" decorationSize={120} />
-      </div>
-      <div className="basis-[85%] w-full flex justify-evenly items-center"></div>
-    </div>
-  );
+    return pages;
+  };
 
-  const pages = [coverPage, demoReelPage, projectsPage1, projectsPage2];
+  const pages = [coverPage, demoReelPage, ...getProjectPages()];
   return <Wrapper pages={pages}></Wrapper>;
 }
 
