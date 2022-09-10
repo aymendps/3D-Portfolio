@@ -68,13 +68,15 @@ function OfficePaper({
           }
         }}
         onClick={() => {
-          allowActionControls.current = false;
-          isHovered.current = false;
-          gl.domElement.style.cursor = "default";
-          if (completeQuest) {
-            completeQuest();
+          if (showDeskMenu.current) {
+            allowActionControls.current = false;
+            isHovered.current = false;
+            gl.domElement.style.cursor = "default";
+            if (completeQuest) {
+              completeQuest();
+            }
+            setShowThisPage();
           }
-          setShowThisPage();
         }}
       ></mesh>
       <Sprite
