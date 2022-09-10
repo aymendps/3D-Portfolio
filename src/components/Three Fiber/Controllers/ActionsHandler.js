@@ -1,7 +1,7 @@
 import { useFrame, useThree } from "@react-three/fiber";
 import { useEffect, useRef } from "react";
 import { Euler } from "three";
-import { CAMERA_HEIGHT } from "../Controllers/PlayerMoveControls";
+import { CAMERA_HEIGHT } from "./PlayerMoveControls";
 import { QUESTS } from "../MainCanvas";
 import { deg2rad } from "../utils";
 

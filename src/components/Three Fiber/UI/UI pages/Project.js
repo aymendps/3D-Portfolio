@@ -1,5 +1,5 @@
-import PinnedDiv from "./Shared/PinnedDiv";
-import TechIcon from "./Shared/TechIcon";
+import PinnedDiv from "../UI items/interfaces/PinnedDiv";
+import TechIcon from "../UI items/interfaces/TechIcon";
 
 // className = "whitespace-pre-line font-berkshire";
 

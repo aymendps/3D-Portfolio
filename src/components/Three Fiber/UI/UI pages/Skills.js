@@ -1,8 +1,8 @@
 import { Typography } from "@mui/material";
 import { motion } from "framer-motion";
-import CoverPage from "./Shared/CoverPage";
-import DecoratedTitle from "./Shared/DecoratedTitle";
-import TechIcon from "./Shared/TechIcon";
+import CoverPage from "./CoverPage";
+import DecoratedTitle from "../UI items/interfaces/DecoratedTitle";
+import TechIcon from "../UI items/interfaces/TechIcon";
 import Wrapper from "./Wrapper";
 
 function Skills() {

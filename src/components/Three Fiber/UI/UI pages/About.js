@@ -3,10 +3,10 @@ import TypewriterComponent from "typewriter-effect";
 import Wrapper from "./Wrapper";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import StickerWrapper from "./Shared/StickerWrapper";
-import DecoratedTitle from "./Shared/DecoratedTitle";
-import CoverPage from "./Shared/CoverPage";
-import PinnedDiv from "./Shared/PinnedDiv";
+import StickerWrapper from "../UI items/interfaces/StickerWrapper";
+import DecoratedTitle from "../UI items/interfaces/DecoratedTitle";
+import CoverPage from "./CoverPage";
+import PinnedDiv from "../UI items/interfaces/PinnedDiv";
 import Zoom from "react-medium-image-zoom";
 // import VolumeUpIcon from "@mui/icons-material/VolumeUp";
 

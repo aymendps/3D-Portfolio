@@ -1,5 +1,5 @@
 import { Typography } from "@mui/material";
-import DecoratedTitle from "./DecoratedTitle";
+import DecoratedTitle from "../UI items/interfaces/DecoratedTitle";
 
 function CoverPage({ title }) {
   return (

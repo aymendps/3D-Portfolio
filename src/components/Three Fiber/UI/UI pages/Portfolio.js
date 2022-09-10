@@ -1,6 +1,6 @@
-import VideoPlayer from "../../Three Fiber/UI/children/VideoPlayer";
-import CoverPage from "./Shared/CoverPage";
-import DecoratedTitle from "./Shared/DecoratedTitle";
+import VideoPlayer from "../UI items/interfaces/VideoPlayer";
+import CoverPage from "./CoverPage";
+import DecoratedTitle from "../UI items/interfaces/DecoratedTitle";
 import Wrapper from "./Wrapper";
 import portfolioConfig from "./Portfolio.config";
 import Project from "./Project";
@@ -44,7 +44,6 @@ function Portfolio({ musicVolume, setMusicVolume, setDisableMuteButton }) {
           </div>
           <div className="basis-[75%] w-[85%] flex flex-wrap gap-[5%] items-start">
             {portfolioConfig.slice(index * 6, index * 6 + 6).map((project) => {
-              console.log(project.mainTech);
               return <Project key={project.title} {...project} />;
             })}
           </div>

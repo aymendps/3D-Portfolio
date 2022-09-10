@@ -1,12 +1,12 @@
-import Message from "./children/Message";
-import MuteButton from "./children/MuteButton";
-import QuestList from "./children/QuestList";
-import About from "../../Pages/Me/About";
-import Skills from "../../Pages/Me/Skills";
-import Portfolio from "../../Pages/Me/Portfolio";
-import ClosePaperButton from "./children/ClosePaperButton";
+import Message from "./UI items/quests related/Message";
+import MuteButton from "./UI items/buttons/MuteButton";
+import QuestList from "./UI items/quests related/QuestList";
+import About from "./UI pages/About";
+import Skills from "./UI pages/Skills";
+import Portfolio from "./UI pages/Portfolio";
+import ClosePaperButton from "./UI items/buttons/ClosePaperButton";
 import { AnimatePresence } from "framer-motion";
-import PreloadImages from "./children/PreloadImages";
+import PreloadImages from "./UI items/preload/PreloadImages";
 import { useState } from "react";
 
 function GameplayUI({

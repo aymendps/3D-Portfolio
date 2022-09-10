@@ -11,7 +11,7 @@ import PlayerLookControls from "./Controllers/PlayerLookControls";
 import CustomLoader from "./CustomLoader";
 // import GlobalSound from "./Audio/GlobalSound";
 import GameplayUI from "./UI/GameplayUI";
-import ActionsHandler from "./Systems/ActionsHandler";
+import ActionsHandler from "./Controllers/ActionsHandler";
 import PlayerActionControls from "./Controllers/PlayerActionControls";
 // import OldTV from "./Objects/OldTV";
 import Door from "./Objects/Door";

@@ -36,7 +36,6 @@ function VideoPlayer({
         onPlay={() => {
           initialMusicVolume.current = musicVolume;
           isPlaying.current = true;
-          console.log(initialMusicVolume.current);
           setMusicVolume(0);
           setDisableMuteButton(true);
         }}
