@@ -9,7 +9,7 @@ function DecoratedTitle({ title, variant, decorationSize }) {
         alt=""
       ></img>
       <Typography
-        className="font-berkshire text-center text-my-brown font-bold"
+        className="font-berkshire text-center text-my-brown font-bold whitespace-pre"
         variant={variant}
       >
         {title}

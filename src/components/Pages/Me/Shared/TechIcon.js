@@ -1,21 +1,27 @@
 import { Typography } from "@mui/material";
 
-const DEFAULT_ICON_WIDTH = "50px";
-
-function TechIcon({ className, name, imgWidth, imgHeight, url }) {
+function TechIcon({ className, name, imgWidth, url }) {
   return (
-    <div className={"flex flex-col justify-center items-center " + className}>
+    <div
+      className={
+        className
+          ? "flex flex-col justify-center items-center " + className
+          : "flex flex-col justify-center items-center"
+      }
+    >
       <img
         style={{
-          width: imgWidth || DEFAULT_ICON_WIDTH,
-          height: imgHeight || DEFAULT_ICON_WIDTH,
+          width: imgWidth || "50px",
         }}
         alt=""
         src={url}
+        className="aspect-square"
       ></img>
-      <Typography variant="h6" className="font-berkshire text-my-brown pt-2">
-        {name}
-      </Typography>
+      {name && (
+        <Typography variant="h6" className="font-berkshire text-my-brown pt-2">
+          {name}
+        </Typography>
+      )}
     </div>
   );
 }
