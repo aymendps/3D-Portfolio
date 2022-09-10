@@ -21,7 +21,6 @@ function PlayerLookControls({ allowControls }) {
 
       state.drag = true;
       e.target.style.cursor = "grabbing";
-      e.target.setPointerCapture(e.pointerId);
       state.prev.screenX = e.screenX;
       state.prev.screenY = e.screenY;
     };
