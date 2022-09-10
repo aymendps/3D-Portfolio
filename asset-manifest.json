@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/static/css/main.2fe88238.css",
-    "main.js": "/static/js/main.b3f4f407.js",
+    "main.css": "/static/css/main.e7a51a5b.css",
+    "main.js": "/static/js/main.b0e6856c.js",
     "static/media/old_paper_baseColor.png": "/static/media/old_paper_baseColor.8f2af2488795dbbcf7ef.png",
     "static/media/coursera-scrum.png": "/static/media/coursera-scrum.a22901d0b01c3211684b.png",
     "static/media/RH124.jpg": "/static/media/RH124.fe6a2774c903aa4d2168.jpg",
     "static/media/yellow-sticker.png": "/static/media/yellow-sticker.3736d3a4e2d9fce589e7.png",
     "static/media/orange-sticker.png": "/static/media/orange-sticker.b7bac68d29dd23b035ff.png",
     "index.html": "/index.html",
-    "main.2fe88238.css.map": "/static/css/main.2fe88238.css.map",
-    "main.b3f4f407.js.map": "/static/js/main.b3f4f407.js.map"
+    "main.e7a51a5b.css.map": "/static/css/main.e7a51a5b.css.map",
+    "main.b0e6856c.js.map": "/static/js/main.b0e6856c.js.map"
   },
   "entrypoints": [
-    "static/css/main.2fe88238.css",
-    "static/js/main.b3f4f407.js"
+    "static/css/main.e7a51a5b.css",
+    "static/js/main.b0e6856c.js"
   ]
 }
