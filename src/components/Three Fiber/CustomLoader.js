@@ -230,7 +230,7 @@ function CustomLoader({
               variant="h4"
               className="underline"
             >
-              Idea Of
+              Idea Of:
             </Typography>
             <Typography
               fontFamily="Berkshire Swash"
