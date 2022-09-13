@@ -4,12 +4,89 @@ import DecoratedTitle from "../UI items/interfaces/DecoratedTitle";
 import Wrapper from "./Wrapper";
 import portfolioConfig from "./Portfolio.config";
 import Project from "./Project";
+import { Typography } from "@mui/material";
+import { useRef, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+
+function PortfolioPage({
+  index,
+  pagesNumber,
+  musicVolume,
+  setMusicVolume,
+  setDisableMuteButton,
+}) {
+  const [projectList] = useState(
+    portfolioConfig.slice(index * 6, index * 6 + 6)
+  );
+  const [selectedProject, setSelectedProject] = useState(null);
+  const [isPreview, setIsPreview] = useState(true);
+  const didInitialRender = useRef(false);
+
+  return (
+    <>
+      <AnimatePresence mode="wait">
+        {isPreview ? (
+          <motion.div
+            key={"my-projects-page-preview" + index}
+            initial={didInitialRender.current ? { opacity: 0 } : { opacity: 1 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="w-full h-[95%] flex flex-col items-center"
+          >
+            <div className="basis-[25%]">
+              <DecoratedTitle
+                title={`My Projects  ${index + 1} / ${pagesNumber}`}
+                variant="h2"
+                decorationSize={120}
+              />
+            </div>
+            <div className="basis-[75%] w-[85%] flex flex-wrap gap-[5%] items-start">
+              {projectList.map((project, index) => {
+                return (
+                  <Project
+                    key={project.title}
+                    isPreview={true}
+                    {...project}
+                    onClick={() => {
+                      didInitialRender.current = true;
+                      setSelectedProject(projectList[index]);
+                      setIsPreview(false);
+                    }}
+                  />
+                );
+              })}
+            </div>
+          </motion.div>
+        ) : (
+          <motion.div
+            key={"my-projects-page-no-preview" + index}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="w-full h-full"
+          >
+            <Project
+              isPreview={false}
+              {...selectedProject}
+              onClick={() => {
+                setIsPreview(true);
+              }}
+              musicVolume={musicVolume}
+              setMusicVolume={setMusicVolume}
+              setDisableMuteButton={setDisableMuteButton}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
+  );
+}
 
 function Portfolio({ musicVolume, setMusicVolume, setDisableMuteButton }) {
   const coverPage = <CoverPage title="My Portfolio" />;
 
   const demoReelPage = (
-    <div className="w-full h-[95%] flex flex-col justify-between items-center">
+    <div className="w-full h-[95%] flex flex-col items-center">
       <div className="basis-[15%]">
         <DecoratedTitle
           title="My Demo Reel"
@@ -17,14 +94,19 @@ function Portfolio({ musicVolume, setMusicVolume, setDisableMuteButton }) {
           decorationSize={120}
         />
       </div>
-      <div className="basis-[85%] w-full flex justify-center items-center">
+      <div className="basis-[80%] w-full flex justify-center items-center">
         <VideoPlayer
           musicVolume={musicVolume}
           setMusicVolume={setMusicVolume}
           setDisableMuteButton={setDisableMuteButton}
           width="65%"
-          url="https://www.youtube.com/"
+          url="https://www.youtube.com/watch?v=Svc3JQEW03E"
         />
+      </div>
+      <div className="basis-[5%]">
+        <Typography className="font-berkshire italic text-my-brown">
+          This magical paper was provided by Hogwarts
+        </Typography>
       </div>
     </div>
   );
@@ -33,23 +115,15 @@ function Portfolio({ musicVolume, setMusicVolume, setDisableMuteButton }) {
     let pages = [];
     const pagesNumber = Math.ceil(portfolioConfig.length / 6);
     for (let index = 0; index < pagesNumber; index++) {
-      const page = (
-        <div className="w-full h-[95%] flex flex-col  items-center">
-          <div className="basis-[25%]">
-            <DecoratedTitle
-              title={`My Projects  ${index + 1} / ${pagesNumber}`}
-              variant="h2"
-              decorationSize={120}
-            />
-          </div>
-          <div className="basis-[75%] w-[85%] flex flex-wrap gap-[5%] items-start">
-            {portfolioConfig.slice(index * 6, index * 6 + 6).map((project) => {
-              return <Project key={project.title} {...project} />;
-            })}
-          </div>
-        </div>
+      pages.push(
+        <PortfolioPage
+          index={index}
+          pagesNumber={pagesNumber}
+          musicVolume={musicVolume}
+          setMusicVolume={setMusicVolume}
+          setDisableMuteButton={setDisableMuteButton}
+        />
       );
-      pages.push(page);
     }
 
     return pages;

@@ -20,7 +20,9 @@ const mongodb = "/assets/images/mongo.png";
 const portfolioConfig = [
   {
     title: "Follow The Light",
+    tag: "Game Dev: ",
     thumbnail: "",
+    images: [],
     video: "",
     mainTech: [unity, csharp],
     otherTech: [],
@@ -30,7 +32,9 @@ const portfolioConfig = [
   },
   {
     title: "Beyond Invaders Roguelike",
+    tag: "Game Dev: ",
     thumbnail: "",
+    images: [],
     video: "",
     mainTech: [unity, csharp],
     otherTech: [],
@@ -40,7 +44,9 @@ const portfolioConfig = [
   },
   {
     title: "My Personal Website",
+    tag: "Game & Web Dev: ",
     thumbnail: "",
+    images: [],
     video: "",
     mainTech: [react, threejs, tailwindcss],
     otherTech: [js],
@@ -50,20 +56,31 @@ const portfolioConfig = [
   },
   {
     title: "Student Specialty Advisor",
+    tag: "Full Stack Dev: ",
     thumbnail: "https://img.youtube.com/vi/Svc3JQEW03E/0.jpg",
+    images: [
+      "https://raw.githubusercontent.com/aymendps/student-specialty-advisor/master/documentation/screenshots/desktop/login.png",
+      "https://raw.githubusercontent.com/aymendps/student-specialty-advisor/master/documentation/screenshots/desktop/achievements.png",
+      "https://raw.githubusercontent.com/aymendps/student-specialty-advisor/master/client/src/assets/art/team/award2.jpg",
+    ],
     video: "https://www.youtube.com/watch?v=Svc3JQEW03E",
     mainTech: [nodejs, react, expressjs, mongodb],
     otherTech: [js],
     github: "https://github.com/aymendps/student-specialty-advisor",
     download: "",
     description: `Ever been a student or know someone who is attending university?
+
     Then you must be familiar with the difficulties that one faces when choosing a specialty to pursue.
-    Student Specialty Advisor is an award-winning free web app for the South Mediterranean University's community that aims to help the students pick the right specialty that suits them best.
-    While working on this project, my team and I learned a lot about full stack development, collaboration, teamwork, and the scrum framework.`,
+
+    Student Specialty Advisor is an award-winning free web app for the South Mediterranean University's community that aims to help the students pick the right educational path.
+    
+    While working on this project, my team and I learned a lot about full stack development, responsive design, teamwork, and the scrum framework.`,
   },
   {
-    title: "File Storage & Management System",
+    title: "File Management System",
+    tag: "Full Stack Dev: ",
     thumbnail: "",
+    images: [],
     video: "",
     mainTech: [nodejs, react, expressjs, mysql],
     otherTech: [js, ts],
@@ -73,7 +90,9 @@ const portfolioConfig = [
   },
   {
     title: "Beyond Invaders SDL",
+    tag: "Game Dev: ",
     thumbnail: "",
+    images: [],
     video: "",
     mainTech: [c],
     otherTech: [],
@@ -83,7 +102,9 @@ const portfolioConfig = [
   },
   {
     title: "Casino Text-Based App",
+    tag: "Game Dev: ",
     thumbnail: "",
+    images: [],
     video: "",
     mainTech: [java, mysql],
     otherTech: [],
@@ -93,7 +114,9 @@ const portfolioConfig = [
   },
   {
     title: "Job Seekr",
+    tag: "Software Dev: ",
     thumbnail: "",
+    images: [],
     video: "",
     mainTech: [python],
     otherTech: [],
