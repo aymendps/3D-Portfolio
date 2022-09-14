@@ -65,28 +65,21 @@ function ActionsHandler({
   const questStage = useRef(0);
 
   const isDifferent = (vector1, vector2) => {
-    if (
+    return (
       vector1.x !== vector2.x ||
       vector1.y !== vector2.y ||
       vector1.z !== vector2.z
-    ) {
-      return true;
-    } else {
-      return false;
-    }
+    );
   };
 
   const isInTrigger = (trigger) => {
     const { maxX, minX, maxZ, minZ } = trigger.boundaries;
-    if (
+    return !(
       camera.position.x > maxX ||
       camera.position.x < minX ||
       camera.position.z > maxZ ||
       camera.position.z < minZ
-    ) {
-      return false;
-    }
-    return true;
+    );
   };
 
   const handleTutorialQuests = () => {

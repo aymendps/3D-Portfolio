@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
-function Wrapper({ pages }) {
+function Wrapper({ pages, overrideHandlersFunction, overrideHandlers }) {
   const [selectedPage, setSelectedPage] = useState(0);
   const [backgroundPage, setBackgroundPage] = useState(null);
   const pageDirection = useRef("next");
@@ -70,6 +70,11 @@ function Wrapper({ pages }) {
   });
 
   const wheelHandler = (event) => {
+    if (overrideHandlers?.current && overrideHandlersFunction?.current) {
+      overrideHandlersFunction?.current();
+      return;
+    }
+
     const delta = Math.sign(event.deltaY);
     if (delta > 0) {
       if (nextButtonRef.current && canNavigate.current) {
@@ -83,6 +88,11 @@ function Wrapper({ pages }) {
   };
 
   const keyDownHandler = (event) => {
+    if (overrideHandlers?.current && overrideHandlersFunction?.current) {
+      overrideHandlersFunction?.current();
+      return;
+    }
+
     if (event.code === "KeyS") {
       if (nextButtonRef.current && canNavigate.current) {
         nextButtonRef.current.click();

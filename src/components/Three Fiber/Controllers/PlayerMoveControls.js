@@ -45,15 +45,12 @@ function PlayerMoveControls({ allowControls }) {
   const variableHeightDirectionUp = useRef(true);
 
   const isInCollider = (position, collider) => {
-    if (
+    return !(
       position.x < collider.bottom ||
       position.x > collider.top ||
       position.z < collider.left ||
       position.z > collider.right
-    ) {
-      return false;
-    }
-    return true;
+    );
   };
 
   const moveForward = (distance, heightOffset) => {

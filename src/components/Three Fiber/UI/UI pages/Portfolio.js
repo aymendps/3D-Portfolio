@@ -5,7 +5,7 @@ import Wrapper from "./Wrapper";
 import portfolioConfig from "./Portfolio.config";
 import Project from "./Project";
 import { Typography } from "@mui/material";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 function PortfolioPage({
@@ -14,6 +14,8 @@ function PortfolioPage({
   musicVolume,
   setMusicVolume,
   setDisableMuteButton,
+  overrideHandlers,
+  overrideHandlersFunction,
 }) {
   const [projectList] = useState(
     portfolioConfig.slice(index * 6, index * 6 + 6)
@@ -21,6 +23,16 @@ function PortfolioPage({
   const [selectedProject, setSelectedProject] = useState(null);
   const [isPreview, setIsPreview] = useState(true);
   const didInitialRender = useRef(false);
+
+  const handlersFunction = () => {
+    overrideHandlers.current = false;
+    setIsPreview(true);
+  };
+
+  useEffect(() => {
+    overrideHandlersFunction.current = handlersFunction;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <>
@@ -49,6 +61,7 @@ function PortfolioPage({
                     {...project}
                     onClick={() => {
                       didInitialRender.current = true;
+                      overrideHandlers.current = true;
                       setSelectedProject(projectList[index]);
                       setIsPreview(false);
                     }}
@@ -69,6 +82,7 @@ function PortfolioPage({
               isPreview={false}
               {...selectedProject}
               onClick={() => {
+                overrideHandlers.current = false;
                 setIsPreview(true);
               }}
               musicVolume={musicVolume}
@@ -83,6 +97,9 @@ function PortfolioPage({
 }
 
 function Portfolio({ musicVolume, setMusicVolume, setDisableMuteButton }) {
+  const overrideHandlers = useRef(false);
+  const overrideHandlersFunction = useRef(null);
+
   const coverPage = <CoverPage title="My Portfolio" />;
 
   const demoReelPage = (
@@ -122,6 +139,8 @@ function Portfolio({ musicVolume, setMusicVolume, setDisableMuteButton }) {
           musicVolume={musicVolume}
           setMusicVolume={setMusicVolume}
           setDisableMuteButton={setDisableMuteButton}
+          overrideHandlers={overrideHandlers}
+          overrideHandlersFunction={overrideHandlersFunction}
         />
       );
     }
@@ -130,7 +149,13 @@ function Portfolio({ musicVolume, setMusicVolume, setDisableMuteButton }) {
   };
 
   const pages = [coverPage, demoReelPage, ...getProjectPages()];
-  return <Wrapper pages={pages}></Wrapper>;
+  return (
+    <Wrapper
+      pages={pages}
+      overrideHandlers={overrideHandlers}
+      overrideHandlersFunction={overrideHandlersFunction}
+    ></Wrapper>
+  );
 }
 
 export default Portfolio;

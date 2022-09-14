@@ -27,18 +27,20 @@ const portfolioConfig = [
     mainTech: [unity, csharp],
     otherTech: [],
     github: "",
+    moreScreenshots: "",
     download: "",
     description: "",
   },
   {
-    title: "Beyond Invaders Roguelike",
+    title: "Beyond Invaders SDL",
     tag: "Game Dev: ",
     thumbnail: "",
     images: [],
     video: "",
-    mainTech: [unity, csharp],
+    mainTech: [c],
     otherTech: [],
     github: "",
+    moreScreenshots: "",
     download: "",
     description: "",
   },
@@ -51,6 +53,7 @@ const portfolioConfig = [
     mainTech: [react, threejs, tailwindcss],
     otherTech: [js],
     github: "",
+    moreScreenshots: "",
     download: "",
     description: "",
   },
@@ -67,6 +70,8 @@ const portfolioConfig = [
     mainTech: [nodejs, react, expressjs, mongodb],
     otherTech: [js],
     github: "https://github.com/aymendps/student-specialty-advisor",
+    moreScreenshots:
+      "https://github.com/aymendps/student-specialty-advisor/tree/master/documentation/screenshots",
     download: "",
     description: `Ever been a student or know someone who is attending university?
 
@@ -85,23 +90,12 @@ const portfolioConfig = [
     mainTech: [nodejs, react, expressjs, mysql],
     otherTech: [js, ts],
     github: "",
+    moreScreenshots: "",
     download: "",
     description: "",
   },
   {
-    title: "Beyond Invaders SDL",
-    tag: "Game Dev: ",
-    thumbnail: "",
-    images: [],
-    video: "",
-    mainTech: [c],
-    otherTech: [],
-    github: "",
-    download: "",
-    description: "",
-  },
-  {
-    title: "Casino Text-Based App",
+    title: "Casino TextIO Game",
     tag: "Game Dev: ",
     thumbnail: "",
     images: [],
@@ -109,8 +103,15 @@ const portfolioConfig = [
     mainTech: [java, mysql],
     otherTech: [],
     github: "",
+    moreScreenshots: "",
     download: "",
-    description: "",
+    description: `Casino TextIO Game is a casino simulator developped using Java and MySQL.
+    
+    As a player, you can create your account, display your balance, purchase & sell chips and enjoy two games: Blackjack & Slot Machine.
+    
+    Blackjack: Play against the AI in the most widely played casino banking game. The goal is to collect cards that total more points than the dealer, without going over 21.
+    
+    Slot Machine: Luck-based game where the goal is to play until you hit a jackpot.`,
   },
   {
     title: "Job Seekr",
@@ -121,6 +122,7 @@ const portfolioConfig = [
     mainTech: [python],
     otherTech: [],
     github: "",
+    moreScreenshots: "",
     download: "",
     description: "",
   },

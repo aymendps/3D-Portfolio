@@ -6,6 +6,7 @@ import VideoPlayer from "../UI items/interfaces/VideoPlayer";
 import { useState } from "react";
 import GithubIcon from "@mui/icons-material/GitHub";
 import DownloadIcon from "@mui/icons-material/Download";
+import CollectionsIcon from "@mui/icons-material/Collections";
 
 // className = "whitespace-pre-line font-berkshire";
 
@@ -19,6 +20,7 @@ function Project({
   otherTech,
   github,
   download,
+  moreScreenshots,
   description,
   onClick,
   isPreview,
@@ -111,7 +113,7 @@ function Project({
                         images[selectedMedia - 1] || ""
                       })`,
                     }}
-                    className="w-full aspect-video border-2 border-my-orange-brown bg-my-orange-brown-30 bg-cover bg-center bg-no-repeat"
+                    className="w-full aspect-video border-2 border-my-orange-brown bg-my-orange-brown-30 bg-contain bg-center bg-no-repeat"
                   ></div>
                 )}
               </div>
@@ -119,7 +121,7 @@ function Project({
             </div>
           </div>
           <div className="basis-1/4 2xl:basis-1/3 flex flex-col gap-[10%]">
-            <Typography className="font-berkshire text-my-brown whitespace-pre-line text-[1.05rem] 2xl:text-[1.2rem]">
+            <Typography className="font-berkshire text-my-brown whitespace-pre-line text-[1.05rem] 2xl:text-[1.1rem]">
               {description}
             </Typography>
             <div>
@@ -134,22 +136,35 @@ function Project({
                     window.open(github, "_blank");
                   }}
                 >
-                  Github Repository
+                  Open Repository
                 </Button>
               )}
-              <br />
               {download && (
                 <Button
                   fullWidth
                   startIcon={<DownloadIcon />}
                   disableRipple
                   variant="contained"
-                  className="normal-case font-berkshire bg-my-orange-brown mt-2"
+                  className="normal-case font-berkshire bg-my-orange-brown mt-2 mb-2"
                   onClick={() => {
                     window.open(download, "_blank");
                   }}
                 >
                   Download Demo
+                </Button>
+              )}
+              {moreScreenshots && (
+                <Button
+                  fullWidth
+                  startIcon={<CollectionsIcon />}
+                  disableRipple
+                  variant="contained"
+                  className="normal-case font-berkshire bg-my-orange-brown mt-2"
+                  onClick={() => {
+                    window.open(moreScreenshots, "_blank");
+                  }}
+                >
+                  More Screenshots
                 </Button>
               )}
             </div>
