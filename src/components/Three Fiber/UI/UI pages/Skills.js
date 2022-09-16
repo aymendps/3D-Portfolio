@@ -5,7 +5,7 @@ import DecoratedTitle from "../UI items/interfaces/DecoratedTitle";
 import TechIcon from "../UI items/interfaces/TechIcon";
 import Wrapper from "./Wrapper";
 
-function Skills() {
+function Skills({ musicVolume }) {
   const coverPage = <CoverPage title="My Skills" />;
 
   const techSkillsPage1 = (
@@ -300,7 +300,7 @@ function Skills() {
     softSkillsPage,
     linguisticSkillsPage,
   ];
-  return <Wrapper pages={pages}></Wrapper>;
+  return <Wrapper pages={pages} musicVolume={musicVolume}></Wrapper>;
 }
 
 export default Skills;

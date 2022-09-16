@@ -43,6 +43,7 @@ function PortfolioPage({
             initial={didInitialRender.current ? { opacity: 0 } : { opacity: 1 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
             className="w-full h-[95%] flex flex-col items-center"
           >
             <div className="basis-[25%]">
@@ -76,6 +77,7 @@ function PortfolioPage({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
             className="w-full h-full"
           >
             <Project
@@ -154,6 +156,7 @@ function Portfolio({ musicVolume, setMusicVolume, setDisableMuteButton }) {
       pages={pages}
       overrideHandlers={overrideHandlers}
       overrideHandlersFunction={overrideHandlersFunction}
+      musicVolume={musicVolume}
     ></Wrapper>
   );
 }

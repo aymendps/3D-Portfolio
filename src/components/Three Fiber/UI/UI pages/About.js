@@ -10,7 +10,7 @@ import PinnedDiv from "../UI items/interfaces/PinnedDiv";
 import Zoom from "react-medium-image-zoom";
 // import VolumeUpIcon from "@mui/icons-material/VolumeUp";
 
-function About() {
+function About({ musicVolume }) {
   const messages = [
     "Passionate, Creative, Quick Learner, Problem Solver.",
     "I always seek to sharpen & improve my skills.",
@@ -374,7 +374,7 @@ function About() {
     experiencePage,
     certificatesPage,
   ];
-  return <Wrapper pages={pages}></Wrapper>;
+  return <Wrapper pages={pages} musicVolume={musicVolume}></Wrapper>;
 }
 
 export default About;

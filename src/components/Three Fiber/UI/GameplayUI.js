@@ -48,8 +48,8 @@ function GameplayUI({
         )}
       </AnimatePresence>
       <AnimatePresence>
-        {showThisPage === "about" && <About />}
-        {showThisPage === "skills" && <Skills />}
+        {showThisPage === "about" && <About musicVolume={musicVolume} />}
+        {showThisPage === "skills" && <Skills musicVolume={musicVolume} />}
         {showThisPage === "portfolio" && (
           <Portfolio
             musicVolume={musicVolume}

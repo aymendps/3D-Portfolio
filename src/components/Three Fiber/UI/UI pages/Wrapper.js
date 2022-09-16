@@ -1,9 +1,15 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
-function Wrapper({ pages, overrideHandlersFunction, overrideHandlers }) {
+function Wrapper({
+  pages,
+  overrideHandlersFunction,
+  overrideHandlers,
+  musicVolume,
+}) {
   const [selectedPage, setSelectedPage] = useState(0);
   const [backgroundPage, setBackgroundPage] = useState(null);
+  const paperSoundEffect = useRef(new Audio("/assets/audio/paper.mp3"));
   const pageDirection = useRef("next");
   const canNavigate = useRef(true);
   const previousButtonRef = useRef();
@@ -12,6 +18,9 @@ function Wrapper({ pages, overrideHandlersFunction, overrideHandlers }) {
   const handleNextPage = () => {
     if (canNavigate.current === false) return;
 
+    if (musicVolume) {
+      paperSoundEffect.current.play();
+    }
     pageDirection.current = "next";
     canNavigate.current = false;
     setBackgroundPage(selectedPage + 1);
@@ -20,6 +29,9 @@ function Wrapper({ pages, overrideHandlersFunction, overrideHandlers }) {
   const handlePreviousPage = () => {
     if (canNavigate.current === false) return;
 
+    if (musicVolume) {
+      paperSoundEffect.current.play();
+    }
     pageDirection.current = "prev";
     canNavigate.current = false;
     setBackgroundPage(selectedPage);
@@ -139,6 +151,10 @@ function Wrapper({ pages, overrideHandlersFunction, overrideHandlers }) {
       }
     }
   }, [backgroundPage]);
+
+  useEffect(() => {
+    paperSoundEffect.current.volume = musicVolume;
+  }, [musicVolume]);
 
   useEffect(() => {
     window.addEventListener("wheel", wheelHandler);
