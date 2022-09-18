@@ -105,18 +105,23 @@ function Wrapper({
   };
 
   const keyDownHandler = (event) => {
-    if (overrideHandlers && overrideHandlersFunction) {
-      if (overrideHandlers.current && overrideHandlersFunction.current) {
-        overrideHandlersFunction.current();
-        return;
-      }
-    }
-
     if (event.code === "KeyS") {
+      if (overrideHandlers && overrideHandlersFunction) {
+        if (overrideHandlers.current && overrideHandlersFunction.current) {
+          overrideHandlersFunction.current();
+          return;
+        }
+      }
       if (nextButtonRef.current && canNavigate.current === true) {
         nextButtonRef.current.click();
       }
     } else if (event.code === "KeyW") {
+      if (overrideHandlers && overrideHandlersFunction) {
+        if (overrideHandlers.current && overrideHandlersFunction.current) {
+          overrideHandlersFunction.current();
+          return;
+        }
+      }
       if (previousButtonRef.current && canNavigate.current === true) {
         previousButtonRef.current.click();
       }

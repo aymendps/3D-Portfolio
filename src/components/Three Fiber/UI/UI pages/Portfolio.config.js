@@ -85,14 +85,25 @@ const portfolioConfig = [
     title: "File Management System",
     tag: "Full Stack Dev: ",
     thumbnail: "",
-    images: [],
+    images: [
+      "/assets/screenshots/file-manager/upload.png",
+      "/assets/screenshots/file-manager/context-menu.png",
+      "/assets/screenshots/file-manager/recent.png",
+    ],
     video: "",
     mainTech: [nodejs, react, expressjs, mysql],
     otherTech: [js, ts],
     github: "",
-    moreScreenshots: "",
+    moreScreenshots:
+      "https://github.com/aymendps/aymendps.github.io/tree/master/public/assets/screenshots/file-manager",
     download: "",
-    description: "",
+    description: `During my summer internship at Cynoia, I developped a file management system similar to Google Drive from scratch.
+    
+    This task helped me improve my design skills and forced me to think outside the box multiple times to implement a code that is optimized and cost-effective.
+    
+    Having no prior knowledge of how such systems handle file and folder storage, uploads, downloads.. The implementation of this project was challenging in the beginning.
+    
+    Features of the system include: creating, uploading, downloading, renaming, favouriting, sharing, managing access, changing colors, deleting elements and more!`,
   },
   {
     title: "Casino TextIO Game",
