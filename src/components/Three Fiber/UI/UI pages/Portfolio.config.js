@@ -98,16 +98,21 @@ const portfolioConfig = [
     title: "Casino TextIO Game",
     tag: "Game Dev: ",
     thumbnail: "",
-    images: [],
+    images: [
+      "https://raw.githubusercontent.com/aymendps/Casino-TextIO-Game/master/documentation/screenshots/sign-in.png",
+      "https://raw.githubusercontent.com/aymendps/Casino-TextIO-Game/master/documentation/screenshots/blackjack.png",
+      "https://raw.githubusercontent.com/aymendps/Casino-TextIO-Game/master/documentation/screenshots/slot-machine-2.png",
+    ],
     video: "",
     mainTech: [java, mysql],
     otherTech: [],
-    github: "",
-    moreScreenshots: "",
+    github: "https://github.com/aymendps/Casino-TextIO-Game",
+    moreScreenshots:
+      "https://github.com/aymendps/Casino-TextIO-Game/tree/master/documentation",
     download: "",
     description: `Casino TextIO Game is a casino simulator developped using Java and MySQL.
     
-    As a player, you can create your account, display your balance, purchase & sell chips and enjoy two games: Blackjack & Slot Machine.
+    As a player, you can create your account, display your balance, purchase & sell chips, view game stats & transactions history, and enjoy two exciting games: Blackjack & Slot Machine.
     
     Blackjack: Play against the AI in the most widely played casino banking game. The goal is to collect cards that total more points than the dealer, without going over 21.
     

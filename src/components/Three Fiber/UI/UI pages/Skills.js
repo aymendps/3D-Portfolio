@@ -300,7 +300,14 @@ function Skills({ musicVolume }) {
     softSkillsPage,
     linguisticSkillsPage,
   ];
-  return <Wrapper pages={pages} musicVolume={musicVolume}></Wrapper>;
+  return (
+    <Wrapper
+      pages={pages}
+      musicVolume={musicVolume}
+      overrideHandlers={null}
+      overrideHandlersFunction={null}
+    ></Wrapper>
+  );
 }
 
 export default Skills;

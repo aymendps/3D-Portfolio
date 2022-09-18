@@ -16,25 +16,29 @@ function Wrapper({
   const nextButtonRef = useRef();
 
   const handleNextPage = () => {
-    if (canNavigate.current === false) return;
+    if (canNavigate.current === true) {
+      canNavigate.current = false;
+      pageDirection.current = "next";
 
-    if (musicVolume) {
-      paperSoundEffect.current.play();
+      if (musicVolume) {
+        paperSoundEffect.current.play();
+      }
+
+      setBackgroundPage(selectedPage + 1);
     }
-    pageDirection.current = "next";
-    canNavigate.current = false;
-    setBackgroundPage(selectedPage + 1);
   };
 
   const handlePreviousPage = () => {
-    if (canNavigate.current === false) return;
+    if (canNavigate.current === true) {
+      canNavigate.current = false;
+      pageDirection.current = "prev";
 
-    if (musicVolume) {
-      paperSoundEffect.current.play();
+      if (musicVolume) {
+        paperSoundEffect.current.play();
+      }
+
+      setBackgroundPage(selectedPage);
     }
-    pageDirection.current = "prev";
-    canNavigate.current = false;
-    setBackgroundPage(selectedPage);
   };
 
   const previousPageButton = (
@@ -68,7 +72,6 @@ function Wrapper({
           variants={{ exit: { y: "-100%" }, animate: { y: 0 } }}
           onAnimationComplete={(animation) => {
             if (animation === "exit" || animation === "animate") {
-              canNavigate.current = true;
               setBackgroundPage(null);
             }
           }}
@@ -82,35 +85,39 @@ function Wrapper({
   });
 
   const wheelHandler = (event) => {
-    if (overrideHandlers?.current && overrideHandlersFunction?.current) {
-      overrideHandlersFunction?.current();
-      return;
+    if (overrideHandlers && overrideHandlersFunction) {
+      if (overrideHandlers.current && overrideHandlersFunction.current) {
+        overrideHandlersFunction.current();
+        return;
+      }
     }
 
     const delta = Math.sign(event.deltaY);
     if (delta > 0) {
-      if (nextButtonRef.current && canNavigate.current) {
+      if (nextButtonRef.current && canNavigate.current === true) {
         nextButtonRef.current.click();
       }
     } else {
-      if (previousButtonRef.current && canNavigate.current) {
+      if (previousButtonRef.current && canNavigate.current === true) {
         previousButtonRef.current.click();
       }
     }
   };
 
   const keyDownHandler = (event) => {
-    if (overrideHandlers?.current && overrideHandlersFunction?.current) {
-      overrideHandlersFunction?.current();
-      return;
+    if (overrideHandlers && overrideHandlersFunction) {
+      if (overrideHandlers.current && overrideHandlersFunction.current) {
+        overrideHandlersFunction.current();
+        return;
+      }
     }
 
     if (event.code === "KeyS") {
-      if (nextButtonRef.current && canNavigate.current) {
+      if (nextButtonRef.current && canNavigate.current === true) {
         nextButtonRef.current.click();
       }
     } else if (event.code === "KeyW") {
-      if (previousButtonRef.current && canNavigate.current) {
+      if (previousButtonRef.current && canNavigate.current === true) {
         previousButtonRef.current.click();
       }
     }
@@ -149,6 +156,8 @@ function Wrapper({
       } else if (pageDirection.current === "prev") {
         setSelectedPage((current) => current - 1);
       }
+    } else {
+      canNavigate.current = true;
     }
   }, [backgroundPage]);
 
