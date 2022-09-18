@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.eb90a851.css",
-    "main.js": "/static/js/main.c45ed999.js",
+    "main.js": "/static/js/main.b8b76915.js",
     "static/media/old_paper_baseColor.png": "/static/media/old_paper_baseColor.8f2af2488795dbbcf7ef.png",
     "static/media/coursera-scrum.png": "/static/media/coursera-scrum.a22901d0b01c3211684b.png",
     "static/media/RH124.jpg": "/static/media/RH124.fe6a2774c903aa4d2168.jpg",
@@ -9,10 +9,10 @@
     "static/media/orange-sticker.png": "/static/media/orange-sticker.b7bac68d29dd23b035ff.png",
     "index.html": "/index.html",
     "main.eb90a851.css.map": "/static/css/main.eb90a851.css.map",
-    "main.c45ed999.js.map": "/static/js/main.c45ed999.js.map"
+    "main.b8b76915.js.map": "/static/js/main.b8b76915.js.map"
   },
   "entrypoints": [
     "static/css/main.eb90a851.css",
-    "static/js/main.c45ed999.js"
+    "static/js/main.b8b76915.js"
   ]
 }
