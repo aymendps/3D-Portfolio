@@ -26,10 +26,46 @@ const portfolioConfig = [
     video: "",
     mainTech: [unity, csharp],
     otherTech: [],
-    github: "",
-    moreScreenshots: "",
+    github: "https://github.com/aymendps/Follow-The-Light",
+    moreScreenshots: "https://github.com/aymendps/Follow-The-Light",
     download: "",
-    description: "",
+    description: `As a glowing light ball lost in darkness, each time you collide with something, you transfer some of your light to it, slowly revealing the path that you should follow.
+
+    Explore your way through this physics-based game:
+    - Move the glowing ball around by appling force
+    - Rotate the camera to change your perspective
+    - Jump in the same spot to bounce higher each time
+    - Quickly hop between two walls, climbing up
+    
+    This project helped me get an idea about:
+    - Handling player controls and movement
+    - Handling camera translation and rotation
+    - Working with rigidbody, triggers, colliders, and raycasts
+    - Working with Unity's animator component and courotines`,
+  },
+  {
+    title: "Student Specialty Advisor",
+    tag: "Full Stack Dev: ",
+    thumbnail: "https://img.youtube.com/vi/Svc3JQEW03E/0.jpg",
+    images: [
+      "https://raw.githubusercontent.com/aymendps/student-specialty-advisor/master/documentation/screenshots/desktop/login.png",
+      "https://raw.githubusercontent.com/aymendps/student-specialty-advisor/master/documentation/screenshots/desktop/achievements.png",
+      "https://raw.githubusercontent.com/aymendps/student-specialty-advisor/master/client/src/assets/art/team/award2.jpg",
+    ],
+    video: "https://www.youtube.com/watch?v=Svc3JQEW03E",
+    mainTech: [nodejs, react, expressjs, mongodb],
+    otherTech: [js],
+    github: "https://github.com/aymendps/student-specialty-advisor",
+    moreScreenshots:
+      "https://github.com/aymendps/student-specialty-advisor/tree/master/documentation/screenshots",
+    download: "",
+    description: `Ever been a student or know someone who is attending university?
+
+    Then you must be familiar with the difficulties that one faces when choosing a specialty to pursue.
+
+    Student Specialty Advisor is an award-winning free web app for the South Mediterranean University's community that aims to help the students pick the right educational path.
+    
+    While working on this project, my team and I learned a lot about full stack development, responsive design, teamwork, and the scrum framework.`,
   },
   {
     title: "Beyond Invaders SDL",
@@ -56,30 +92,6 @@ const portfolioConfig = [
     moreScreenshots: "",
     download: "",
     description: "",
-  },
-  {
-    title: "Student Specialty Advisor",
-    tag: "Full Stack Dev: ",
-    thumbnail: "https://img.youtube.com/vi/Svc3JQEW03E/0.jpg",
-    images: [
-      "https://raw.githubusercontent.com/aymendps/student-specialty-advisor/master/documentation/screenshots/desktop/login.png",
-      "https://raw.githubusercontent.com/aymendps/student-specialty-advisor/master/documentation/screenshots/desktop/achievements.png",
-      "https://raw.githubusercontent.com/aymendps/student-specialty-advisor/master/client/src/assets/art/team/award2.jpg",
-    ],
-    video: "https://www.youtube.com/watch?v=Svc3JQEW03E",
-    mainTech: [nodejs, react, expressjs, mongodb],
-    otherTech: [js],
-    github: "https://github.com/aymendps/student-specialty-advisor",
-    moreScreenshots:
-      "https://github.com/aymendps/student-specialty-advisor/tree/master/documentation/screenshots",
-    download: "",
-    description: `Ever been a student or know someone who is attending university?
-
-    Then you must be familiar with the difficulties that one faces when choosing a specialty to pursue.
-
-    Student Specialty Advisor is an award-winning free web app for the South Mediterranean University's community that aims to help the students pick the right educational path.
-    
-    While working on this project, my team and I learned a lot about full stack development, responsive design, teamwork, and the scrum framework.`,
   },
   {
     title: "File Management System",
@@ -123,11 +135,13 @@ const portfolioConfig = [
     download: "",
     description: `Casino TextIO Game is a casino simulator developped using Java and MySQL.
     
-    As a player, you can create your account, display your balance, purchase & sell chips, view game stats & transactions history, and enjoy two exciting games: Blackjack & Slot Machine.
+    As a player, you can create your account, display your balance, purchase & sell chips, view game stats & transactions history, and enjoy two exciting games.
     
     Blackjack: Play against the AI in the most widely played casino banking game. The goal is to collect cards that total more points than the dealer, without going over 21.
     
-    Slot Machine: Luck-based game where the goal is to play until you hit a jackpot.`,
+    Slot Machine: Luck-based game where the goal is to play until you hit a jackpot.
+    
+    Through this project, I learned more about class design, testing, SQL queries and the implementation of game logic & AI.`,
   },
   {
     title: "Job Seekr",

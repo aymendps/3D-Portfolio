@@ -119,7 +119,7 @@ function Portfolio({ musicVolume, setMusicVolume, setDisableMuteButton }) {
           setMusicVolume={setMusicVolume}
           setDisableMuteButton={setDisableMuteButton}
           width="65%"
-          url="https://www.youtube.com/watch?v=Svc3JQEW03E"
+          url="https://www.youtube.com/"
         />
       </div>
       <div className="basis-[5%]">
