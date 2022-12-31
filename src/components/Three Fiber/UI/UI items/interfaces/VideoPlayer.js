@@ -23,7 +23,7 @@ function VideoPlayer({
 
   return (
     <div
-      className="border-2 border-my-orange-brown bg-my-orange-brown-30 aspect-video"
+      className="border-2 rounded border-my-brown bg-my-brown aspect-video overflow-hidden"
       style={{ width: width }}
     >
       <ReactPlayer
