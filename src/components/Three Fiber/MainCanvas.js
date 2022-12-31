@@ -9,13 +9,12 @@ import Rain from "./Objects/Rain";
 import IntroCameraFov from "./Controllers/IntroCameraFov";
 import PlayerLookControls from "./Controllers/PlayerLookControls";
 import CustomLoader from "./CustomLoader";
-// import GlobalSound from "./Audio/GlobalSound";
 import GameplayUI from "./UI/GameplayUI";
 import ActionsHandler from "./Controllers/ActionsHandler";
 import PlayerActionControls from "./Controllers/PlayerActionControls";
-// import OldTV from "./Objects/OldTV";
 import Door from "./Objects/Door";
 import { Gramophone } from "./Objects/Gramophone";
+import BackgroundMusic from "./Audio/BackgroundMusic";
 
 export const QUESTS = {
   tutorialWalk: "Walk around your office",
@@ -37,7 +36,8 @@ function MainCanvas(/*{ setStopParticles }*/) {
   const allowMoveControls = useRef(false);
   const allowActionControls = useRef(false);
 
-  const [musicVolume, setMusicVolume] = useState(0.2);
+  const [musicVolume, setMusicVolume] = useState(0.4);
+  const [musicTrackIndex, setMusicTrackIndex] = useState(0);
   const [message, setMessage] = useState({});
 
   const [activeQuests, setActiveQuests] = useState([]);
@@ -76,24 +76,14 @@ function MainCanvas(/*{ setStopParticles }*/) {
     }
   };
 
+  const getNextMusicTrack = () => {
+    setMusicTrackIndex((current) => current + 1);
+  };
+
   const rainAudioRef = useCallback(
     (node) => {
       if (node !== null && startMusic === true) {
-        node.volume = musicVolume;
-        if (musicVolume === 0) {
-          node.pause();
-        } else {
-          node.play();
-        }
-      }
-    },
-    [startMusic, musicVolume]
-  );
-
-  const noireAudioRef = useCallback(
-    (node) => {
-      if (node !== null && startMusic === true) {
-        node.volume = musicVolume;
+        node.volume = musicVolume / 2;
         if (musicVolume === 0) {
           node.pause();
         } else {
@@ -111,7 +101,7 @@ function MainCanvas(/*{ setStopParticles }*/) {
       thunderAudioRef.current.pause();
       thunderAudioRef.current.currentTime = 0;
     } else {
-      thunderAudioRef.current.volume = musicVolume;
+      thunderAudioRef.current.volume = musicVolume / 2;
     }
   }, [musicVolume]);
 
@@ -121,17 +111,17 @@ function MainCanvas(/*{ setStopParticles }*/) {
         e.preventDefault();
       }}
     >
+      <BackgroundMusic
+        startMusic={startMusic}
+        musicVolume={musicVolume}
+        musicTrackIndex={musicTrackIndex}
+        getNextMusicTrack={getNextMusicTrack}
+      />
       <audio
         loop
         type="audio"
         src="/assets/audio/rain_medium.ogg"
         ref={rainAudioRef}
-      />
-      <audio
-        loop
-        type="audio"
-        src="/assets/audio/noire.mp3"
-        ref={noireAudioRef}
       />
       <audio
         type="audio"
@@ -183,13 +173,7 @@ function MainCanvas(/*{ setStopParticles }*/) {
               scale={[1.2, 1, 1]}
               rotation={[0, Math.PI / 2, 0]}
             />
-            {/* <OldTV position={[0, 2, 0]} scale={0.37} /> */}
             <Rain />
-            {/* <GlobalSound
-              url="/assets/audio/noire.mp3"
-              volume={musicVolume}
-              startMusic={startMusic}
-            /> */}
             <WindowLight
               startIntro={startIntro}
               thunderAudioRef={thunderAudioRef}
@@ -227,6 +211,7 @@ function MainCanvas(/*{ setStopParticles }*/) {
                 setMessage={setMessage}
                 eKeyAction={eKeyAction}
                 showDeskMenu={showDeskMenu}
+                getNextMusicTrack={getNextMusicTrack}
               />
             )}
           </Canvas>

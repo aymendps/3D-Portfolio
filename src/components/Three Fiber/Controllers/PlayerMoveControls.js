@@ -123,6 +123,8 @@ function PlayerMoveControls({ allowControls }) {
   useFrame((_, delta) => {
     if (allowControls.current === false) return;
 
+    // console.log(camera.position.toArray());
+
     const speed = WALKING_SPEED;
     if (!(code.current.has("KeyW") && code.current.has("KeyS"))) {
       if (code.current.has("KeyW")) moveForward(delta * speed, delta);

@@ -38,12 +38,10 @@ function WindowLight({ startIntro, thunderAudioRef, musicVolume }) {
                 timeout = setTimeout(() => {
                   rectAreaLightRef.current.intensity = 5;
                   rectAreaLightRef.current.color.set("pink");
-                  timeout = setTimeout(() => {
-                    if (musicVolumeRef.current !== 0) {
-                      thunderAudioRef.current.play();
-                    }
-                    setThunderTimer(randFloat(10000, 25000));
-                  }, 100);
+                  if (musicVolumeRef.current !== 0) {
+                    thunderAudioRef.current.play();
+                  }
+                  setThunderTimer(randFloat(10000, 25000));
                 }, 100);
               }, 100);
             }, 100);

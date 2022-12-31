@@ -13,6 +13,7 @@ function ActionsHandler({
   setMessage,
   eKeyAction,
   showDeskMenu,
+  getNextMusicTrack,
 }) {
   const { camera } = useThree();
   const initialPosition = useRef(null);
@@ -20,6 +21,7 @@ function ActionsHandler({
 
   const TRIGGERS_CONFIG = {
     desk: {
+      // if value is true, it means player entered trigger last frame
       value: false,
       boundaries: { maxX: 3.35, minX: 3.15, maxZ: 3, minZ: -1.45 },
       message: "Press E to sit",
@@ -36,7 +38,7 @@ function ActionsHandler({
         setMessage({
           content: "Hover & click on a stack to view more\nPress E to stand up",
         });
-        eKeyAction.current = TRIGGERS_CONFIG.deskSitting.action;
+        eKeyAction.current = TRIGGERS_CONFIG.desk.followUpAction;
         setTimeout(() => {
           if (completeQuest(QUESTS.desk) === true) {
             addQuest(QUESTS.me_portfolio);
@@ -45,9 +47,7 @@ function ActionsHandler({
           }
         }, 300);
       },
-    },
-    deskSitting: {
-      action: () => {
+      followUpAction: () => {
         allowControls.current = true;
         showDeskMenu.current = false;
         camera.position.set(3.2, CAMERA_HEIGHT, -0.6);
@@ -57,6 +57,19 @@ function ActionsHandler({
         // euler.x = deg2rad(-45);
         // euler.y = Math.PI / 2;
         // camera.quaternion.setFromEuler(euler);
+      },
+    },
+    gramophone: {
+      value: false,
+      boundaries: {
+        maxX: -1.15,
+        minX: -3.4,
+        maxZ: -0.75,
+        minZ: -2.2,
+      },
+      message: "Press E to switch music track",
+      action: () => {
+        getNextMusicTrack();
       },
     },
   };
@@ -145,6 +158,7 @@ function ActionsHandler({
 
   const handleTriggers = () => {
     checkTrigger(triggers.current.desk);
+    checkTrigger(triggers.current.gramophone);
   };
 
   useEffect(() => {
