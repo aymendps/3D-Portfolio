@@ -91,10 +91,7 @@ function About({ musicVolume }) {
               </div>
             </StickerWrapper>
             <StickerWrapper color="yellow" width="40%" maxHeight="250px">
-              <Typography className="font-berkshire mt-2 mb-4 text-my-light-brown text-center text-[1.2rem]">
-                Social Accounts:
-              </Typography>
-              <div className="flex w-full justify-around flex-wrap">
+              <div className="flex w-full justify-around flex-wrap mt-4">
                 <div className="duration-200 hover:scale-110">
                   <IconButton
                     disableRipple
@@ -174,7 +171,7 @@ function About({ musicVolume }) {
       </div>
       <div className="basis-[80%] w-full flex items-center">
         <div className="w-[45%] h-full flex flex-col items-end justify-evenly">
-          <div className="h-[20%] border-4 border-my-orange-brown rounded-3xl w-[70%] bg-my-orange-brown-30">
+          <div className="h-[20%] border-4 border-my-orange-brown rounded-3xl w-[70%] bg-my-orange-brown-30 flex flex-col justify-center items-center">
             <Typography
               variant="h6"
               className="font-berkshire text-black text-center"
@@ -183,19 +180,21 @@ function About({ musicVolume }) {
             </Typography>
             <Typography
               variant="h6"
+              className="font-berkshire text-black text-center"
+            >
+              Tunisian Baccalaureate in Mathematics
+            </Typography>
+            <Typography
               component="a"
               href="https://www.facebook.com/espritpoleeducation/"
               target="_blank"
-              className="font-berkshire block text-black text-[1.1rem] text-center hover:underline"
+              className="font-berkshire text-my-brown block text-center hover:underline"
             >
               High School Esprit Al Fikr ↗
             </Typography>
-            <Typography className="font-berkshire text-my-brown text-center">
-              Tunisian Baccalaureate in Mathematics
-            </Typography>
           </div>
           <div className="h-[20%] w-full"></div>
-          <div className="h-[20%] border-4 border-my-orange-brown rounded-3xl w-[70%] bg-my-orange-brown-30">
+          <div className="h-[20%] border-4 border-my-orange-brown rounded-3xl w-[70%] bg-my-orange-brown-30 flex flex-col justify-center items-center">
             <Typography
               variant="h6"
               className="font-berkshire text-black text-center"
@@ -204,15 +203,17 @@ function About({ musicVolume }) {
             </Typography>
             <Typography
               variant="h6"
+              className="font-berkshire text-black text-center"
+            >
+              Pre-Engineering program
+            </Typography>
+            <Typography
               component="a"
               href="https://www.smu.tn/medtech"
               target="_blank"
-              className="font-berkshire block text-black text-[1.1rem] text-center hover:underline"
+              className="font-berkshire text-my-brown block text-center hover:underline"
             >
               South Mediterranean University, MedTech ↗
-            </Typography>
-            <Typography className="font-berkshire text-my-brown text-center">
-              Pre-Engineering program
             </Typography>
           </div>
           <div className="h-[20%] w-full"></div>
@@ -228,7 +229,7 @@ function About({ musicVolume }) {
         </div>
         <div className="w-[45%] h-full flex flex-col items-start justify-evenly">
           <div className="h-[20%] w-full"></div>
-          <div className="h-[20%] border-4 border-my-orange-brown rounded-3xl w-[70%] bg-my-orange-brown-30">
+          <div className="h-[20%] border-4 border-my-orange-brown rounded-3xl w-[70%] bg-my-orange-brown-30 flex flex-col justify-center items-center">
             <Typography
               variant="h6"
               className="font-berkshire text-black text-center"
@@ -237,19 +238,21 @@ function About({ musicVolume }) {
             </Typography>
             <Typography
               variant="h6"
+              className="font-berkshire text-black text-center"
+            >
+              Certificate in German: B2 - C1
+            </Typography>
+            <Typography
               component="a"
               href="https://www.did.de/en/frankfurt"
               target="_blank"
-              className="font-berkshire block text-black text-[1.1rem] text-center hover:underline"
+              className="font-berkshire text-my-brown text-center block hover:underline"
             >
               did deutsch-institut Frankfurt, Germany ↗
             </Typography>
-            <Typography className="font-berkshire text-my-brown text-center">
-              Certificate in German: B 2 - C 1
-            </Typography>
           </div>
           <div className="h-[20%] w-full"></div>
-          <div className="h-[20%] border-4 border-my-orange-brown rounded-3xl w-[70%] bg-my-orange-brown-30">
+          <div className="h-[20%] border-4 border-my-orange-brown rounded-3xl w-[70%] bg-my-orange-brown-30 flex flex-col justify-center items-center">
             <Typography
               variant="h6"
               className="font-berkshire text-black text-center"
@@ -258,15 +261,17 @@ function About({ musicVolume }) {
             </Typography>
             <Typography
               variant="h6"
+              className="font-berkshire text-black text-center"
+            >
+              Software Engineering: Senior Year
+            </Typography>
+            <Typography
               component="a"
               href="https://www.smu.tn/medtech"
               target="_blank"
-              className="font-berkshire block text-black text-[1.1rem] text-center hover:underline"
+              className="font-berkshire text-my-brown text-center block hover:underline"
             >
               South Mediterranean University, MedTech ↗
-            </Typography>
-            <Typography className="font-berkshire text-my-brown text-center">
-              Software Engineering: Senior / Second year
             </Typography>
           </div>
         </div>
@@ -285,24 +290,26 @@ function About({ musicVolume }) {
       </div>
       <div className="basis-[85%] w-full flex items-center">
         <div className="w-[45%] h-full flex flex-col items-end justify-evenly">
-          <div className="h-[20%] border-4 border-my-orange-brown rounded-3xl w-[70%] bg-my-orange-brown-30">
-            <Typography
-              component="a"
-              href="https://cynoia.com/"
-              target="_blank"
-              variant="h5"
-              className="font-berkshire text-black text-center block hover:underline"
-            >
-              Cynoia ↗
-            </Typography>
+          <div className="h-[20%] border-4 border-my-orange-brown rounded-3xl w-[70%] bg-my-orange-brown-30 flex flex-col justify-center items-center">
             <Typography
               variant="h6"
               className="font-berkshire text-black text-center"
             >
               Jun 2022 - Aug 2022
             </Typography>
-            <Typography className="font-berkshire text-my-brown text-center">
+            <Typography
+              variant="h6"
+              className="font-berkshire text-black text-center"
+            >
               Summer Internship - Full Stack Dev
+            </Typography>
+            <Typography
+              component="a"
+              href="https://cynoia.com/"
+              target="_blank"
+              className="font-berkshire text-my-brown text-center  block hover:underline"
+            >
+              Company: Cynoia ↗
             </Typography>
           </div>
           <div className="h-[20%] w-full"></div>
@@ -314,24 +321,26 @@ function About({ musicVolume }) {
         </div>
         <div className="w-[45%] h-full flex flex-col items-start justify-evenly">
           <div className="h-[20%] w-full"></div>
-          <div className="h-[20%] border-4 border-my-orange-brown rounded-3xl w-[70%] bg-my-orange-brown-30">
-            <Typography
-              component="a"
-              href="https://cynoia.com/"
-              target="_blank"
-              variant="h5"
-              className="font-berkshire text-black text-center block hover:underline"
-            >
-              Cynoia ↗
-            </Typography>
+          <div className="h-[20%] border-4 border-my-orange-brown rounded-3xl w-[70%] bg-my-orange-brown-30 flex flex-col justify-center items-center">
             <Typography
               variant="h6"
               className="font-berkshire text-black text-center"
             >
               Sep 2022 - <span className="text-red-700">Current</span>
             </Typography>
-            <Typography className="font-berkshire text-my-brown text-center">
+            <Typography
+              variant="h6"
+              className="font-berkshire text-black text-center"
+            >
               Part-time - Full Stack Dev
+            </Typography>
+            <Typography
+              component="a"
+              href="https://cynoia.com/"
+              target="_blank"
+              className="font-berkshire text-my-brown text-center block hover:underline"
+            >
+              Company: Cynoia ↗
             </Typography>
           </div>
         </div>

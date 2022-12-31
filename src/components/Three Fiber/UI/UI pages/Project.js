@@ -1,4 +1,4 @@
-import { Button, IconButton, Typography } from "@mui/material";
+import { IconButton, Typography } from "@mui/material";
 import PinnedDiv from "../UI items/interfaces/PinnedDiv";
 import TechIcon from "../UI items/interfaces/TechIcon";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
@@ -7,6 +7,7 @@ import { useState } from "react";
 import GithubIcon from "@mui/icons-material/GitHub";
 import DownloadIcon from "@mui/icons-material/Download";
 import CollectionsIcon from "@mui/icons-material/Collections";
+import DecoratedTitle from "../UI items/interfaces/DecoratedTitle";
 
 // className = "whitespace-pre-line font-berkshire";
 
@@ -40,7 +41,7 @@ function Project({
         style={{
           backgroundImage: `url(${media})`,
         }}
-        className={`aspect-video bg-cover bg-center bg-no-repeat basis-1/5 cursor-pointer duration-200 h-full bg-my-orange-brown-30 ${
+        className={`aspect-video bg-cover bg-center bg-no-repeat basis-1/5 rounded cursor-pointer duration-200 h-full bg-my-orange-brown-30 ${
           selectedMedia === index
             ? "border-my-brown border-4"
             : "border-my-light-brown border-2"
@@ -76,101 +77,102 @@ function Project({
       </div>
     </PinnedDiv>
   ) : (
-    <div className="flex flex-col w-full h-full px-4">
-      <div className="flex items-center gap-8 w-full basis-[15%]">
-        <IconButton
-          size="small"
-          disableRipple
-          className="border-2 border-my-brown border-solid"
-          onClick={onClick}
-        >
-          <ArrowBackIcon className="text-my-brown text-4xl" />
-        </IconButton>
-        <Typography
-          variant="h4"
-          className="font-berkshire text-my-brown text-[2rem]"
-        >
-          {title}
-        </Typography>
-        {[...mainTech, ...otherTech].map((tech, index) => {
-          return <TechIcon key={index + "tech" + tech} url={tech} />;
-        })}
+    <div className="flex flex-col w-full h-full">
+      <div className="flex items-center gap-8 w-full basis-[15%] overflow-hidden">
+        <div className="flex items-center gap-2">
+          <IconButton size="small" disableRipple onClick={onClick}>
+            <ArrowBackIcon className="text-my-brown text-4xl" />
+          </IconButton>
+          <Typography variant="h4" className="font-berkshire text-my-brown">
+            {title}
+          </Typography>
+        </div>
+        <div className="flex items-center gap-8 bg-my-light-brown px-5 py-3 rounded-3xl bg-opacity-50">
+          {[...mainTech, ...otherTech].map((tech, index) => {
+            return (
+              <TechIcon key={index + "tech" + tech} url={tech} imgWidth={40} />
+            );
+          })}
+        </div>
       </div>
-      <div className="w-full flex basis-[85%]">
-        <div className="w-full flex items-center">
-          <div className="basis-3/4 2xl:basis-2/3 flex flex-col justify-center">
-            <div className="w-full flex flex-col gap-[5%] justify-center">
-              <div className="w-[95%]">
-                {selectedMedia === 0 ? (
-                  <VideoPlayer
-                    musicVolume={musicVolume}
-                    setMusicVolume={setMusicVolume}
-                    setDisableMuteButton={setDisableMuteButton}
-                    width="100%"
-                    url={video}
-                  />
-                ) : (
-                  <div
-                    style={{
-                      backgroundImage: `url(${
-                        images[selectedMedia - 1] || ""
-                      })`,
-                    }}
-                    className="w-full aspect-video border-2 border-my-orange-brown bg-my-orange-brown-30 bg-contain bg-center bg-no-repeat"
-                  ></div>
-                )}
-              </div>
-              <div className="w-[95%] flex justify-between">{swapMedia}</div>
-            </div>
+      <div className="w-full basis-[67%] flex overflow-hidden">
+        <div className="basis-[70%] p-2 flex justify-center">
+          <div className="w-[90%] oldpc:w-[98%]">
+            {selectedMedia === 0 ? (
+              <VideoPlayer
+                musicVolume={musicVolume}
+                setMusicVolume={setMusicVolume}
+                setDisableMuteButton={setDisableMuteButton}
+                width="100%"
+                url={video}
+              />
+            ) : (
+              <div
+                style={{
+                  backgroundImage: `url(${images[selectedMedia - 1] || ""})`,
+                }}
+                className="w-full aspect-video border-2 border-my-brown bg-my-light-brown bg-opacity-50 bg-contain bg-center bg-no-repeat"
+              ></div>
+            )}
           </div>
-          <div className="basis-1/4 2xl:basis-1/3 flex flex-col h-[94%] 2xl:h-full">
-            <Typography className="font-berkshire basis-[82%] flex-shrink-0 overflow-hidden text-my-brown whitespace-pre-line text-[0.94rem] 2xl:text-[1.1rem]">
+        </div>
+        <div className="basis-[30%] pb-4 pr-8 flex flex-col oldpc:pl-4">
+          <div className="h-[10%]">
+            <DecoratedTitle
+              title="Description"
+              variant="h5"
+              decorationSize={80}
+            />
+          </div>
+          <div className="h-[90%] overflow-hidden">
+            <Typography className="font-berkshire text-black whitespace-pre-line oldpc:text-[0.9rem]">
               {description}
             </Typography>
-            <div className="basis-[18%] flex flex-col justify-center gap-2">
-              {github && (
-                <Button
-                  fullWidth
-                  startIcon={<GithubIcon />}
-                  disableRipple
-                  variant="contained"
-                  className="normal-case font-berkshire bg-my-orange-brown hover:bg-red-700 text-[0.75rem] 2xl:text-[0.875rem]"
-                  onClick={() => {
-                    window.open(github, "_blank");
-                  }}
-                >
-                  Open Repository
-                </Button>
-              )}
-              <div className="flex flex-col 2xl:flex-row justify-between w-full gap-2">
-                {download && (
-                  <Button
-                    startIcon={<DownloadIcon />}
-                    disableRipple
-                    variant="contained"
-                    className="normal-case font-berkshire bg-my-orange-brown basis-[48%] flex-grow hover:bg-red-700 text-[0.75rem] 2xl:text-[0.875rem]"
-                    onClick={() => {
-                      window.open(download, "_blank");
-                    }}
-                  >
-                    Download Demo
-                  </Button>
-                )}
-                {moreScreenshots && (
-                  <Button
-                    startIcon={<CollectionsIcon />}
-                    disableRipple
-                    variant="contained"
-                    className="normal-case font-berkshire bg-my-orange-brown basis-[48%] flex-grow hover:bg-red-700 text-[0.75rem] 2xl:text-[0.875rem]"
-                    onClick={() => {
-                      window.open(moreScreenshots, "_blank");
-                    }}
-                  >
-                    More Screenshots
-                  </Button>
-                )}
-              </div>
-            </div>
+          </div>
+        </div>
+      </div>
+      <div className="w-full basis-[2%] overflow-hidden oldpc:basis-0"></div>
+      <div className="w-full basis-[16%] flex">
+        <div className="basis-[70%] flex justify-center">
+          <div className="w-[90%] h-[88%] flex items-center justify-between px-2 oldpc:w-[98%] oldpc:h-[80%]">
+            {swapMedia}
+          </div>
+        </div>
+        <div className="basis-[30%] py-4 pr-8 flex flex-col justify-center items-center oldpc:pl-4">
+          <div className="translate-y-[-50%]">
+            <DecoratedTitle title="See More" variant="h5" decorationSize={80} />
+          </div>
+          <div className="flex w-[70%] gap-4 justify-center">
+            {download && (
+              <a
+                target="_blank"
+                rel="noreferrer"
+                href={download}
+                className=" bg-my-light-brown rounded-[50%] bg-opacity-50 p-2"
+              >
+                <DownloadIcon fontSize="large" className=" text-my-brown" />
+              </a>
+            )}
+            {github && (
+              <a
+                target="_blank"
+                rel="noreferrer"
+                href={github}
+                className=" bg-my-light-brown rounded-[50%] bg-opacity-50 p-2"
+              >
+                <GithubIcon fontSize="large" className=" text-my-brown" />
+              </a>
+            )}
+            {moreScreenshots && (
+              <a
+                target="_blank"
+                rel="noreferrer"
+                href={moreScreenshots}
+                className=" bg-my-light-brown rounded-[50%] bg-opacity-50 p-2"
+              >
+                <CollectionsIcon fontSize="large" className=" text-my-brown" />
+              </a>
+            )}
           </div>
         </div>
       </div>

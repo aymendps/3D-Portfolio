@@ -3,6 +3,7 @@ import { Typography } from "@mui/material";
 function TechIcon({ className, name, imgWidth, url }) {
   return (
     <div
+      // Don't delete the space before concat className
       className={
         className
           ? "flex flex-col justify-center items-center " + className

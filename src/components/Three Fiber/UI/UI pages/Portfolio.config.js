@@ -40,7 +40,7 @@ const portfolioConfig = [
     This project helped me get an idea about:
     - Handling player controls and movement
     - Handling camera translation and rotation
-    - Working with rigidbody, triggers, colliders, and raycasts
+    - Working with rigidbody, colliders, and raycasts
     - Working with Unity's animator component and courotines`,
   },
   {

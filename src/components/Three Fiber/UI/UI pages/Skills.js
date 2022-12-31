@@ -79,7 +79,7 @@ function Skills({ musicVolume }) {
             variant="h4"
             className="font-berkshire text-my-orange-brown text-[1.9rem]"
           >
-            SDLC: The software development life cycle
+            The Software Development Life Cycle
           </Typography>
         </div>
         <div className="flex items-center w-[90%] gap-4">
@@ -95,7 +95,7 @@ function Skills({ musicVolume }) {
             variant="h4"
             className="font-berkshire text-my-orange-brown text-[1.9rem]"
           >
-            Unit, Integration & Functional Testing
+            Software Design Patterns & Principles
           </Typography>
         </div>
         <div className="flex items-center w-[80%] gap-4">
@@ -111,7 +111,7 @@ function Skills({ musicVolume }) {
             variant="h4"
             className="font-berkshire text-my-orange-brown text-[1.9rem]"
           >
-            Traditional and Agile development methodologies
+            Traditional & Agile Methodologies
           </Typography>
         </div>
       </div>
