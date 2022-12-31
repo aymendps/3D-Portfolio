@@ -15,6 +15,7 @@ import ActionsHandler from "./Controllers/ActionsHandler";
 import PlayerActionControls from "./Controllers/PlayerActionControls";
 // import OldTV from "./Objects/OldTV";
 import Door from "./Objects/Door";
+import { Gramophone } from "./Objects/Gramophone";
 
 export const QUESTS = {
   tutorialWalk: "Walk around your office",
@@ -23,6 +24,7 @@ export const QUESTS = {
   me_about: "Have a look at the 'About me' stack",
   me_skills: "Have a look at the 'My skills' stack",
   me_portfolio: "Have a look at the 'My portfolio' stack",
+  end: "Let's get in touch!",
 };
 
 function MainCanvas(/*{ setStopParticles }*/) {
@@ -49,6 +51,14 @@ function MainCanvas(/*{ setStopParticles }*/) {
   const addQuest = (quest) => {
     if (!activeQuests.includes(quest)) {
       setActiveQuests((current) => [...current, quest]);
+    }
+  };
+
+  const isQuestFinished = (quest) => {
+    if (activeQuestsRef.current.indexOf(quest) !== -1) {
+      return false;
+    } else {
+      return true;
     }
   };
 
@@ -159,7 +169,14 @@ function MainCanvas(/*{ setStopParticles }*/) {
               showDeskMenu={showDeskMenu}
               setShowThisPage={setShowThisPage}
               completeQuest={completeQuest}
+              addQuest={addQuest}
               allowActionControls={allowActionControls}
+              isQuestFinished={isQuestFinished}
+            />
+            <Gramophone
+              position={[-2.46, 3.7, -4.44]}
+              scale={[1, 1, 1]}
+              rotation={[0, (2 * Math.PI) / 3, 0]}
             />
             <Door
               position={[-5.2, 0, -0.35]}

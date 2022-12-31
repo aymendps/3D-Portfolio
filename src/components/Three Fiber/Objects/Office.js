@@ -15,8 +15,10 @@ import { QUESTS } from "../MainCanvas";
 export default function Office({
   showDeskMenu,
   completeQuest,
+  addQuest,
   setShowThisPage,
   allowActionControls,
+  isQuestFinished,
 }) {
   const { nodes, materials } = useGLTF("/assets/models/office/scene.gltf");
   const roof = materials.bookshelf.clone();
@@ -30,7 +32,7 @@ export default function Office({
     <group ref={group} dispose={null}>
       <group rotation={[-Math.PI / 2, 0, 0]}>
         <group rotation={[Math.PI / 2, 0, 0]}>
-          <group position={[-2.46, 2.01, -4.44]} scale={[1.13, 1.17, 0.68]}>
+          <group position={[-2.46, 1.3, -4.44]} scale={[1.13, 1.17, 0.68]}>
             <mesh
               geometry={nodes.Object_6.geometry}
               material={materials.drawers}
@@ -56,6 +58,12 @@ export default function Office({
               gl={gl}
               completeQuest={() => {
                 completeQuest(QUESTS.me_portfolio);
+                if (
+                  isQuestFinished(QUESTS.me_about) === true &&
+                  isQuestFinished(QUESTS.me_skills) === true
+                ) {
+                  addQuest(QUESTS.end);
+                }
               }}
               setShowThisPage={() => {
                 setShowThisPage("portfolio");
@@ -72,6 +80,12 @@ export default function Office({
               gl={gl}
               completeQuest={() => {
                 completeQuest(QUESTS.me_about);
+                if (
+                  isQuestFinished(QUESTS.me_portfolio) === true &&
+                  isQuestFinished(QUESTS.me_skills) === true
+                ) {
+                  addQuest(QUESTS.end);
+                }
               }}
               setShowThisPage={() => {
                 setShowThisPage("about");
@@ -88,27 +102,17 @@ export default function Office({
               gl={gl}
               completeQuest={() => {
                 completeQuest(QUESTS.me_skills);
+                if (
+                  isQuestFinished(QUESTS.me_about) === true &&
+                  isQuestFinished(QUESTS.me_portfolio) === true
+                ) {
+                  addQuest(QUESTS.end);
+                }
               }}
               setShowThisPage={() => {
                 setShowThisPage("skills");
               }}
             />
-            {/* <OfficePaper
-              showDeskMenu={showDeskMenu}
-              allowActionControls={allowActionControls}
-              node={nodes.Object_8.geometry}
-              material={materials.paper.clone()}
-              position={[0.55, 1.76, -6.59]}
-              spritePosition={[0.8, 0.7, 5.75]}
-              spriteURL="/assets/images/contact.png"
-              gl={gl}
-              completeQuest={() => {
-                completeQuest(QUESTS.me_contact);
-              }}
-              setShowThisPage={() => {
-                setShowThisPage("contact");
-              }}
-            /> */}
           </group>
           <group scale={5.2}>
             <mesh
@@ -165,7 +169,8 @@ export default function Office({
               material={materials.dark_wood}
             />
           </group>
-          <group
+          {/*DRAWER KNOBS 1.12*/}
+          {/* <group
             position={[-3.09, 2.77, -3.68]}
             rotation={[0, -Math.PI / 2, 0]}
             scale={1.12}
@@ -174,8 +179,8 @@ export default function Office({
               geometry={nodes.Object_43.geometry}
               material={materials.dark_wood}
             />
-          </group>
-          <group
+          </group> */}
+          {/* <group
             position={[-1.71, 2.77, -3.68]}
             rotation={[0, -Math.PI / 2, 0]}
             scale={1.12}
@@ -184,8 +189,8 @@ export default function Office({
               geometry={nodes.Object_45.geometry}
               material={materials.dark_wood}
             />
-          </group>
-          <group
+          </group> */}
+          {/* <group
             position={[-1.71, 2.77, -3.68]}
             rotation={[0, -Math.PI / 2, 0]}
             scale={1.12}
@@ -194,7 +199,7 @@ export default function Office({
               geometry={nodes.Object_47.geometry}
               material={materials.dark_wood}
             />
-          </group>
+          </group> */}
           <group
             position={[-3.09, 2.1, -3.68]}
             rotation={[0, -Math.PI / 2, 0]}
