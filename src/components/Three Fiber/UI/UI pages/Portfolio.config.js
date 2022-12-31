@@ -16,6 +16,7 @@ const react = "/assets/images/react.png";
 const tailwindcss = "/assets/images/tailwind.svg";
 const mysql = "/assets/images/mysql.png";
 const mongodb = "/assets/images/mongo.png";
+const nestjs = "/assets/images/nestjs.svg";
 
 const portfolioConfig = [
   {
@@ -103,19 +104,17 @@ const portfolioConfig = [
       "/assets/screenshots/file-manager/recent.png",
     ],
     video: "",
-    mainTech: [nodejs, react, expressjs, mysql],
+    mainTech: [nodejs, react, nestjs, mysql],
     otherTech: [js, ts],
     github: "",
     moreScreenshots:
       "https://github.com/aymendps/aymendps.github.io/tree/master/public/assets/screenshots/file-manager",
     download: "",
-    description: `During my summer internship at Cynoia, I developped a file management system similar to Google Drive from scratch.
+    description: `During my part-time job at Cynoia, I started the development of a file management system from scratch.
     
-    This task helped me improve my design skills and forced me to think outside the box multiple times to implement a code that is optimized and cost-effective.
-    
-    Having no prior knowledge of how such systems handle file and folder storage, uploads, downloads.. The implementation of this project was challenging in the beginning.
-    
-    Features of the system include: creating, uploading, downloading, renaming, favouriting, sharing, managing access, changing colors, deleting elements and more!`,
+    This task challenged my design skills and forced me to think outside the box multiple times to implement a code that is optimized and cost-effective.
+        
+    Features of the system include: creating folders, uploading files, previewing, downloading, renaming, favouriting, sharing, managing access, keeping track of activity history, deleting elements and more!`,
   },
   {
     title: "Casino TextIO Game",
