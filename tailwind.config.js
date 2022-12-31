@@ -31,6 +31,9 @@ module.exports = {
         paper: "rgb(193,171,139)",
       },
     },
+    screens: {
+      oldpc: { max: "1468px" },
+    },
   },
   plugins: [],
   important: true,
