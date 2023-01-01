@@ -49,10 +49,11 @@ function Skills({ musicVolume }) {
         <div className="border-4 border-my-orange-brown rounded-3xl w-[75%] bg-my-orange-brown-30 flex justify-evenly m-auto pt-4 pb-2 mt-4">
           <TechIcon name={"Node.js"} url={"/assets/images/node.png"} />
           <TechIcon name={"Express.js"} url={"/assets/images/express.svg"} />
+          <TechIcon name={"Nest.js"} url={"/assets/images/nestjs.svg"} />
           <TechIcon name={"React"} url={"/assets/images/react.png"} />
-          <TechIcon name={"Tailwind CSS"} url={"/assets/images/tailwind.svg"} />
           <TechIcon name={"MySQL"} url={"/assets/images/mysql.png"} />
           <TechIcon name={"MongoDB"} url={"/assets/images/mongo.png"} />
+          <TechIcon name={"Tailwind"} url={"/assets/images/tailwind.svg"} />
         </div>
       </div>
     </div>
