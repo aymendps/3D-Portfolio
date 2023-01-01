@@ -8,8 +8,7 @@ import GithubIcon from "@mui/icons-material/GitHub";
 import DownloadIcon from "@mui/icons-material/Download";
 import CollectionsIcon from "@mui/icons-material/Collections";
 import DecoratedTitle from "../UI items/interfaces/DecoratedTitle";
-
-// className = "whitespace-pre-line font-berkshire";
+import WebsiteIcon from "@mui/icons-material/Language";
 
 function Project({
   title,
@@ -22,6 +21,7 @@ function Project({
   github,
   download,
   moreScreenshots,
+  website,
   description,
   onClick,
   isPreview,
@@ -47,6 +47,40 @@ function Project({
             : "border-my-light-brown border-2"
         }`}
       ></div>
+    );
+  });
+
+  const links = [
+    {
+      link: website,
+      icon: <WebsiteIcon fontSize="large" className=" text-my-brown" />,
+    },
+    {
+      link: download,
+      icon: <DownloadIcon fontSize="large" className=" text-my-brown" />,
+    },
+    {
+      link: github,
+      icon: <GithubIcon fontSize="large" className=" text-my-brown" />,
+    },
+    {
+      link: moreScreenshots,
+      icon: <CollectionsIcon fontSize="large" className=" text-my-brown" />,
+    },
+  ];
+
+  const generateLinks = links.map((l) => {
+    return (
+      l.link && (
+        <a
+          target="_blank"
+          rel="noreferrer"
+          href={l.link}
+          className=" bg-my-light-brown rounded-[50%] bg-opacity-50 p-2"
+        >
+          {l.icon}
+        </a>
+      )
     );
   });
 
@@ -143,36 +177,7 @@ function Project({
             <DecoratedTitle title="See More" variant="h5" decorationSize={80} />
           </div>
           <div className="flex w-[70%] gap-4 justify-center">
-            {download && (
-              <a
-                target="_blank"
-                rel="noreferrer"
-                href={download}
-                className=" bg-my-light-brown rounded-[50%] bg-opacity-50 p-2"
-              >
-                <DownloadIcon fontSize="large" className=" text-my-brown" />
-              </a>
-            )}
-            {github && (
-              <a
-                target="_blank"
-                rel="noreferrer"
-                href={github}
-                className=" bg-my-light-brown rounded-[50%] bg-opacity-50 p-2"
-              >
-                <GithubIcon fontSize="large" className=" text-my-brown" />
-              </a>
-            )}
-            {moreScreenshots && (
-              <a
-                target="_blank"
-                rel="noreferrer"
-                href={moreScreenshots}
-                className=" bg-my-light-brown rounded-[50%] bg-opacity-50 p-2"
-              >
-                <CollectionsIcon fontSize="large" className=" text-my-brown" />
-              </a>
-            )}
+            {generateLinks}
           </div>
         </div>
       </div>

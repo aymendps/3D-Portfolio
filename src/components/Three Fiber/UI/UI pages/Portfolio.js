@@ -2,11 +2,11 @@ import VideoPlayer from "../UI items/interfaces/VideoPlayer";
 import CoverPage from "./CoverPage";
 import DecoratedTitle from "../UI items/interfaces/DecoratedTitle";
 import Wrapper from "./Wrapper";
-import portfolioConfig from "./Portfolio.config";
 import Project from "./Project";
 import { Typography } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import PORTFOLIO from "./Portfolio.config";
 
 function PortfolioPage({
   index,
@@ -17,9 +17,7 @@ function PortfolioPage({
   overrideHandlers,
   overrideHandlersFunction,
 }) {
-  const [projectList] = useState(
-    portfolioConfig.slice(index * 6, index * 6 + 6)
-  );
+  const [projectList] = useState(PORTFOLIO.slice(index * 6, index * 6 + 6));
   const [selectedProject, setSelectedProject] = useState(null);
   const [isPreview, setIsPreview] = useState(true);
   const didInitialRender = useRef(false);
@@ -132,7 +130,7 @@ function Portfolio({ musicVolume, setMusicVolume, setDisableMuteButton }) {
 
   const getProjectPages = () => {
     let pages = [];
-    const pagesNumber = Math.ceil(portfolioConfig.length / 6);
+    const pagesNumber = Math.ceil(PORTFOLIO.length / 6);
     for (let index = 0; index < pagesNumber; index++) {
       pages.push(
         <PortfolioPage

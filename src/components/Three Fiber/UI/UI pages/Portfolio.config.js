@@ -18,10 +18,37 @@ const mysql = "/assets/images/mysql.png";
 const mongodb = "/assets/images/mongo.png";
 const nestjs = "/assets/images/nestjs.svg";
 
+const TAGS = {
+  Game: "Game Dev: ",
+  GameWeb: "Game & Web Dev: ",
+  FullStack: "Full Stack: ",
+  Software: "Software Dev: ",
+  AI: "AI Dev: ",
+  Frontend: "Frontend: ",
+  Backend: "Backend: ",
+};
+
+// {
+//   title: "",
+//   order: "",
+//   tag: "",
+//   thumbnail: "",
+//   images: [],
+//   video: "",
+//   mainTech: [],
+//   otherTech: [],
+//   github: "",
+//   moreScreenshots: "",
+//   download: "",
+//   website: "",
+//   description: "",
+// }
+
 const portfolioConfig = [
   {
     title: "Follow The Light",
-    tag: "Game Dev: ",
+    order: 10,
+    tag: TAGS.Game,
     thumbnail: "",
     images: [],
     video: "",
@@ -30,6 +57,7 @@ const portfolioConfig = [
     github: "https://github.com/aymendps/Follow-The-Light",
     moreScreenshots: "https://github.com/aymendps/Follow-The-Light",
     download: "",
+    website: "",
     description: `As a glowing light ball lost in darkness, each time you collide with something, you transfer some of your light to it, slowly revealing the path that you should follow.
 
     Explore your way through this physics-based game:
@@ -46,7 +74,8 @@ const portfolioConfig = [
   },
   {
     title: "Student Specialty Advisor",
-    tag: "Full Stack Dev: ",
+    order: 10,
+    tag: TAGS.FullStack,
     thumbnail: "https://img.youtube.com/vi/Svc3JQEW03E/0.jpg",
     images: [
       "https://raw.githubusercontent.com/aymendps/student-specialty-advisor/master/documentation/screenshots/desktop/login.png",
@@ -60,6 +89,7 @@ const portfolioConfig = [
     moreScreenshots:
       "https://github.com/aymendps/student-specialty-advisor/tree/master/documentation/screenshots",
     download: "",
+    website: "",
     description: `Ever been a student or know someone who is attending university?
 
     Then you must be familiar with the difficulties that one faces when choosing a specialty to pursue.
@@ -70,7 +100,8 @@ const portfolioConfig = [
   },
   {
     title: "Beyond Invaders SDL",
-    tag: "Game Dev: ",
+    order: 10,
+    tag: TAGS.Game,
     thumbnail: "",
     images: [],
     video: "",
@@ -79,11 +110,13 @@ const portfolioConfig = [
     github: "",
     moreScreenshots: "",
     download: "",
+    website: "",
     description: "",
   },
   {
     title: "My Personal Website",
-    tag: "Game & Web Dev: ",
+    order: 1,
+    tag: TAGS.GameWeb,
     thumbnail: "",
     images: [],
     video: "",
@@ -92,11 +125,13 @@ const portfolioConfig = [
     github: "",
     moreScreenshots: "",
     download: "",
+    website: "",
     description: "",
   },
   {
     title: "File Management System",
-    tag: "Full Stack Dev: ",
+    order: 10,
+    tag: TAGS.FullStack,
     thumbnail: "",
     images: [
       "/assets/screenshots/file-manager/upload.png",
@@ -110,6 +145,7 @@ const portfolioConfig = [
     moreScreenshots:
       "https://github.com/aymendps/aymendps.github.io/tree/master/public/assets/screenshots/file-manager",
     download: "",
+    website: "",
     description: `During my part-time job at Cynoia, I started the development of a file management system from scratch.
     
     This task challenged my design skills and forced me to think outside the box multiple times to implement a code that is optimized and cost-effective.
@@ -117,8 +153,24 @@ const portfolioConfig = [
     Features of the system include: creating folders, uploading files, previewing, downloading, renaming, favouriting, sharing, managing access, keeping track of activity history, deleting elements and more!`,
   },
   {
+    title: "Job Seekr",
+    order: 5,
+    tag: TAGS.Software,
+    thumbnail: "",
+    images: [],
+    video: "",
+    mainTech: [python],
+    otherTech: [],
+    github: "",
+    moreScreenshots: "",
+    download: "",
+    website: "",
+    description: "",
+  },
+  {
     title: "Casino TextIO Game",
-    tag: "Game Dev: ",
+    order: 7,
+    tag: TAGS.Game,
     thumbnail: "",
     images: [
       "https://raw.githubusercontent.com/aymendps/Casino-TextIO-Game/master/documentation/screenshots/sign-in.png",
@@ -132,6 +184,7 @@ const portfolioConfig = [
     moreScreenshots:
       "https://github.com/aymendps/Casino-TextIO-Game/tree/master/documentation",
     download: "",
+    website: "",
     description: `Casino TextIO Game is a casino simulator developped using Java and MySQL.
     
     As a player, you can create your account, display your balance, purchase & sell chips, view game stats & transactions history, and enjoy two exciting games.
@@ -143,18 +196,37 @@ const portfolioConfig = [
     Through this project, I learned more about class design, testing, SQL queries and the implementation of game logic & AI.`,
   },
   {
-    title: "Job Seekr",
-    tag: "Software Dev: ",
+    title: "Cat n' Quest",
+    order: 10,
+    tag: TAGS.Game,
     thumbnail: "",
     images: [],
     video: "",
-    mainTech: [python],
+    mainTech: [],
     otherTech: [],
     github: "",
     moreScreenshots: "",
     download: "",
+    website: "https://aymendps.itch.io/cat-n-quest",
+    description: "",
+  },
+  {
+    title: "Discord Butler Bot",
+    order: 8,
+    tag: TAGS.Backend,
+    thumbnail: "",
+    images: [],
+    video: "",
+    mainTech: [],
+    otherTech: [],
+    github: "",
+    moreScreenshots: "",
+    download: "",
+    website: "",
     description: "",
   },
 ];
 
-export default portfolioConfig;
+const PORTFOLIO = portfolioConfig.sort((a, b) => b.order - a.order);
+
+export default PORTFOLIO;
