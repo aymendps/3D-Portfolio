@@ -33,7 +33,6 @@ function VideoPlayer({
     >
       <ReactPlayer
         controls={true}
-        light={true}
         playing={true}
         height="100%"
         width="100%"

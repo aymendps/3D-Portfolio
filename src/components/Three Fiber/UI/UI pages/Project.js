@@ -176,9 +176,15 @@ function Project({
           </div>
         </div>
         <div className="basis-[30%] py-4 pr-8 flex flex-col justify-center items-center oldpc:pl-4">
-          <div className="translate-y-[-50%]">
-            <DecoratedTitle title="See More" variant="h5" decorationSize={80} />
-          </div>
+          {(github || website || download || moreScreenshots) && (
+            <div className="translate-y-[-50%]">
+              <DecoratedTitle
+                title="See More"
+                variant="h5"
+                decorationSize={80}
+              />
+            </div>
+          )}
           <div className="flex w-[70%] gap-4 justify-center">
             {generateLinks}
           </div>

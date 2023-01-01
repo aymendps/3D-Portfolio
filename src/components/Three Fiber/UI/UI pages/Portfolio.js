@@ -106,7 +106,7 @@ function Portfolio({ musicVolume, setMusicVolume, setDisableMuteButton }) {
     <div className="w-full h-[95%] flex flex-col items-center">
       <div className="basis-[15%]">
         <DecoratedTitle
-          title="My Projects Reel"
+          title="My 2022 Showreel"
           variant="h2"
           decorationSize={120}
         />
@@ -116,7 +116,7 @@ function Portfolio({ musicVolume, setMusicVolume, setDisableMuteButton }) {
           musicVolume={musicVolume}
           setMusicVolume={setMusicVolume}
           setDisableMuteButton={setDisableMuteButton}
-          width="80%"
+          width="70%"
           url="https://www.youtube.com/"
         />
       </div>

@@ -166,7 +166,7 @@ function MainCanvas(/*{ setStopParticles }*/) {
             <Gramophone
               position={[-2.46, 3.7, -4.44]}
               scale={[1, 1, 1]}
-              rotation={[0, (2 * Math.PI) / 3, 0]}
+              rotation={[0, (5 * Math.PI) / 6, 0]}
             />
             <Door
               position={[-5.2, 0, -0.35]}
