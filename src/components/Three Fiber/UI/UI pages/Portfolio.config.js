@@ -41,7 +41,7 @@ const TAGS = {
 //   moreScreenshots: "",
 //   download: "",
 //   website: "",
-//   description: "",
+//   description: ``,
 // }
 
 const portfolioConfig = [
@@ -99,7 +99,7 @@ const portfolioConfig = [
     While working on this project, my team and I learned a lot about full stack development, responsive design, teamwork, and the scrum framework.`,
   },
   {
-    title: "Beyond Invaders SDL",
+    title: "Beyond Invaders",
     order: 10,
     tag: TAGS.Game,
     thumbnail: "",
@@ -111,7 +111,18 @@ const portfolioConfig = [
     moreScreenshots: "",
     download: "",
     website: "",
-    description: "",
+    description: `This project is my take on the classic arcade game 'Space Invaders', made using C & the SDL library in 2020.
+
+    Playing as a spaceship and being the humanity's last hope, you fight against an alien invasion in order to save the world.
+    
+    In this project, you will face multiple waves of enemies, until you reach the big bad boss. Take it down to save humanity and win the game.
+
+    This project helped me learn about:
+    - Handling object movement and player input
+    - Handling enemy AI (enemy attacks, boss ability rotation..)
+    - Working with collisions and game states/phases
+    - Implementing a persistent leaderboard
+    `,
   },
   {
     title: "My Personal Website",
@@ -125,8 +136,17 @@ const portfolioConfig = [
     github: "",
     moreScreenshots: "",
     download: "",
-    website: "",
-    description: "",
+    website: "https://aymendps.github.io/",
+    description: `Every recruiter in the gaming, software or web industry will tell you how important having a portfolio is when trying to get interviews for that dream job.
+
+    As I was building mine, I wanted to present it in a slightly different way that could express my shared passion for web and game dev.
+
+    This is how my website ended up being a 3D environment, where you can check out my collection of projects, and also get to know a litle about me.
+
+    Any feedback you have is welcome, as always.
+    
+    Now, onto the next challenge!
+    `,
   },
   {
     title: "File Management System",
@@ -165,7 +185,11 @@ const portfolioConfig = [
     moreScreenshots: "",
     download: "",
     website: "",
-    description: "",
+    description: `Job Seekr is a Python application that, given a job role, will look up famous hiring websites and scrape all the relevant applications.
+    
+    The data is then previewed in a table, where the user can quickly check them out, and visit the link of any application they like.
+    
+    This project helped me learn about automation, web scraping and handling data records.`,
   },
   {
     title: "Casino TextIO Game",
@@ -202,28 +226,46 @@ const portfolioConfig = [
     thumbnail: "",
     images: [],
     video: "",
-    mainTech: [],
+    mainTech: [unity, csharp],
     otherTech: [],
-    github: "",
+    github: "https://github.com/aymendps/Cat-N-Quest",
     moreScreenshots: "",
     download: "",
     website: "https://aymendps.itch.io/cat-n-quest",
-    description: "",
+    description: `Join a grumpy cat in an adventure to support villagers and spread peace in its own way.
+
+    This game was made during the Unidos HISPANIC HERITAGE MONTH Game Jam 2022 @itch.io using Unity 2D.
+
+    The game jam lasted for 1 week, and our team was composed of three members.
+    
+    This project helped me learn about:
+    - AI Pathfinding: NavMesh surfaces, NavMeshAgents and NavMeshObstacles
+    - Implementing the logic behind quests and NPC dialogues
+    - Working with sprites, tiles and layers in a 2D topdown view
+    - Working with vectors, rigidbodies, colliders and triggers`,
   },
   {
     title: "Discord Butler Bot",
-    order: 8,
+    order: 7,
     tag: TAGS.Backend,
     thumbnail: "",
     images: [],
     video: "",
-    mainTech: [],
+    mainTech: [nodejs, ts],
     otherTech: [],
     github: "",
     moreScreenshots: "",
     download: "",
     website: "",
-    description: "",
+    description: `Butler Bot is a private discord bot that I made for a discord server me and my friends hang out in.
+
+    The bot was developed using Discord.js version 14, TypeScript and Node.js.
+    
+    Controlled by chat messages / commands, it's capable of executing multiple tasks, one of which is searching, queueing and playing requested music.
+
+    It also uses 'Riot Games Developer Portal' APIs to check 'League of Legends' account stats, match history, champion mastery & other information.
+    
+    Future work on the bot will include voice recognition / commands, similar to the use case of Siri / Alexa`,
   },
 ];
 
