@@ -41,9 +41,9 @@ function Project({
         style={{
           backgroundImage: `url(${media})`,
         }}
-        className={`aspect-video bg-cover bg-center bg-no-repeat basis-1/5 rounded cursor-pointer duration-200 h-full bg-my-orange-brown-30 ${
+        className={`bg-cover bg-center bg-no-repeat basis-1/5 rounded cursor-pointer duration-200 h-full bg-my-orange-brown-30 ${
           selectedMedia === index
-            ? "border-my-brown border-4"
+            ? "border-my-orange-brown border-4"
             : "border-my-light-brown border-2"
         }`}
       ></div>
@@ -69,10 +69,11 @@ function Project({
     },
   ];
 
-  const generateLinks = links.map((l) => {
+  const generateLinks = links.map((l, index) => {
     return (
       l.link && (
         <a
+          key={l.link + index}
           target="_blank"
           rel="noreferrer"
           href={l.link}
@@ -138,7 +139,9 @@ function Project({
                 setMusicVolume={setMusicVolume}
                 setDisableMuteButton={setDisableMuteButton}
                 width="100%"
+                height="100%"
                 url={video}
+                aspectVideo={false}
               />
             ) : (
               <div
@@ -165,10 +168,10 @@ function Project({
           </div>
         </div>
       </div>
-      <div className="w-full basis-[2%] overflow-hidden oldpc:basis-0"></div>
+      <div className="w-full basis-[2%] overflow-hidden"></div>
       <div className="w-full basis-[16%] flex">
         <div className="basis-[70%] flex justify-center">
-          <div className="w-[90%] h-[88%] flex items-center justify-between px-2 oldpc:w-[98%] oldpc:h-[80%]">
+          <div className="w-[90%] h-[88%] flex items-center justify-between px-2 oldpc:w-[98%]">
             {swapMedia}
           </div>
         </div>

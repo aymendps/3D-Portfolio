@@ -3,10 +3,12 @@ import ReactPlayer from "react-player";
 
 function VideoPlayer({
   width,
+  height,
   url,
   setMusicVolume,
   musicVolume,
   setDisableMuteButton,
+  aspectVideo = true,
 }) {
   const isPlaying = useRef(false);
   const initialMusicVolume = useRef(musicVolume);
@@ -23,8 +25,11 @@ function VideoPlayer({
 
   return (
     <div
-      className="border-2 rounded border-my-brown bg-my-brown aspect-video overflow-hidden"
-      style={{ width: width }}
+      className={
+        "border-2 rounded border-my-brown bg-my-brown overflow-hidden" +
+        (aspectVideo ? " aspect-video" : "")
+      }
+      style={{ width: width, height: height }}
     >
       <ReactPlayer
         controls={true}
