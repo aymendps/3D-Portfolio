@@ -41,7 +41,7 @@ function Project({
         style={{
           backgroundImage: `url(${media})`,
         }}
-        className={`bg-cover bg-center bg-no-repeat basis-1/5 rounded cursor-pointer duration-200 h-full bg-my-orange-brown-30 ${
+        className={`bg-cover bg-center bg-no-repeat basis-1/5 rounded cursor-pointer h-full bg-my-orange-brown-30 ${
           selectedMedia === index
             ? "border-my-orange-brown border-4"
             : "border-my-light-brown border-2"
@@ -86,13 +86,13 @@ function Project({
   });
 
   return isPreview ? (
-    <PinnedDiv className="w-[30%] aspect-video shadow-xl duration-200 hover:scale-110 bg-[rgba(255,255,255,0.5)]">
+    <PinnedDiv className="w-[30%] aspect-video shadow-xl duration-200 hover:scale-110 bg-white bg-opacity-50">
       <div
         className="w-full h-full cursor-pointer bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${thumbnail})` }}
         onClick={onClick}
       ></div>
-      <div className="absolute w-[15%] h-full top-0 left-0 pointer-events-none flex flex-col justify-center gap-[5%] bg-[rgba(255,255,255,0.5)]">
+      <div className="absolute w-[15%] h-full top-0 left-0 pointer-events-none flex flex-col justify-center gap-[5%] bg-[rgb(138,120,93)]">
         {mainTech.map((tech, index) => {
           return (
             <TechIcon
@@ -134,21 +134,30 @@ function Project({
         <div className="basis-[70%] p-2 flex justify-center">
           <div className="w-[90%] oldpc:w-[98%]">
             {selectedMedia === 0 ? (
-              <VideoPlayer
-                musicVolume={musicVolume}
-                setMusicVolume={setMusicVolume}
-                setDisableMuteButton={setDisableMuteButton}
-                width="100%"
-                height="100%"
-                url={video}
-                aspectVideo={false}
-              />
+              video?.includes("static::") ? (
+                <div
+                  style={{
+                    backgroundImage: `url(${video?.substring(8) || ""})`,
+                  }}
+                  className="w-full h-full border-2 border-my-brown bg-my-light-brown bg-opacity-50 bg-contain bg-center bg-no-repeat"
+                ></div>
+              ) : (
+                <VideoPlayer
+                  musicVolume={musicVolume}
+                  setMusicVolume={setMusicVolume}
+                  setDisableMuteButton={setDisableMuteButton}
+                  width="100%"
+                  height="100%"
+                  url={video}
+                  aspectVideo={false}
+                />
+              )
             ) : (
               <div
                 style={{
                   backgroundImage: `url(${images[selectedMedia - 1] || ""})`,
                 }}
-                className="w-full aspect-video border-2 border-my-brown bg-my-light-brown bg-opacity-50 bg-contain bg-center bg-no-repeat"
+                className="w-full h-full border-2 border-my-brown bg-my-light-brown bg-opacity-50 bg-contain bg-center bg-no-repeat"
               ></div>
             )}
           </div>

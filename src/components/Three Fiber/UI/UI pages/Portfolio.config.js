@@ -153,24 +153,21 @@ const portfolioConfig = [
     order: 10,
     tag: TAGS.FullStack,
     thumbnail: "",
-    images: [
-      "/assets/screenshots/file-manager/upload.png",
-      "/assets/screenshots/file-manager/context-menu.png",
-      "/assets/screenshots/file-manager/recent.png",
-    ],
-    video: "",
+    images: [],
+    video: "static::",
     mainTech: [nodejs, react, nestjs, mysql],
     otherTech: [js, ts],
     github: "",
-    moreScreenshots:
-      "https://github.com/aymendps/aymendps.github.io/tree/master/public/assets/screenshots/file-manager",
+    moreScreenshots: "",
     download: "",
     website: "",
-    description: `During my part-time job at Cynoia, I started the development of a file management system from scratch.
+    description: `After a successful summer internship, I got to keep working at Cynoia as a part-time full stack developer.
     
-    This task challenged my design skills and forced me to think outside the box multiple times to implement a code that is optimized and cost-effective.
+    I continued the development of the file management system that I started from scratch on my internship.
+    
+    This task challenged my design skills and forced me to think outside the box multiple times to implement a code that is optimized and cost-effective, while also taking into consideration the user experience.
         
-    Features of the system include: creating folders, uploading files, previewing, downloading, renaming, favouriting, sharing, managing access, keeping track of activity history, deleting elements and more!`,
+    Features of the system include: creating folders, uploading files, previewing, downloading, renaming, adding to favourites, sharing, managing access, keeping track of activity history, deleting elements...`,
   },
   {
     title: "Job Seekr",

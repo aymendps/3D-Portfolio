@@ -7,12 +7,12 @@ module.exports = {
         "my-brown": "rgb(63,44,35)",
         "my-light-brown": "#8C624F",
         "my-orange-brown": "#A66E1B",
+        paper: "rgb(193,171,139)",
       },
       fontFamily: {
         berkshire: ['"Berkshire Swash"'],
       },
       backgroundColor: {
-        paper: "rgb(193,171,139)",
         "my-orange-brown-30": "rgba(166,110,27,0.3)",
       },
       backgroundImage: {
