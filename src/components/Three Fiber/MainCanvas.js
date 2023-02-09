@@ -120,12 +120,12 @@ function MainCanvas(/*{ setStopParticles }*/) {
       <audio
         loop
         type="audio"
-        src="/assets/audio/rain_medium.ogg"
+        src={process.env.PUBLIC_URL + "/assets/audio/rain_medium.ogg"}
         ref={rainAudioRef}
       />
       <audio
         type="audio"
-        src="/assets/audio/thunder.mp3"
+        src={process.env.PUBLIC_URL + "/assets/audio/thunder.mp3"}
         ref={thunderAudioRef}
       />
       <div className="fixed w-full h-[100vh] top-0 left-0 z-10">

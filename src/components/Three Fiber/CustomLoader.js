@@ -211,7 +211,10 @@ function CustomLoader({
           >
             <img
               alt=""
-              src="/assets/images/portfolio-title-animated.svg"
+              src={
+                process.env.PUBLIC_URL +
+                "/assets/images/portfolio-title-animated.svg"
+              }
               className="w-[70%] select-none"
             ></img>
           </motion.div>

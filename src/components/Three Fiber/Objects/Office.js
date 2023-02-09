@@ -20,7 +20,9 @@ export default function Office({
   allowActionControls,
   isQuestFinished,
 }) {
-  const { nodes, materials } = useGLTF("/assets/models/office/scene.gltf");
+  const { nodes, materials } = useGLTF(
+    process.env.PUBLIC_URL + "/assets/models/office/scene.gltf"
+  );
   const roof = materials.bookshelf.clone();
   roof.color.set("grey");
   roof.roughness = 1;
@@ -54,7 +56,9 @@ export default function Office({
               material={materials.paper.clone()}
               position={[0.55, 1.76, -3.9]}
               spritePosition={[0.8, 0.7, 5.42]}
-              spriteURL="/assets/images/portfolio.png"
+              spriteURL={
+                process.env.PUBLIC_URL + "/assets/images/portfolio.png"
+              }
               gl={gl}
               completeQuest={() => {
                 completeQuest(QUESTS.me_portfolio);
@@ -76,7 +80,7 @@ export default function Office({
               material={materials.paper.clone()}
               position={[0.55, 1.76, -5.05]}
               spritePosition={[0.8, 0.7, 5.58]}
-              spriteURL="/assets/images/about.png"
+              spriteURL={process.env.PUBLIC_URL + "/assets/images/about.png"}
               gl={gl}
               completeQuest={() => {
                 completeQuest(QUESTS.me_about);
@@ -98,7 +102,7 @@ export default function Office({
               material={materials.paper.clone()}
               position={[0.55, 1.76, -6.2]}
               spritePosition={[0.8, 0.7, 5.75]}
-              spriteURL="/assets/images/skills.png"
+              spriteURL={process.env.PUBLIC_URL + "/assets/images/skills.png"}
               gl={gl}
               completeQuest={() => {
                 completeQuest(QUESTS.me_skills);

@@ -17,12 +17,30 @@ function Skills({ musicVolume }) {
           decorationSize={60}
         />
         <div className="border-4 border-my-orange-brown rounded-3xl w-[75%] bg-my-orange-brown-30 flex justify-evenly m-auto pt-4 pb-2 mt-4">
-          <TechIcon name={"JavaScript"} url={"/assets/images/js.png"} />
-          <TechIcon name={"TypeScript"} url={"/assets/images/ts.svg"} />
-          <TechIcon name={"C++"} url={"/assets/images/cpp.svg"} />
-          <TechIcon name={"C#"} url={"/assets/images/c-sharp.svg"} />
-          <TechIcon name={"Java"} url={"/assets/images/java.svg"} />
-          <TechIcon name={"Python"} url={"/assets/images/python.svg"} />
+          <TechIcon
+            name={"JavaScript"}
+            url={process.env.PUBLIC_URL + "/assets/images/js.png"}
+          />
+          <TechIcon
+            name={"TypeScript"}
+            url={process.env.PUBLIC_URL + "/assets/images/ts.svg"}
+          />
+          <TechIcon
+            name={"C++"}
+            url={process.env.PUBLIC_URL + "/assets/images/cpp.svg"}
+          />
+          <TechIcon
+            name={"C#"}
+            url={process.env.PUBLIC_URL + "/assets/images/c-sharp.svg"}
+          />
+          <TechIcon
+            name={"Java"}
+            url={process.env.PUBLIC_URL + "/assets/images/java.svg"}
+          />
+          <TechIcon
+            name={"Python"}
+            url={process.env.PUBLIC_URL + "/assets/images/python.svg"}
+          />
         </div>
       </div>
       <div className="w-full">
@@ -32,12 +50,18 @@ function Skills({ musicVolume }) {
           decorationSize={60}
         />
         <div className="border-4 border-my-orange-brown rounded-3xl w-[75%] bg-my-orange-brown-30 flex justify-evenly m-auto pt-4 pb-2 mt-4">
-          <TechIcon name={"Unity"} url={"/assets/images/unity.png"} />
+          <TechIcon
+            name={"Unity"}
+            url={process.env.PUBLIC_URL + "/assets/images/unity.png"}
+          />
           <TechIcon
             name={"Unreal Engine 5"}
-            url={"/assets/images/unreal.png"}
+            url={process.env.PUBLIC_URL + "/assets/images/unreal.png"}
           />
-          <TechIcon name={"Three.js"} url={"/assets/images/three-js.svg"} />
+          <TechIcon
+            name={"Three.js"}
+            url={process.env.PUBLIC_URL + "/assets/images/three-js.svg"}
+          />
         </div>
       </div>
       <div className="w-full">
@@ -47,13 +71,34 @@ function Skills({ musicVolume }) {
           decorationSize={60}
         />
         <div className="border-4 border-my-orange-brown rounded-3xl w-[75%] bg-my-orange-brown-30 flex justify-evenly m-auto pt-4 pb-2 mt-4">
-          <TechIcon name={"Node.js"} url={"/assets/images/node.png"} />
-          <TechIcon name={"Express.js"} url={"/assets/images/express.svg"} />
-          <TechIcon name={"Nest.js"} url={"/assets/images/nestjs.svg"} />
-          <TechIcon name={"React"} url={"/assets/images/react.png"} />
-          <TechIcon name={"MySQL"} url={"/assets/images/mysql.png"} />
-          <TechIcon name={"MongoDB"} url={"/assets/images/mongo.png"} />
-          <TechIcon name={"Tailwind"} url={"/assets/images/tailwind.svg"} />
+          <TechIcon
+            name={"Node.js"}
+            url={process.env.PUBLIC_URL + "/assets/images/node.png"}
+          />
+          <TechIcon
+            name={"Express.js"}
+            url={process.env.PUBLIC_URL + "/assets/images/express.svg"}
+          />
+          <TechIcon
+            name={"Nest.js"}
+            url={process.env.PUBLIC_URL + "/assets/images/nestjs.svg"}
+          />
+          <TechIcon
+            name={"React"}
+            url={process.env.PUBLIC_URL + "/assets/images/react.png"}
+          />
+          <TechIcon
+            name={"MySQL"}
+            url={process.env.PUBLIC_URL + "/assets/images/mysql.png"}
+          />
+          <TechIcon
+            name={"MongoDB"}
+            url={process.env.PUBLIC_URL + "/assets/images/mongo.png"}
+          />
+          <TechIcon
+            name={"Tailwind"}
+            url={process.env.PUBLIC_URL + "/assets/images/tailwind.svg"}
+          />
         </div>
       </div>
     </div>
@@ -73,7 +118,7 @@ function Skills({ musicVolume }) {
             animate={{ rotateZ: 45 }}
             transition={{ repeat: Infinity }}
             alt=""
-            src="/assets/images/cog.svg"
+            src={process.env.PUBLIC_URL + "/assets/images/cog.svg"}
             className="w-[60px]"
           ></motion.img>
           <Typography
@@ -89,7 +134,7 @@ function Skills({ musicVolume }) {
             animate={{ rotateZ: 45 }}
             transition={{ repeat: Infinity }}
             alt=""
-            src="/assets/images/cog.svg"
+            src={process.env.PUBLIC_URL + "/assets/images/cog.svg"}
             className="w-[60px]"
           ></motion.img>
           <Typography
@@ -105,7 +150,7 @@ function Skills({ musicVolume }) {
             animate={{ rotateZ: 45 }}
             transition={{ repeat: Infinity }}
             alt=""
-            src="/assets/images/cog.svg"
+            src={process.env.PUBLIC_URL + "/assets/images/cog.svg"}
             className="w-[60px]"
           ></motion.img>
           <Typography
@@ -130,7 +175,7 @@ function Skills({ musicVolume }) {
         <div className="w-full flex items-center gap-8">
           <img
             alt=""
-            src="/assets/images/teamwork.svg"
+            src={process.env.PUBLIC_URL + "/assets/images/teamwork.svg"}
             className="w-[75px]"
           ></img>
           <div>
@@ -149,7 +194,7 @@ function Skills({ musicVolume }) {
         <div className="w-full flex items-center gap-8">
           <img
             alt=""
-            src="/assets/images/thinking.svg"
+            src={process.env.PUBLIC_URL + "/assets/images/thinking.svg"}
             className="w-[75px]"
           ></img>
           <div>
@@ -168,7 +213,7 @@ function Skills({ musicVolume }) {
         <div className="w-full flex items-center gap-8">
           <img
             alt=""
-            src="/assets/images/awareness.svg"
+            src={process.env.PUBLIC_URL + "/assets/images/awareness.svg"}
             className="w-[75px]"
           ></img>
           <div>

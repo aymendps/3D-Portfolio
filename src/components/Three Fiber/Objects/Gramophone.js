@@ -11,7 +11,9 @@ import React from "react";
 import { useGLTF } from "@react-three/drei";
 
 export function Gramophone(props) {
-  const { nodes, materials } = useGLTF("/assets/models/gramophone/scene.gltf");
+  const { nodes, materials } = useGLTF(
+    process.env.PUBLIC_URL + "/assets/models/gramophone/scene.gltf"
+  );
   return (
     <group {...props} dispose={null}>
       <group rotation={[-Math.PI / 2, 0, 0]}>

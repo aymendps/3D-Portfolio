@@ -9,7 +9,9 @@ function Wrapper({
 }) {
   const [selectedPage, setSelectedPage] = useState(0);
   const [backgroundPage, setBackgroundPage] = useState(null);
-  const paperSoundEffect = useRef(new Audio("/assets/audio/paper.mp3"));
+  const paperSoundEffect = useRef(
+    new Audio(process.env.PUBLIC_URL + "/assets/audio/paper.mp3")
+  );
   const pageDirection = useRef("next");
   const canNavigate = useRef(true);
   const previousButtonRef = useRef();

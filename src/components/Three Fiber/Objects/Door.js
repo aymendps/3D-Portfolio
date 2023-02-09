@@ -10,7 +10,9 @@ import { useGLTF } from "@react-three/drei";
 import Sprite from "./Sprite";
 
 export default function Door(props) {
-  const { nodes, materials } = useGLTF("/assets/models/door/scene.gltf");
+  const { nodes, materials } = useGLTF(
+    process.env.PUBLIC_URL + "/assets/models/door/scene.gltf"
+  );
   return (
     <group {...props} dispose={null}>
       <group rotation={[-Math.PI / 2, 0, 0]}>
@@ -20,7 +22,10 @@ export default function Door(props) {
           material={materials["Material.001"]}
         />
         <Sprite
-          url="/assets/models/door/textures/Door_sign.png"
+          url={
+            process.env.PUBLIC_URL +
+            "/assets/models/door/textures/Door_sign.png"
+          }
           scale={[1.4, 2.6, 1]}
           rotation={[Math.PI / 2, 0, 0]}
           position={[0, -0.1, 4.03]}

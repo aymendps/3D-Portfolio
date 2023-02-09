@@ -17,7 +17,7 @@ function CoverPage({ title }) {
             <img
               className="w-[23%]"
               alt=""
-              src="/assets/images/mouse.svg"
+              src={process.env.PUBLIC_URL + "/assets/images/mouse.svg"}
             ></img>
             <Typography variant="h6" className="font-berkshire text-my-brown">
               Mouse Wheel

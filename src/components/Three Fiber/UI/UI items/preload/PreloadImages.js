@@ -20,12 +20,12 @@ function PreloadImages() {
       />
       <img
         className="w-0 h-0 overflow-hidden z-[-1] absolute"
-        src="/assets/images/coursera-scrum.png"
+        src={process.env.PUBLIC_URL + "/assets/images/coursera-scrum.png"}
         alt=""
       />
       <img
         className="w-0 h-0 overflow-hidden z-[-1] absolute"
-        src="/assets/images/RH124.jpg"
+        src={process.env.PUBLIC_URL + "/assets/images/RH124.jpg"}
         alt=""
       />
     </>

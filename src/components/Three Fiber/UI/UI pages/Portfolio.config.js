@@ -1,22 +1,22 @@
 /* eslint-disable */
 
-const js = "/assets/images/js.png";
-const ts = "/assets/images/ts.svg";
-const cpp = "/assets/images/cpp.svg";
-const c = "/assets/images/c.svg";
-const csharp = "/assets/images/c-sharp.svg";
-const java = "/assets/images/java.svg";
-const python = "/assets/images/python.svg";
-const unity = "/assets/images/unity.png";
-const unreal = "/assets/images/unreal.png";
-const threejs = "/assets/images/three-js.svg";
-const nodejs = "/assets/images/node.png";
-const expressjs = "/assets/images/express.svg";
-const react = "/assets/images/react.png";
-const tailwindcss = "/assets/images/tailwind.svg";
-const mysql = "/assets/images/mysql.png";
-const mongodb = "/assets/images/mongo.png";
-const nestjs = "/assets/images/nestjs.svg";
+const js = process.env.PUBLIC_URL + "/assets/images/js.png";
+const ts = process.env.PUBLIC_URL + "/assets/images/ts.svg";
+const cpp = process.env.PUBLIC_URL + "/assets/images/cpp.svg";
+const c = process.env.PUBLIC_URL + "/assets/images/c.svg";
+const csharp = process.env.PUBLIC_URL + "/assets/images/c-sharp.svg";
+const java = process.env.PUBLIC_URL + "/assets/images/java.svg";
+const python = process.env.PUBLIC_URL + "/assets/images/python.svg";
+const unity = process.env.PUBLIC_URL + "/assets/images/unity.png";
+const unreal = process.env.PUBLIC_URL + "/assets/images/unreal.png";
+const threejs = process.env.PUBLIC_URL + "/assets/images/three-js.svg";
+const nodejs = process.env.PUBLIC_URL + "/assets/images/node.png";
+const expressjs = process.env.PUBLIC_URL + "/assets/images/express.svg";
+const react = process.env.PUBLIC_URL + "/assets/images/react.png";
+const tailwindcss = process.env.PUBLIC_URL + "/assets/images/tailwind.svg";
+const mysql = process.env.PUBLIC_URL + "/assets/images/mysql.png";
+const mongodb = process.env.PUBLIC_URL + "/assets/images/mongo.png";
+const nestjs = process.env.PUBLIC_URL + "/assets/images/nestjs.svg";
 
 const TAGS = {
   Game: "Game Dev: ",
@@ -152,11 +152,12 @@ const portfolioConfig = [
     title: "File Management System",
     order: 10,
     tag: TAGS.FullStack,
-    thumbnail: "/assets/projects/file-manager/activity.png",
+    thumbnail:
+      process.env.PUBLIC_URL + "/assets/projects/file-manager/activity.png",
     images: [
-      "/assets/projects/file-manager/activity.png",
-      "/assets/projects/file-manager/access.png",
-      "/assets/projects/file-manager/preview.png",
+      process.env.PUBLIC_URL + "/assets/projects/file-manager/activity.png",
+      process.env.PUBLIC_URL + "/assets/projects/file-manager/access.png",
+      process.env.PUBLIC_URL + "/assets/projects/file-manager/preview.png",
     ],
     video: "static::/assets/projects/file-manager/upload.png",
     mainTech: [nodejs, react, nestjs, mysql],

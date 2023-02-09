@@ -7,9 +7,9 @@ function BackgroundMusic({
   getNextMusicTrack,
 }) {
   const PLAYLIST = [
-    "/assets/audio/noire.mp3",
-    "/assets/audio/midnight.mp3",
-    "/assets/audio/bleak.mp3",
+    process.env.PUBLIC_URL + "/assets/audio/noire.mp3",
+    process.env.PUBLIC_URL + "/assets/audio/midnight.mp3",
+    process.env.PUBLIC_URL + "/assets/audio/bleak.mp3",
   ];
 
   const musicRef = useCallback(

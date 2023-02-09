@@ -362,14 +362,18 @@ function About({ musicVolume }) {
           <Zoom>
             <img
               className="w-full"
-              src="/assets/images/coursera-scrum.png"
+              src={process.env.PUBLIC_URL + "/assets/images/coursera-scrum.png"}
               alt=""
             />
           </Zoom>
         </PinnedDiv>
         <PinnedDiv className="w-[40%] bg-transparent shadow-xl">
           <Zoom>
-            <img className="w-full" src="/assets/images/RH124.jpg" alt="" />
+            <img
+              className="w-full"
+              src={process.env.PUBLIC_URL + "/assets/images/RH124.jpg"}
+              alt=""
+            />
           </Zoom>
         </PinnedDiv>
       </div>
