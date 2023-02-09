@@ -136,7 +136,7 @@ const portfolioConfig = [
     github: "",
     moreScreenshots: "",
     download: "",
-    website: "https://aymendps.github.io/",
+    website: "https://aymendps.github.io/3D-Portfolio",
     description: `Every recruiter in the gaming, software or web industry will tell you how important having a portfolio is when trying to get interviews for that dream job.
 
     As I was building mine, I wanted to present it in a slightly different way that could express my shared passion for web and game dev.
