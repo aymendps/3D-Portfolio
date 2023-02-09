@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/static/css/main.25fd4144.css",
-    "main.js": "/static/js/main.71c72c62.js",
-    "static/media/old_paper_baseColor.png": "/static/media/old_paper_baseColor.8f2af2488795dbbcf7ef.png",
-    "static/media/coursera-scrum.png": "/static/media/coursera-scrum.a22901d0b01c3211684b.png",
-    "static/media/RH124.jpg": "/static/media/RH124.fe6a2774c903aa4d2168.jpg",
-    "static/media/yellow-sticker.png": "/static/media/yellow-sticker.3736d3a4e2d9fce589e7.png",
-    "static/media/orange-sticker.png": "/static/media/orange-sticker.b7bac68d29dd23b035ff.png",
-    "index.html": "/index.html",
-    "main.25fd4144.css.map": "/static/css/main.25fd4144.css.map",
-    "main.71c72c62.js.map": "/static/js/main.71c72c62.js.map"
+    "main.css": "/3D-Portfolio/static/css/main.fa83c96a.css",
+    "main.js": "/3D-Portfolio/static/js/main.71c72c62.js",
+    "static/media/old_paper_baseColor.png": "/3D-Portfolio/static/media/old_paper_baseColor.8f2af2488795dbbcf7ef.png",
+    "static/media/coursera-scrum.png": "/3D-Portfolio/static/media/coursera-scrum.a22901d0b01c3211684b.png",
+    "static/media/RH124.jpg": "/3D-Portfolio/static/media/RH124.fe6a2774c903aa4d2168.jpg",
+    "static/media/yellow-sticker.png": "/3D-Portfolio/static/media/yellow-sticker.3736d3a4e2d9fce589e7.png",
+    "static/media/orange-sticker.png": "/3D-Portfolio/static/media/orange-sticker.b7bac68d29dd23b035ff.png",
+    "index.html": "/3D-Portfolio/index.html",
+    "main.fa83c96a.css.map": "/3D-Portfolio/static/css/main.fa83c96a.css.map",
+    "main.71c72c62.js.map": "/3D-Portfolio/static/js/main.71c72c62.js.map"
   },
   "entrypoints": [
-    "static/css/main.25fd4144.css",
+    "static/css/main.fa83c96a.css",
     "static/js/main.71c72c62.js"
   ]
 }
